@@ -1,0 +1,73 @@
+import { useTranslation } from 'react-i18next';
+
+import { PageHeader } from '../components/PageHeader';
+import { SectionHeading } from '../components/SectionHeading';
+import { StatRow } from '../components/StatRow';
+
+export function About() {
+	const { t } = useTranslation();
+	const values = t('about.values', { returnObjects: true });
+	const rows = t('about.rows', { returnObjects: true });
+
+	return (
+		<>
+			<PageHeader
+				eyebrow={t('about.eyebrow')}
+				title={t('about.title')}
+				body={t('about.lead')}
+			/>
+
+			<section className="border-b border-line">
+				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
+					<div className="grid gap-8 lg:grid-cols-2">
+						<p className="text-lg leading-relaxed text-slate">{t('about.body1')}</p>
+						<p className="text-lg leading-relaxed text-slate">{t('about.body2')}</p>
+					</div>
+				</div>
+			</section>
+
+			<section className="border-b border-line">
+				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
+					<SectionHeading
+						eyebrow={t('about.eyebrow')}
+						title={t('about.valuesTitle')}
+						tone="sun"
+					/>
+					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{values.map((value) => (
+							<div
+								key={value.title}
+								className="border border-line bg-white p-6 transition-colors hover:border-blue"
+							>
+								<div className="flex items-center gap-3">
+									<span aria-hidden className="h-2 w-2 shrink-0 bg-sun" />
+									<h3 className="font-display text-base font-bold tracking-tight text-ink">
+										{value.title}
+									</h3>
+								</div>
+								<p className="mt-2 text-sm leading-relaxed text-slate">
+									{value.blurb}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
+					<SectionHeading
+						eyebrow={t('stats.eyebrow')}
+						title={t('stats.title')}
+						tone="blue"
+					/>
+					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+						{rows.map((row) => (
+							<StatRow key={row.label} value={row.value} label={row.label} />
+						))}
+					</div>
+				</div>
+			</section>
+		</>
+	);
+}

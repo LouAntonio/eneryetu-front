@@ -1,52 +1,44 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { ScrollToTop } from './components/ScrollToTop';
+import { Ticker } from './components/Ticker';
+import { About } from './pages/About';
+import { Careers } from './pages/Careers';
+import { Contact } from './pages/Contact';
 import { Home } from './pages/Home';
-
-const NAV_ITEMS = ['about', 'solutions', 'projects', 'contact'] as const;
+import { MediaBlog, MediaEvents, MediaGallery, MediaLayout } from './pages/Media';
+import { NotFound } from './pages/NotFound';
+import { Sectors } from './pages/Sectors';
+import { Services } from './pages/Services';
+import { Training } from './pages/Training';
 
 function App() {
-	const { t } = useTranslation();
-
 	return (
-		<div className="flex min-h-screen flex-col bg-gray-50">
-			<header className="sticky top-0 z-10 border-b border-gray-200 bg-white/90 backdrop-blur">
-				<div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3">
-					<Link to="/" className="flex items-center gap-3">
-						<img src="/logo.png" alt={t('brand')} className="h-9 w-9 object-contain" />
-						<span className="text-xl font-bold text-brand-700">{t('brand')}</span>
-					</Link>
-
-					<nav className="hidden items-center gap-8 md:flex">
-						{NAV_ITEMS.map((key) => (
-							<Link
-								key={key}
-								to="/"
-								className="text-sm font-medium text-gray-700 transition-colors hover:text-brand-700"
-							>
-								{t(`nav.${key}`)}
-							</Link>
-						))}
-					</nav>
-
-					<LanguageSwitcher />
-				</div>
-			</header>
-
-			<Routes>
-				<Route path="/" element={<Home />} />
-			</Routes>
-
-			<footer className="border-t border-gray-200 bg-white">
-				<div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 sm:flex-row">
-					<p className="text-sm text-gray-500">
-						{t('brand')} © {new Date().getFullYear()}
-					</p>
-					<p className="text-sm text-gray-500">{t('tagline')}</p>
-					<p className="text-sm text-gray-400">{t('footer.rights')}</p>
-				</div>
-			</footer>
+		<div className="flex min-h-screen flex-col">
+			<ScrollToTop />
+			<Ticker />
+			<Header />
+			<main className="flex-1">
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/sectors" element={<Sectors />} />
+					<Route path="/services" element={<Services />} />
+					<Route path="/training" element={<Training />} />
+					<Route path="/media" element={<MediaLayout />}>
+						<Route index element={<Navigate to="/media/blog" replace />} />
+						<Route path="blog" element={<MediaBlog />} />
+						<Route path="events" element={<MediaEvents />} />
+						<Route path="gallery" element={<MediaGallery />} />
+					</Route>
+					<Route path="/careers" element={<Careers />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</main>
+			<Footer />
 		</div>
 	);
 }

@@ -1,19 +1,310 @@
 {
 	"brand": "EnerYetu",
 	"tagline": "A nossa energia, o nosso futuro",
-	"nav": {
+	"navigation": {
 		"home": "Início",
 		"about": "Sobre",
-		"solutions": "Soluções",
-		"projects": "Projectos",
+		"sectors": "Setores",
+		"services": "Serviços",
+		"training": "Treinamento",
+		"media": "Mídia",
+		"blog": "Blog",
+		"events": "Eventos",
+		"gallery": "Galeria",
+		"careers": "Carreiras",
 		"contact": "Contactos"
 	},
+	"ticker": {
+		"hours": "Seg–Sex 07:00–16:30 · Sáb 07:00–12:30 · Dom fechado",
+		"phones": "+244 923 734 199 · +244 945 459 270",
+		"email": "geral@eneryetu.com"
+	},
+	"common": {
+		"menuOpen": "Abrir menu",
+		"menuClose": "Fechar menu",
+		"requestQuote": "Solicite um orçamento",
+		"exploreServices": "Explorar serviços",
+		"learnMore": "Saber mais",
+		"discoverMore": "Descobrir mais",
+		"readMore": "Ler mais",
+		"apply": "Candidatar-se",
+		"backHome": "Voltar ao início",
+		"copy": "Copiar"
+	},
 	"hero": {
-		"title": "Energia para o amanhã, juntos",
-		"subtitle": "A EnerYetu fornece soluções de energia fiáveis, acessíveis e limpas, aproximando a energia sustentável das comunidades e empresas.",
-		"cta": "Conheça as nossas soluções"
+		"eyebrow": "Parceiro angolano de energia · Luanda",
+		"title": "O caminho da energia, da fonte ao local.",
+		"lede": "A EnerYetu liga fornecedores internacionais de peças, máquinas, consumíveis e mão-de-obra qualificada aos locais angolanos que deles precisam — e instala e mantém os sistemas solares, eólicos, de armazenamento e off-grid que os mantêm em funcionamento.",
+		"ctaPrimary": "Solicite um orçamento",
+		"ctaSecondary": "Explorar serviços",
+		"diagram": {
+			"pv": "Sistema fotovoltaico",
+			"inverter": "Inversor",
+			"battery": "Banco de baterias",
+			"load": "Cargas do local",
+			"pvSpec": "120 kWp",
+			"inverterSpec": "Trifásico",
+			"batterySpec": "200 kWh",
+			"loadSpec": "400 VAC",
+			"caption": "Linha de referência típica — cada local difere"
+		}
+	},
+	"stats": {
+		"eyebrow": "Registo de campo",
+		"title": "Números que podemos garantir",
+		"rows": [
+			{ "value": "25", "label": "Anos em solo angolano" },
+			{ "value": "8", "label": "Linhas de serviço sob o mesmo tecto" },
+			{ "value": "A–Z", "label": "Fornecimento, instalação e manutenção num só contrato" },
+			{ "value": "1", "label": "Um único ponto de contacto local" }
+		]
+	},
+	"intro": {
+		"eyebrow": "Quem somos",
+		"title": "Uma ponte entre o fornecimento internacional e o trabalho de campo angolano.",
+		"body": "Somos o braço angolano de fabricantes e fornecedores internacionais, tratando de tudo — de uma única peça sobressalente a uma central off-grid completa: aprovisionamento, logística, instalação e serviço pós-venda.",
+		"points": [
+			"Peças e consumíveis",
+			"Máquinas e equipamentos",
+			"Mão-de-obra qualificada",
+			"Instalação e manutenção"
+		],
+		"cta": "Conheça-nos melhor"
+	},
+	"services": {
+		"eyebrow": "Serviços",
+		"title": "Oferta completa",
+		"body": "Oito linhas de serviço, um único parceiro — desenhadas para plantas e locais que não podem parar.",
+		"items": [
+			{
+				"title": "Serviço técnico",
+				"blurb": "Manutenção planeada e correctiva, no campo e na oficina, para equipamento que não pode parar.",
+				"spec": "Campo & oficina"
+			},
+			{
+				"title": "Energia solar",
+				"blurb": "Concepção e instalação de sistemas fotovoltaicos, ligados à rede e autónomos.",
+				"spec": "Rede · off-grid"
+			},
+			{
+				"title": "Painéis & módulos",
+				"blurb": "Fornecimento e instalação de painéis e módulos à especificação certa para o seu rendimento.",
+				"spec": "Fornecimento & instalação"
+			},
+			{
+				"title": "Energia eólica",
+				"blurb": "Aerogeradores para energia híbrida e rural, dimensionados ao seu perfil de vento.",
+				"spec": "Pronto para híbrido"
+			},
+			{
+				"title": "Armazenamento de energia",
+				"blurb": "Bancos de baterias e integração de sistemas de gestão para solar e reserva.",
+				"spec": "Lítio · chumbo"
+			},
+			{
+				"title": "Soluções off-grid",
+				"blurb": "Energia autónoma completa para locais fora da rede — de mini-redes a cargas únicas.",
+				"spec": "Mini-rede · rural"
+			},
+			{
+				"title": "Upgrades & expansões",
+				"blurb": "Aumentos de capacidade e modernização de centrais existentes com o menor tempo de paragem.",
+				"spec": "Re-potenciar · expandir"
+			},
+			{
+				"title": "Centrais hidroeléctricas",
+				"blurb": "Pequena hidráulica através de fornecimento, instalação e serviço.",
+				"spec": "Pequena hidráulica"
+			}
+		],
+		"beyond": {
+			"eyebrow": "Além da instalação",
+			"title": "Um só contrato, todo o âmbito",
+			"body": "A maioria dos projectos precisa de mais do que uma equipa de instalação. Fazemos o enquadramento completo para tratar com um único parceiro local.",
+			"items": [
+				{
+					"title": "Fornecimento",
+					"blurb": "Peças sobressalentes, consumíveis e máquinas de fabricantes internacionais verificados."
+				},
+				{
+					"title": "Mão-de-obra",
+					"blurb": "Técnicos qualificados destacados para o seu projecto ou operação."
+				},
+				{
+					"title": "Pós-venda",
+					"blurb": "Contratos de manutenção e apoio técnico após o comissionamento."
+				}
+			]
+		}
+	},
+	"sectors": {
+		"eyebrow": "Setores",
+		"title": "Onde trabalhamos",
+		"body": "As necessidades energéticas diferem por indústria. Conhecemos o equipamento, as normas e o tempo de operação que cada uma exige.",
+		"items": [
+			{
+				"title": "Petróleo & gás",
+				"blurb": "Energia e equipamento para operações onshore e instalações de apoio."
+			},
+			{
+				"title": "Mineração & recursos",
+				"blurb": "Energia para plantas, sistemas de reserva e fornecimento de peças para as equipas."
+			},
+			{
+				"title": "Telecomunicações",
+				"blurb": "Energia em locais rurais e reserva para torres, centrais e abrigos de dados."
+			},
+			{
+				"title": "Agronegócio",
+				"blurb": "Energia para cadeia de frio e irrigação em fazendas, processadores e armazéns."
+			},
+			{
+				"title": "Infra-estrutura pública",
+				"blurb": "Eletrificação para saúde, educação e edifícios públicos."
+			},
+			{
+				"title": "Industrial & comercial",
+				"blurb": "Solar, armazenamento e manutenção para fábricas e edifícios comerciais."
+			}
+		]
+	},
+	"training": {
+		"eyebrow": "Treinamento",
+		"title": "Competências que ficam no local.",
+		"body": "Formação técnica prática para técnicos e operadores — para que quem mantém a sua planta a domine de verdade.",
+		"features": [
+			"Prática, em equipamento real",
+			"Instrutores certificados",
+			"Entregue no local"
+		],
+		"cta": "Ver o treinamento"
+	},
+	"partners": {
+		"eyebrow": "Parceiros",
+		"title": "Trabalhamos com fornecedores internacionais",
+		"body": "Temos um catálogo verificado de peças, máquinas e consumíveis de parcerias de fabricantes que podemos comprovar."
+	},
+	"cta": {
+		"title": "Tem um local para energizar, ou uma planta para manter em funcionamento?",
+		"body": "Diga-nos o que precisa — fazemos o enquadramento do fornecimento, da instalação e das pessoas.",
+		"cta": "Marque um encontro",
+		"phone": "Ligue-nos agora"
+	},
+	"about": {
+		"eyebrow": "Sobre nós",
+		"title": "O parceiro angolano no fornecimento e entrega de energia.",
+		"lead": "Somos o parceiro angolano na construção de pontes com fornecedores internacionais — resolvendo a procura de peças, equipamento, máquinas, consumíveis e mão-de-obra qualificada.",
+		"body1": "Trabalhamos como braço local de fabricantes internacionais: aprovisionamento, logística, instalação e serviço pós-venda para equipamento energético e industrial em Angola.",
+		"body2": "Os nossos engenheiros e técnicos mantêm plantas em funcionamento e levam electricidade a locais que não a têm — solar, eólica, armazenamento e off-grid.",
+		"valuesTitle": "Como trabalhamos",
+		"values": [
+			{
+				"title": "Especialistas em solar & eólica",
+				"blurb": "Engenheiros em prática, não intermediários."
+			},
+			{ "title": "Eco-friendly", "blurb": "Geração limpa em primeiro lugar, sempre." },
+			{
+				"title": "Visão sustentável",
+				"blurb": "Plantas construídas para serem mantidas por décadas."
+			},
+			{ "title": "Foco na comunidade", "blurb": "Contratação e formação locais." },
+			{
+				"title": "Guiados por resultados",
+				"blurb": "Comissionamento a tempo, ou explicamos porquê."
+			},
+			{ "title": "Apoio fiável", "blurb": "Um telefone que atende depois da entrega." }
+		],
+		"rows": [
+			{ "value": "25", "label": "Anos em solo angolano" },
+			{ "value": "8", "label": "Linhas de serviço sob o mesmo tecto" },
+			{ "value": "Luanda", "label": "Sede, bairro Nova Vida" },
+			{ "value": "Nacional", "label": "Equipas de campo em todo o país" }
+		]
+	},
+	"careers": {
+		"eyebrow": "Carreiras",
+		"title": "Construa a energia angolana connosco.",
+		"body": "Contratamos técnicos, engenheiros e profissionais de segurança que gostam de ver o seu trabalho medido em tempo de operação. Se é o seu caso, fale connosco.",
+		"positionsTitle": "Vagas abertas",
+		"positions": [
+			{
+				"title": "Técnico de campo",
+				"meta": "Luanda · Tempo integral",
+				"blurb": "Manter sistemas solares, de armazenamento e geração nos locais dos clientes em todo o país."
+			},
+			{
+				"title": "Engenheiro electrotécnico",
+				"meta": "Luanda · Tempo integral",
+				"blurb": "Fazer o enquadramento, projectar e comissionar instalações, desde auditorias de carga à entrega."
+			},
+			{
+				"title": "Oficial de HSE",
+				"meta": "Luanda · Tempo integral",
+				"blurb": "Gerir a segurança nos locais, auditorias e a entrega da nossa formação em HSE."
+			}
+		],
+		"applyLabel": "Interessado? Envie o seu CV para",
+		"applyHint": "Mencione o cargo no assunto do email."
+	},
+	"media": {
+		"eyebrow": "Mídia",
+		"title": "Notícias, eventos e o trabalho por trás dos painéis.",
+		"body": "Notas de campo dos nossos engenheiros, eventos públicos que organizamos e fotografias do trabalho.",
+		"blog": {
+			"title": "Blog",
+			"emptyTitle": "As notas de campo estão a ser redigidas.",
+			"emptyBody": "Os nossos engenheiros estão a escrever sobre falhas, correcções e lições reais. A primeira publicação chega aqui em breve — siga-nos no LinkedIn para não perder."
+		},
+		"events": {
+			"title": "Eventos",
+			"emptyTitle": "O próximo evento está em preparação.",
+			"emptyBody": "Publicamos aqui dias de formação abertos e encontros do sector. Diga-nos a que gostaria de assistir e damos prioridade."
+		},
+		"gallery": {
+			"title": "Galeria",
+			"emptyTitle": "Fotografias novas a caminho.",
+			"emptyBody": "Estamos a preparar fotografias de instalações concluídas, oficinas e equipas de campo."
+		}
+	},
+	"contact": {
+		"eyebrow": "Contactos",
+		"title": "Fale connosco.",
+		"body": "Diga-nos o que precisa de manter em funcionamento e voltaremos com o enquadramento — normalmente num dia útil.",
+		"detailsTitle": "Sede",
+		"address": "Apartamento 5, 1º andar, edifício E152, Rua 70, bairro Nova Vida, Luanda, Angola",
+		"phone": "+244 923 734 199 / +244 945 459 270",
+		"email": "geral@eneryetu.com",
+		"hoursTitle": "Horários",
+		"hours": {
+			"week": { "day": "Segunda – Sexta", "time": "07:00 – 16:30" },
+			"saturday": { "day": "Sábado", "time": "07:00 – 12:30" },
+			"sunday": { "day": "Domingo", "time": "Fechado" }
+		},
+		"form": {
+			"title": "Envie um pedido",
+			"name": "O seu nome",
+			"company": "Empresa",
+			"email": "Email",
+			"message": "O que precisa de manter em funcionamento?",
+			"messagePlaceholder": "Equipamento, descrição do local, prazos…",
+			"submit": "Enviar pedido",
+			"nameRequired": "Diga-nos o seu nome.",
+			"emailInvalid": "Introduza um email válido.",
+			"messageRequired": "Descreva brevemente a necessidade.",
+			"successTitle": "Pedido enviado.",
+			"successBody": "Obrigado — respondemos num dia útil."
+		}
 	},
 	"footer": {
+		"about": "A EnerYetu fornece e instala os sistemas de energia que mantêm Angola a funcionar — equipamento, peças e pessoas qualificadas.",
+		"quickLinksTitle": "Links rápidos",
+		"mediaLinksTitle": "Mídia",
+		"contactTitle": "Contactos",
 		"rights": "Todos os direitos reservados."
+	},
+	"notFound": {
+		"title": "Está fora da rede.",
+		"body": "A página que procura não está nesta rede. Pode ter mudado — ou nunca ter existido.",
+		"cta": "Voltar ao início"
 	}
 }

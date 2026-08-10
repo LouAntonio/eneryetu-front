@@ -1,19 +1,303 @@
 {
 	"brand": "EnerYetu",
 	"tagline": "Our energy, our future",
-	"nav": {
+	"navigation": {
 		"home": "Home",
 		"about": "About",
-		"solutions": "Solutions",
-		"projects": "Projects",
+		"sectors": "Sectors",
+		"services": "Services",
+		"training": "Training",
+		"media": "Media",
+		"blog": "Blog",
+		"events": "Events",
+		"gallery": "Gallery",
+		"careers": "Careers",
 		"contact": "Contact"
 	},
+	"ticker": {
+		"hours": "Mon–Fri 07:00–16:30 · Sat 07:00–12:30 · Sun closed",
+		"phones": "+244 923 734 199 · +244 945 459 270",
+		"email": "geral@eneryetu.com"
+	},
+	"common": {
+		"menuOpen": "Open menu",
+		"menuClose": "Close menu",
+		"requestQuote": "Request a quote",
+		"exploreServices": "Explore services",
+		"learnMore": "Learn more",
+		"discoverMore": "Discover more",
+		"readMore": "Read more",
+		"apply": "Apply",
+		"backHome": "Back to home",
+		"copy": "Copy"
+	},
 	"hero": {
-		"title": "Powering Tomorrow, Together",
-		"subtitle": "EnerYetu delivers reliable, affordable and clean energy solutions, bringing sustainable power closer to communities and businesses.",
-		"cta": "Discover our solutions"
+		"eyebrow": "Angolan energy partner · Luanda",
+		"title": "The power path, from source to site.",
+		"lede": "EnerYetu connects international suppliers of parts, machinery, consumables and skilled manpower with the Angolan sites that need them — and installs and maintains the solar, wind, storage and off-grid systems that keep them running.",
+		"ctaPrimary": "Request a quote",
+		"ctaSecondary": "Explore services",
+		"diagram": {
+			"pv": "PV array",
+			"inverter": "Inverter",
+			"battery": "Battery bank",
+			"load": "Site loads",
+			"pvSpec": "120 kWp",
+			"inverterSpec": "3-phase",
+			"batterySpec": "200 kWh",
+			"loadSpec": "400 VAC",
+			"caption": "Typical reference line — every site differs"
+		}
+	},
+	"stats": {
+		"eyebrow": "Field record",
+		"title": "Numbers we can stand behind",
+		"rows": [
+			{ "value": "25", "label": "Years on Angolan ground" },
+			{ "value": "8", "label": "Service lines under one roof" },
+			{ "value": "A–Z", "label": "Supply, install and maintain in one contract" },
+			{ "value": "1", "label": "Dedicated local point of contact" }
+		]
+	},
+	"intro": {
+		"eyebrow": "Who we are",
+		"title": "A bridge between international supply and Angolan site work.",
+		"body": "We are the Angolan arm of international manufacturers and suppliers, handling everything from a single spare part to a full off-grid plant: procurement, logistics, installation and after-sales service.",
+		"points": [
+			"Parts and consumables",
+			"Machinery and equipment",
+			"Skilled manpower",
+			"Installation and maintenance"
+		],
+		"cta": "Learn more about us"
+	},
+	"services": {
+		"eyebrow": "Services",
+		"title": "Instrumentation of the offer",
+		"body": "Eight service lines, one partner — engineered for plants and sites that cannot afford downtime.",
+		"items": [
+			{
+				"title": "Technical service",
+				"blurb": "Planned and corrective maintenance, in the field and in the workshop, for equipment that must not stop.",
+				"spec": "Field & workshop"
+			},
+			{
+				"title": "Solar energy",
+				"blurb": "Design and installation of photovoltaic systems, grid-tied and stand-alone.",
+				"spec": "Grid-tied · off-grid"
+			},
+			{
+				"title": "Panels & modules",
+				"blurb": "Supply and installation of panels and modules at the right specification for your yield.",
+				"spec": "Supply & install"
+			},
+			{
+				"title": "Wind generation",
+				"blurb": "Wind turbines for hybrid and rural power, sized to your wind profile.",
+				"spec": "Hybrid-ready"
+			},
+			{
+				"title": "Energy storage",
+				"blurb": "Battery banks and battery-management integrations for solar and backup power.",
+				"spec": "Li-ion · lead"
+			},
+			{
+				"title": "Off-grid solutions",
+				"blurb": "Complete stand-alone power for sites beyond the grid — from mini-grids to single loads.",
+				"spec": "Mini-grid · rural"
+			},
+			{
+				"title": "Upgrades & expansions",
+				"blurb": "Capacity additions and modernisation of existing plants, with the least possible downtime.",
+				"spec": "Re-power · extend"
+			},
+			{
+				"title": "Hydropower plants",
+				"blurb": "Small hydro through supply, installation and service.",
+				"spec": "Small hydro"
+			}
+		],
+		"beyond": {
+			"eyebrow": "Beyond installation",
+			"title": "One contract, the whole scope",
+			"body": "Most projects need more than an installation crew. We scope the complete picture so you deal with a single local partner.",
+			"items": [
+				{
+					"title": "Supply",
+					"blurb": "Spare parts, consumables and machinery sourced from verified international manufacturers."
+				},
+				{
+					"title": "Manpower",
+					"blurb": "Skilled technicians and workers seconded to your project or operation."
+				},
+				{
+					"title": "After-sales",
+					"blurb": "Maintenance contracts and technical support after commissioning."
+				}
+			]
+		}
+	},
+	"sectors": {
+		"eyebrow": "Sectors",
+		"title": "Where we work",
+		"body": "Energy needs differ by industry. We know the equipment, the standards and the uptime each one demands.",
+		"items": [
+			{
+				"title": "Oil & gas",
+				"blurb": "Power and equipment for onshore operations and support facilities."
+			},
+			{
+				"title": "Mining & resources",
+				"blurb": "Plant power, standby systems and parts supply for site crews."
+			},
+			{
+				"title": "Telecom",
+				"blurb": "Rural site power and backup for towers, exchanges and data shelters."
+			},
+			{
+				"title": "Agribusiness",
+				"blurb": "Cold-chain and irrigation power for farms, processors and storage."
+			},
+			{
+				"title": "Public infrastructure",
+				"blurb": "Electrification for health, education and public buildings."
+			},
+			{
+				"title": "Industrial & commercial",
+				"blurb": "Solar, storage and maintenance for factories and commercial buildings."
+			}
+		]
+	},
+	"training": {
+		"eyebrow": "Training",
+		"title": "Skills that stay on site.",
+		"body": "Hands-on technical training for technicians and operators — so the people who maintain your plant actually mastered it.",
+		"features": ["Hands-on, on real equipment", "Certified instructors", "Delivered on site"],
+		"cta": "See our training"
+	},
+	"partners": {
+		"eyebrow": "Partners",
+		"title": "Working with international suppliers",
+		"body": "We carry a verified catalogue of parts, machinery and consumables from manufactured partnerships we can prove."
+	},
+	"cta": {
+		"title": "Have a site to power, or a plant to keep running?",
+		"body": "Tell us the requirement — we will scope the supply, the installation and the people.",
+		"cta": "Make an appointment",
+		"phone": "Call us now"
+	},
+	"about": {
+		"eyebrow": "About us",
+		"title": "The Angolan partner for energy supply and delivery.",
+		"lead": "We are the Angolan partner for building bridges with international suppliers — solving the call for parts, equipment, machinery, consumables and skilled manpower.",
+		"body1": "We work as the local arm of international manufacturers: procurement, logistics, installation and after-sales service for energy and industrial equipment across Angola.",
+		"body2": "Our engineers and technicians keep plants running and bring electricity to sites that do not have it — solar, wind, storage and off-grid alike.",
+		"valuesTitle": "How we work",
+		"values": [
+			{ "title": "Solar & wind experts", "blurb": "Practising engineers, not brokers." },
+			{ "title": "Eco-friendly", "blurb": "Clean generation first, always." },
+			{
+				"title": "Sustainable vision",
+				"blurb": "Plants built to be maintained for decades."
+			},
+			{ "title": "Community focused", "blurb": "Local hiring and local training." },
+			{ "title": "Driven by results", "blurb": "Commissioned on time, or we say why." },
+			{
+				"title": "Reliable support",
+				"blurb": "A phone number that answers after the handover."
+			}
+		],
+		"rows": [
+			{ "value": "25", "label": "Years on Angolan ground" },
+			{ "value": "8", "label": "Service lines under one roof" },
+			{ "value": "Luanda", "label": "Head office, Nova Vida district" },
+			{ "value": "Nationwide", "label": "Field teams across Angola" }
+		]
+	},
+	"careers": {
+		"eyebrow": "Careers",
+		"title": "Build Angolan energy with us.",
+		"body": "We hire technicians, engineers and safety staff who like their work measured in uptime. If that is you, tell us.",
+		"positionsTitle": "Open positions",
+		"positions": [
+			{
+				"title": "Field service technician",
+				"meta": "Luanda · Full-time",
+				"blurb": "Maintain solar, storage and generation systems at client sites across the country."
+			},
+			{
+				"title": "Electrical engineer",
+				"meta": "Luanda · Full-time",
+				"blurb": "Scope, design and commission installations, from load audits to handover."
+			},
+			{
+				"title": "HSE officer",
+				"meta": "Luanda · Full-time",
+				"blurb": "Own site safety, audits and the delivery of our HSE training."
+			}
+		],
+		"applyLabel": "Interested? Send your CV to",
+		"applyHint": "Mention the position in the subject line."
+	},
+	"media": {
+		"eyebrow": "Media",
+		"title": "News, events and the work behind the panels.",
+		"body": "Field notes from our engineers, public events we host, and photographs of the work.",
+		"blog": {
+			"title": "Blog",
+			"emptyTitle": "Field notes are being drafted.",
+			"emptyBody": "Our engineers are writing up real failures, fixes and lessons. First post lands here soon — follow us on LinkedIn so you do not miss it."
+		},
+		"events": {
+			"title": "Events",
+			"emptyTitle": "Next event is being planned.",
+			"emptyBody": "We publish open training days and industry meetups here. Tell us what you would like to attend and we will prioritise it."
+		},
+		"gallery": {
+			"title": "Gallery",
+			"emptyTitle": "Fresh photographs coming.",
+			"emptyBody": "We are preparing photographs of completed installations, workshops and field teams."
+		}
+	},
+	"contact": {
+		"eyebrow": "Contact",
+		"title": "Talk to us.",
+		"body": "Tell us what you need to run, and we will come back with the scope — usually within one business day.",
+		"detailsTitle": "Head office",
+		"address": "Apartment 5, 1st floor, building E152, Rua 70, Nova Vida district, Luanda, Angola",
+		"phone": "+244 923 734 199 / +244 945 459 270",
+		"email": "geral@eneryetu.com",
+		"hoursTitle": "Working hours",
+		"hours": {
+			"week": { "day": "Monday – Friday", "time": "07:00 – 16:30" },
+			"saturday": { "day": "Saturday", "time": "07:00 – 12:30" },
+			"sunday": { "day": "Sunday", "time": "Closed" }
+		},
+		"form": {
+			"title": "Send an enquiry",
+			"name": "Your name",
+			"company": "Company",
+			"email": "Email",
+			"message": "What do you need to run?",
+			"messagePlaceholder": "Equipment, site description, timeline…",
+			"submit": "Send enquiry",
+			"nameRequired": "Tell us your name.",
+			"emailInvalid": "Enter a valid email address.",
+			"messageRequired": "Describe the requirement briefly.",
+			"successTitle": "Enquiry sent.",
+			"successBody": "Thank you — we reply within one business day."
+		}
 	},
 	"footer": {
+		"about": "EnerYetu supplies and installs the energy systems that keep Angola working — equipment, parts and skilled people.",
+		"quickLinksTitle": "Quick links",
+		"mediaLinksTitle": "Media",
+		"contactTitle": "Contact",
 		"rights": "All rights reserved."
+	},
+	"notFound": {
+		"title": "You are off the grid.",
+		"body": "The page you are looking for is not on this network. It may have moved — or never existed.",
+		"cta": "Back to home"
 	}
 }
