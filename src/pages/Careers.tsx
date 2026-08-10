@@ -33,16 +33,14 @@ export function Careers() {
 									<h2 className="font-display text-lg font-bold tracking-tight text-ink">
 										{position.title}
 									</h2>
-									<p className="mt-1 font-mono text-xs uppercase tracking-wider text-slate">
-										{position.meta}
-									</p>
+									<p className="mt-1 ui-label text-slate">{position.meta}</p>
 									<p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate">
 										{position.blurb}
 									</p>
 								</div>
 								<a
 									href={`mailto:geral@eneryetu.com?subject=${encodeURIComponent(position.title)}`}
-									className="justify-self-start border border-line bg-sun px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-ink transition-colors hover:bg-volt sm:justify-self-end"
+									className="justify-self-start rounded-full border border-line bg-sun px-5 py-2.5 font-display text-xs font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-volt sm:justify-self-end"
 								>
 									{t('common.apply')}
 								</a>

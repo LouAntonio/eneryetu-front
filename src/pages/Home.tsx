@@ -23,12 +23,10 @@ export function Home() {
 				<div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
 					<div>
 						<div className="flex items-center gap-3">
-							<span aria-hidden className="h-2.5 w-2.5 bg-blue" />
-							<span className="font-mono text-xs uppercase tracking-[0.22em] text-slate">
-								{t('hero.eyebrow')}
-							</span>
+							<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
+							<span className="ui-label text-slate">{t('hero.eyebrow')}</span>
 						</div>
-						<h1 className="mt-5 font-display font-stretch-expanded text-5xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+						<h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
 							{t('hero.title')}
 						</h1>
 						<p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">
@@ -37,13 +35,13 @@ export function Home() {
 						<div className="mt-8 flex flex-wrap items-center gap-4">
 							<Link
 								to="/contact"
-								className="bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
+								className="rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
 							>
 								{t('hero.ctaPrimary')}
 							</Link>
 							<Link
 								to="/services"
-								className="font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+								className="font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
 							>
 								{t('hero.ctaSecondary')}
 							</Link>
@@ -79,15 +77,18 @@ export function Home() {
 						body={t('intro.body')}
 					/>
 					<div className="flex flex-col justify-end">
-						<div className="border border-line bg-white">
-							<div className="border-b border-line px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate">
+						<div className="overflow-hidden rounded-2xl border border-line bg-white">
+							<div className="border-b border-line px-6 py-3 ui-label text-slate">
 								Scope of work
 							</div>
 							<ul className="divide-y divide-line px-6">
 								{points.map((point) => (
 									<li key={point} className="flex items-center gap-3 py-4">
-										<span aria-hidden className="h-2 w-2 shrink-0 bg-sun" />
-										<span className="font-mono text-sm uppercase tracking-wider text-ink">
+										<span
+											aria-hidden
+											className="h-2 w-2 shrink-0 rounded-full bg-sun"
+										/>
+										<span className="font-display text-sm font-semibold uppercase tracking-wider text-ink">
 											{point}
 										</span>
 									</li>
@@ -96,7 +97,7 @@ export function Home() {
 						</div>
 						<Link
 							to="/about"
-							className="mt-6 justify-self-start font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+							className="mt-6 justify-self-start font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
 						>
 							{t('intro.cta')}
 						</Link>
@@ -116,7 +117,7 @@ export function Home() {
 						/>
 						<Link
 							to="/services"
-							className="shrink-0 font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+							className="shrink-0 font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
 						>
 							{t('common.exploreServices')}
 						</Link>
@@ -148,7 +149,7 @@ export function Home() {
 							<Link
 								key={sector.title}
 								to="/sectors"
-								className="group border border-line bg-white p-6 transition-colors hover:border-blue"
+								className="group rounded-2xl border border-line bg-white p-6 transition-colors hover:border-blue"
 							>
 								<div className="flex items-center justify-between">
 									<h3 className="font-display text-lg font-bold tracking-tight text-ink">
@@ -156,7 +157,7 @@ export function Home() {
 									</h3>
 									<span
 										aria-hidden
-										className="h-1.5 w-1.5 bg-sun transition-colors group-hover:bg-volt"
+										className="h-2 w-2 rounded-full bg-sun transition-colors group-hover:bg-volt"
 									/>
 								</div>
 								<p className="mt-2 text-sm leading-relaxed text-slate">
@@ -186,19 +187,20 @@ export function Home() {
 						</div>
 					</div>
 					<div className="justify-self-start lg:justify-self-end">
-						<div className="border border-paper/25 bg-paper/5 p-8">
+						<div className="rounded-2xl border border-paper/25 bg-paper/5 p-8">
 							<div className="flex items-center gap-3">
-								<span aria-hidden className="node-live h-2.5 w-2.5 bg-volt" />
-								<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-volt">
-									Field-proven
-								</span>
+								<span
+									aria-hidden
+									className="node-live h-2.5 w-2.5 rounded-full bg-volt"
+								/>
+								<span className="ui-label text-volt">Field-proven</span>
 							</div>
 							<p className="mt-4 font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
 								{t('training.cta')}
 							</p>
 							<Link
 								to="/training"
-								className="mt-6 inline-block bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
+								className="mt-6 inline-block rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
 							>
 								{t('common.learnMore')}
 							</Link>
@@ -210,9 +212,7 @@ export function Home() {
 			{/* PARTNERS */}
 			<section className="border-b border-line">
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-					<p className="font-mono text-xs uppercase tracking-[0.22em] text-slate">
-						{t('partners.eyebrow')}
-					</p>
+					<p className="ui-label text-slate">{t('partners.eyebrow')}</p>
 					<h2 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
 						{t('partners.title')}
 					</h2>

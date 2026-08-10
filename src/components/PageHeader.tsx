@@ -10,9 +10,7 @@ export function PageHeader({ eyebrow, title, body }: PageHeaderProps) {
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-20">
 				<div className="flex items-center gap-3">
 					<span aria-hidden className="h-2.5 w-2.5 bg-blue" />
-					<span className="font-mono text-xs uppercase tracking-[0.22em] text-slate">
-						{eyebrow}
-					</span>
+					<span className="ui-label text-slate">{eyebrow}</span>
 				</div>
 				<h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
 					{title}

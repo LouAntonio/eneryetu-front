@@ -26,25 +26,18 @@ export function Footer() {
 			<div className="mx-auto w-full max-w-6xl px-6 py-16">
 				<div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 					<div>
-						<div className="flex items-center gap-3">
-							<img
-								src="/logo.png"
-								alt={t('brand')}
-								className="h-10 w-10 object-contain"
-							/>
-							<span className="font-display text-lg font-extrabold tracking-tight">
-								Ener<span className="text-blue">Yetu</span>
-							</span>
-						</div>
+						<img
+							src="/logo.png"
+							alt={t('brand')}
+							className="h-11 w-11 object-contain"
+						/>
 						<p className="mt-5 max-w-xs text-sm leading-relaxed text-paper/65">
 							{t('footer.about')}
 						</p>
 					</div>
 
 					<nav aria-label={t('footer.quickLinksTitle')}>
-						<h3 className="font-mono text-xs uppercase tracking-[0.2em] text-volt">
-							{t('footer.quickLinksTitle')}
-						</h3>
+						<h3 className="ui-label text-volt">{t('footer.quickLinksTitle')}</h3>
 						<ul className="mt-5 space-y-3 text-sm text-paper/75">
 							{quick.map(({ key, to }) => (
 								<li key={key}>
@@ -57,9 +50,7 @@ export function Footer() {
 					</nav>
 
 					<nav aria-label={t('footer.mediaLinksTitle')}>
-						<h3 className="font-mono text-xs uppercase tracking-[0.2em] text-volt">
-							{t('footer.mediaLinksTitle')}
-						</h3>
+						<h3 className="ui-label text-volt">{t('footer.mediaLinksTitle')}</h3>
 						<ul className="mt-5 space-y-3 text-sm text-paper/75">
 							{media.map(({ key, to }) => (
 								<li key={key}>
@@ -72,9 +63,7 @@ export function Footer() {
 					</nav>
 
 					<div>
-						<h3 className="font-mono text-xs uppercase tracking-[0.2em] text-volt">
-							{t('footer.contactTitle')}
-						</h3>
+						<h3 className="ui-label text-volt">{t('footer.contactTitle')}</h3>
 						<ul className="mt-5 space-y-3 text-sm leading-relaxed text-paper/75">
 							<li>{t('contact.address')}</li>
 							<li>
@@ -98,7 +87,7 @@ export function Footer() {
 				</div>
 			</div>
 			<div className="border-t border-paper/15">
-				<div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 font-mono text-[11px] tracking-wide text-paper/50 sm:flex-row">
+				<div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-paper/50 sm:flex-row">
 					<p>
 						{t('brand')} © {year}. {t('footer.rights')}
 					</p>

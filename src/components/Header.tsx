@@ -68,11 +68,8 @@ export function Header() {
 	return (
 		<header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
 			<div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-3">
-				<Link to="/" className="flex items-center gap-3">
+				<Link to="/" className="flex items-center" aria-label={t('brand')}>
 					<img src="/logo.png" alt={t('brand')} className="h-10 w-10 object-contain" />
-					<span className="font-display text-xl font-extrabold tracking-tight text-ink">
-						Ener<span className="text-blue">Yetu</span>
-					</span>
 				</Link>
 
 				<nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -82,7 +79,7 @@ export function Header() {
 								<NavLink
 									to={ROUTES.media}
 									className={({ isActive }) =>
-										`flex items-center gap-1 border-b-2 py-1 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+										`flex items-center gap-1 border-b-2 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
 											isActive
 												? 'border-volt text-ink'
 												: 'border-transparent text-slate hover:text-ink'
@@ -106,7 +103,7 @@ export function Header() {
 											key={child}
 											to={`${ROUTES.media}/${child}`}
 											className={({ isActive }) =>
-												`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors ${
+												`flex items-center gap-2 px-4 py-2 font-display text-xs font-medium uppercase tracking-wider transition-colors ${
 													isActive
 														? 'bg-paper text-ink'
 														: 'text-slate hover:bg-paper hover:text-ink'
@@ -124,7 +121,7 @@ export function Header() {
 								key={key}
 								to={ROUTES[key]}
 								className={({ isActive }) =>
-									`border-b-2 py-1 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+									`border-b-2 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
 										isActive
 											? 'border-volt text-ink'
 											: 'border-transparent text-slate hover:text-ink'
@@ -184,13 +181,15 @@ export function Header() {
 					/>
 					<div className="absolute inset-y-0 right-0 flex w-80 max-w-[85vw] flex-col bg-ink-deep text-paper">
 						<div className="flex items-center justify-between border-b border-paper/15 px-6 py-5">
-							<span className="font-display text-lg font-extrabold tracking-tight">
-								Ener<span className="text-blue">Yetu</span>
-							</span>
+							<img
+								src="/logo.png"
+								alt={t('brand')}
+								className="h-9 w-9 object-contain"
+							/>
 							<button
 								type="button"
 								onClick={() => setOpen(false)}
-								className="font-mono text-xs uppercase tracking-wider text-paper/60 transition-colors hover:text-volt"
+								className="font-display text-xs font-semibold uppercase tracking-wider text-paper/60 transition-colors hover:text-volt"
 							>
 								{t('common.menuClose')}
 							</button>
@@ -211,7 +210,7 @@ export function Header() {
 													<li key={child}>
 														<Link
 															to={`${ROUTES.media}/${child}`}
-															className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-paper/70 transition-colors hover:text-volt"
+															className="flex items-center gap-2 font-display text-xs font-medium uppercase tracking-wider text-paper/70 transition-colors hover:text-volt"
 														>
 															<span
 																aria-hidden

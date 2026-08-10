@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = ['en', 'pt'] as const;
@@ -9,13 +8,10 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
 	const { i18n } = useTranslation();
-	const [active, setActive] = useState(() =>
-		i18n.resolvedLanguage?.startsWith('pt') ? 'pt' : 'en',
-	);
+	const active = i18n.language?.startsWith('pt') ? 'pt' : 'en';
 
 	const changeLanguage = (code: (typeof LANGUAGES)[number]) => {
 		if (code === active) return;
-		setActive(code);
 		void i18n.changeLanguage(code);
 	};
 
@@ -23,7 +19,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
 
 	return (
 		<div
-			className={`flex items-center gap-0.5 border p-0.5 font-mono text-xs uppercase tracking-wider ${tone}`}
+			className={`flex items-center gap-0.5 rounded-full border p-1 font-display text-xs font-semibold uppercase tracking-wider ${tone}`}
 			role="group"
 			aria-label="Language"
 		>
@@ -35,7 +31,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
 						type="button"
 						onClick={() => changeLanguage(code)}
 						aria-pressed={isActive}
-						className={`px-2.5 py-1.5 transition-colors ${
+						className={`rounded-full px-2.5 py-1 transition-colors ${
 							isActive
 								? 'bg-sun text-ink'
 								: dark

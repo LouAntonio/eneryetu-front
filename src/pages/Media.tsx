@@ -29,7 +29,7 @@ export function MediaLayout() {
 							key={key}
 							to={`/media/${key}`}
 							className={({ isActive }) =>
-								`border-b-2 py-4 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+								`border-b-2 py-4 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
 									isActive
 										? 'border-volt text-ink'
 										: 'border-transparent text-slate hover:text-ink'
@@ -58,12 +58,10 @@ function MediaChild({ titleKey }: MediaChildProps) {
 	return (
 		<section className="min-h-[40vh]">
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-				<div className="border border-line bg-white p-8 sm:p-12">
+				<div className="rounded-2xl border border-line bg-white p-8 sm:p-12">
 					<div className="flex items-center gap-3">
-						<span aria-hidden className="h-2.5 w-2.5 bg-blue" />
-						<span className="font-mono text-xs uppercase tracking-[0.22em] text-slate">
-							{section.title}
-						</span>
+						<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
+						<span className="ui-label text-slate">{section.title}</span>
 					</div>
 					<h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
 						{section.emptyTitle}

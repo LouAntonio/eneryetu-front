@@ -17,9 +17,8 @@
 	--color-line: #d6e3f0;
 	--color-slate: #55708c;
 
-	--font-display: 'Archivo', system-ui, 'Segoe UI', sans-serif;
+	--font-display: 'Bricolage Grotesque', system-ui, 'Segoe UI', sans-serif;
 	--font-sans: 'Public Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
-	--font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
 }
 
 /* ------------------------------------------------------------------ *
@@ -70,10 +69,6 @@ body {
 	);
 }
 
-@utility font-stretch-expanded {
-	font-stretch: 125%;
-}
-
 @utility trace {
 	background-image: repeating-linear-gradient(
 		90deg,
@@ -82,9 +77,19 @@ body {
 	);
 }
 
+/* Small caps label — replaces the old mono labels */
+@utility ui-label {
+	font-family: var(--font-display);
+	font-size: 0.72rem;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+
 .hero-diagram text {
-	font-family: var(--font-mono);
-	letter-spacing: 0.02em;
+	font-family: var(--font-display);
+	letter-spacing: 0.01em;
 }
 
 /* ------------------------------------------------------------------ *

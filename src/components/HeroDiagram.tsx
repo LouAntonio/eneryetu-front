@@ -19,11 +19,11 @@ export function HeroDiagram() {
 	};
 
 	return (
-		<figure className="border border-line bg-white shadow-sm">
-			<figcaption className="flex items-center justify-between border-b border-line px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-slate">
+		<figure className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_18px_40px_-24px_rgba(14,42,69,0.45)]">
+			<figcaption className="flex items-center justify-between gap-3 border-b border-line px-5 py-3 ui-label text-slate">
 				<span>Single-line reference — mini-grid</span>
-				<span className="flex items-center gap-1.5">
-					<span aria-hidden className="node-live h-1.5 w-1.5 bg-volt" />
+				<span className="flex items-center gap-2">
+					<span aria-hidden className="node-live h-2 w-2 rounded-full bg-sun" />
 					LIVE
 				</span>
 			</figcaption>
@@ -194,7 +194,7 @@ export function HeroDiagram() {
 				</text>
 			</svg>
 
-			<figcaption className="border-t border-line px-4 py-2 font-mono text-[10px] text-slate">
+			<figcaption className="border-t border-line px-5 py-2.5 text-xs text-slate">
 				{d.caption}
 			</figcaption>
 		</figure>

@@ -18,13 +18,13 @@ export function CtaBand() {
 					<div className="flex flex-wrap items-center gap-4">
 						<Link
 							to="/contact"
-							className="bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
+							className="rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
 						>
 							{t('cta.cta')}
 						</Link>
 						<a
 							href="tel:+244923734199"
-							className="border border-paper/30 px-6 py-3 font-mono text-sm text-paper transition-colors hover:border-volt hover:text-volt"
+							className="rounded-full border border-paper/30 px-6 py-3 font-display text-sm font-semibold text-paper transition-colors hover:border-volt hover:text-volt"
 						>
 							{t('cta.phone')}{' '}
 							<span className="hidden xl:inline">+244 923 734 199</span>

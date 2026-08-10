@@ -20,23 +20,19 @@ export function Contact() {
 				<div className="mx-auto grid w-full max-w-6xl items-start gap-10 px-6 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
 					<div className="space-y-10">
 						<div>
-							<h2 className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-slate">
-								<span aria-hidden className="h-2.5 w-2.5 bg-blue" />
+							<h2 className="flex items-center gap-3 ui-label text-slate">
+								<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
 								{t('contact.detailsTitle')}
 							</h2>
-							<ul className="mt-5 divide-y divide-line border border-line bg-white">
+							<ul className="mt-5 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-white">
 								<li className="px-5 py-4">
-									<span className="block font-mono text-[11px] uppercase tracking-wider text-slate">
-										Adress
-									</span>
+									<span className="block ui-label text-slate">Adress</span>
 									<p className="mt-1 text-sm leading-relaxed text-ink">
 										{t('contact.address')}
 									</p>
 								</li>
 								<li className="px-5 py-4">
-									<span className="block font-mono text-[11px] uppercase tracking-wider text-slate">
-										Phone
-									</span>
+									<span className="block ui-label text-slate">Phone</span>
 									<a
 										href="tel:+244923734199"
 										className="mt-1 block text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
@@ -45,9 +41,7 @@ export function Contact() {
 									</a>
 								</li>
 								<li className="px-5 py-4">
-									<span className="block font-mono text-[11px] uppercase tracking-wider text-slate">
-										Email
-									</span>
+									<span className="block ui-label text-slate">Email</span>
 									<a
 										href="mailto:geral@eneryetu.com"
 										className="mt-1 block text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
@@ -59,11 +53,11 @@ export function Contact() {
 						</div>
 
 						<div>
-							<h2 className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-slate">
-								<span aria-hidden className="h-2.5 w-2.5 bg-sun" />
+							<h2 className="flex items-center gap-3 ui-label text-slate">
+								<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-sun" />
 								{t('contact.hoursTitle')}
 							</h2>
-							<ul className="mt-5 divide-y divide-line border border-line bg-white font-mono">
+							<ul className="mt-5 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-white">
 								{HOUR_KEYS.map((key) => (
 									<li
 										key={key}
@@ -72,7 +66,7 @@ export function Contact() {
 										<span className="flex items-center gap-3 text-sm text-ink">
 											<span
 												aria-hidden
-												className="h-1.5 w-1.5 shrink-0 bg-volt"
+												className="h-2 w-2 shrink-0 rounded-full bg-volt"
 											/>
 											{t(`contact.hours.${key}.day`)}
 										</span>

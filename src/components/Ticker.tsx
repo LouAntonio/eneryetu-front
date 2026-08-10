@@ -5,7 +5,7 @@ export function Ticker() {
 
 	return (
 		<div className="bg-ink text-paper">
-			<div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-2 font-mono text-[11px] tracking-wide text-paper/70">
+			<div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-2.5 ui-label text-[11px] tracking-[0.16em] text-paper/75">
 				<p className="truncate">{t('ticker.hours')}</p>
 				<a
 					href="tel:+244923734199"

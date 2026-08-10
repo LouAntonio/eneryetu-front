@@ -34,9 +34,7 @@ export function SectionHeading({
 						revealed ? NODE_COLORS[tone] : 'bg-line'
 					}`}
 				/>
-				<span className="font-mono text-xs uppercase tracking-[0.22em] text-slate">
-					{eyebrow}
-				</span>
+				<span className="ui-label text-slate">{eyebrow}</span>
 				<span
 					aria-hidden
 					className={`trace h-0.5 min-w-8 flex-1 ${revealed ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}
