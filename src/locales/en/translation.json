@@ -1,0 +1,19 @@
+{
+	"brand": "EnerYetu",
+	"tagline": "Our energy, our future",
+	"nav": {
+		"home": "Home",
+		"about": "About",
+		"solutions": "Solutions",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "Powering Tomorrow, Together",
+		"subtitle": "EnerYetu delivers reliable, affordable and clean energy solutions, bringing sustainable power closer to communities and businesses.",
+		"cta": "Discover our solutions"
+	},
+	"footer": {
+		"rights": "All rights reserved."
+	}
+}

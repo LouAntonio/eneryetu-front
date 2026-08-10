@@ -1,0 +1,19 @@
+{
+	"brand": "EnerYetu",
+	"tagline": "A nossa energia, o nosso futuro",
+	"nav": {
+		"home": "Início",
+		"about": "Sobre",
+		"solutions": "Soluções",
+		"projects": "Projectos",
+		"contact": "Contactos"
+	},
+	"hero": {
+		"title": "Energia para o amanhã, juntos",
+		"subtitle": "A EnerYetu fornece soluções de energia fiáveis, acessíveis e limpas, aproximando a energia sustentável das comunidades e empresas.",
+		"cta": "Conheça as nossas soluções"
+	},
+	"footer": {
+		"rights": "Todos os direitos reservados."
+	}
+}
