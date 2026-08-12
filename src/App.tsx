@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ScrollToTop } from './components/ScrollToTop';
-import { Ticker } from './components/Ticker';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
@@ -18,7 +17,6 @@ function App() {
 	return (
 		<div className="flex min-h-screen flex-col">
 			<ScrollToTop />
-			<Ticker />
 			<Header />
 			<main className="flex-1">
 				<Routes>

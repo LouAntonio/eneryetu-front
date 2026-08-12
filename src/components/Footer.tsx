@@ -29,7 +29,7 @@ export function Footer() {
 						<img
 							src="/logo.png"
 							alt={t('brand')}
-							className="h-11 w-11 object-contain"
+							className="h-14 w-14 object-contain"
 						/>
 						<p className="mt-5 max-w-xs text-sm leading-relaxed text-paper/65">
 							{t('footer.about')}

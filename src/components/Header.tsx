@@ -69,7 +69,7 @@ export function Header() {
 		<header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
 			<div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-3">
 				<Link to="/" className="flex items-center" aria-label={t('brand')}>
-					<img src="/logo.png" alt={t('brand')} className="h-10 w-10 object-contain" />
+					<img src="/logo.png" alt={t('brand')} className="h-14 w-14 object-contain" />
 				</Link>
 
 				<nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -184,7 +184,7 @@ export function Header() {
 							<img
 								src="/logo.png"
 								alt={t('brand')}
-								className="h-9 w-9 object-contain"
+								className="h-12 w-12 object-contain"
 							/>
 							<button
 								type="button"
