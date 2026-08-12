@@ -39,15 +39,9 @@ export function About() {
 								key={value.title}
 								className="group bg-white p-6 transition-colors hover:bg-ink"
 							>
-								<div className="flex items-center gap-3">
-									<span
-										aria-hidden
-										className="terminal h-2 w-2 border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt"
-									/>
-									<h3 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
-										{value.title}
-									</h3>
-								</div>
+								<h3 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
+									{value.title}
+								</h3>
 								<p className="mt-2 text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
 									{value.blurb}
 								</p>

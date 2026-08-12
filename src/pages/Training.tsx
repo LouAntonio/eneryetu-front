@@ -39,7 +39,7 @@ export function Training() {
 						<div className="flex items-center gap-3">
 							<span
 								aria-hidden
-								className="node-live terminal h-2.5 w-2.5 border-volt bg-volt"
+								className="node-live h-2.5 w-2.5 rounded-full bg-volt"
 							/>
 							<span className="ui-label text-volt">{t('training.eyebrow')}</span>
 						</div>

@@ -36,17 +36,7 @@ export function MediaLayout() {
 								}`
 							}
 						>
-							{({ isActive }) => (
-								<span className="flex items-center gap-2">
-									<span
-										aria-hidden
-										className={`terminal h-1.5 w-1.5 ${
-											isActive ? 'border-volt bg-volt' : 'border-sun'
-										}`}
-									/>
-									{labels[key]}
-								</span>
-							)}
+							{labels[key]}
 						</NavLink>
 					))}
 				</div>
@@ -70,10 +60,7 @@ function MediaChild({ titleKey }: MediaChildProps) {
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
 				<div className="relative isolate overflow-hidden border border-line bg-white p-8 sm:p-12">
 					<div aria-hidden className="absolute inset-0 -z-10 grid-light opacity-50" />
-					<div className="flex items-center gap-3">
-						<span aria-hidden className="terminal h-2 w-2 border-blue bg-blue" />
-						<span className="ui-label text-slate">{section.title}</span>
-					</div>
+					<span className="ui-label text-slate">{section.title}</span>
 					<h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-ink">
 						{section.emptyTitle}
 					</h1>

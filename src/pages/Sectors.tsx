@@ -20,7 +20,7 @@ export function Sectors() {
 						{sectors.map((sector, index) => (
 							<article
 								key={sector.title}
-								className="group grid gap-4 bg-white px-5 py-6 transition-colors hover:bg-ink sm:grid-cols-[4.5rem_1fr_auto] sm:items-start"
+								className="group grid gap-4 bg-white px-5 py-6 transition-colors hover:bg-ink sm:grid-cols-[4.5rem_1fr] sm:items-start"
 							>
 								<span className="font-mono text-xs text-blue">
 									{`S-${String(index + 1).padStart(2, '0')}`}
@@ -33,10 +33,6 @@ export function Sectors() {
 										{sector.blurb}
 									</p>
 								</div>
-								<span
-									aria-hidden
-									className="terminal h-2 w-2 justify-self-start border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt sm:mt-1 sm:justify-self-end"
-								/>
 							</article>
 						))}
 					</div>

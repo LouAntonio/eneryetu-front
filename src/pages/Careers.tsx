@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { ApplicationForm } from '../components/ApplicationForm';
 import { PageHeader } from '../components/PageHeader';
 import { SectionHeading } from '../components/SectionHeading';
 
@@ -65,6 +66,20 @@ export function Careers() {
 						</a>
 					</p>
 					<p className="mt-2 font-mono text-xs text-slate/70">{t('careers.applyHint')}</p>
+
+					<div className="mt-16 lg:border-t lg:border-line lg:pt-16">
+						<SectionHeading
+							eyebrow={t('careers.eyebrow')}
+							title={t('careers.form.title')}
+							tone="blue"
+						/>
+						<p className="mt-4 max-w-2xl text-slate">{t('careers.form.subtitle')}</p>
+						<div className="mt-10 max-w-3xl">
+							<ApplicationForm
+								positions={positions.map((position) => position.title)}
+							/>
+						</div>
+					</div>
 				</div>
 			</section>
 		</>

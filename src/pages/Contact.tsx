@@ -20,13 +20,7 @@ export function Contact() {
 				<div className="mx-auto grid w-full max-w-6xl items-start gap-10 px-6 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
 					<div className="space-y-10">
 						<div>
-							<h2 className="flex items-center gap-3 ui-label text-slate">
-								<span
-									aria-hidden
-									className="terminal h-2 w-2 border-blue bg-blue"
-								/>
-								{t('contact.detailsTitle')}
-							</h2>
+							<h2 className="ui-label text-slate">{t('contact.detailsTitle')}</h2>
 							<ul className="mt-5 divide-y divide-line border-y border-line">
 								<li className="px-5 py-4">
 									<span className="block ui-label text-slate">Address</span>
@@ -56,21 +50,14 @@ export function Contact() {
 						</div>
 
 						<div>
-							<h2 className="flex items-center gap-3 ui-label text-slate">
-								<span aria-hidden className="terminal h-2 w-2 border-sun bg-sun" />
-								{t('contact.hoursTitle')}
-							</h2>
+							<h2 className="ui-label text-slate">{t('contact.hoursTitle')}</h2>
 							<ul className="mt-5 divide-y divide-line border-y border-line">
 								{HOUR_KEYS.map((key) => (
 									<li
 										key={key}
 										className="flex items-center justify-between gap-4 px-5 py-4"
 									>
-										<span className="flex items-center gap-3 font-mono text-sm text-ink">
-											<span
-												aria-hidden
-												className="terminal h-1.5 w-1.5 border-volt bg-volt"
-											/>
+										<span className="font-mono text-sm text-ink">
 											{t(`contact.hours.${key}.day`)}
 										</span>
 										<span

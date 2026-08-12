@@ -244,7 +244,25 @@
 			}
 		],
 		"applyLabel": "Interessado? Envie o seu CV para",
-		"applyHint": "Mencione o cargo no assunto do email."
+		"applyHint": "Mencione o cargo no assunto do email.",
+		"form": {
+			"title": "Candidatura a uma vaga ou espontânea",
+			"subtitle": "Escolha uma das vagas acima ou candidate-se por iniciativa — deixe-nos os seus dados e um resumo do percurso.",
+			"name": "O seu nome",
+			"email": "Email",
+			"phone": "Telefone",
+			"position": "Vaga pretendida",
+			"choosePosition": "Escolha uma vaga…",
+			"spontaneous": "Candidatura espontânea",
+			"message": "Conte-nos um pouco do seu percurso",
+			"messagePlaceholder": "Experiência, formação, disponibilidade…",
+			"submit": "Enviar candidatura",
+			"nameRequired": "Diga-nos o seu nome.",
+			"emailInvalid": "Introduza um email válido.",
+			"positionRequired": "Escolha a vaga pretendida.",
+			"successTitle": "Candidatura recebida.",
+			"successBody": "Obrigado — analisamos o seu perfil e respondemos caso haja encaixe."
+		}
 	},
 	"media": {
 		"eyebrow": "Mídia",

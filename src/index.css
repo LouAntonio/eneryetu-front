@@ -99,15 +99,6 @@ body {
 	text-transform: uppercase;
 }
 
-/* Square terminal marker — colour via border-/bg- utilities at call site */
-@utility terminal {
-	display: inline-block;
-	transform: rotate(45deg);
-	border-width: 1.5px;
-	border-style: solid;
-	background: transparent;
-}
-
 /* ------------------------------------------------------------------ *
  * Components — thin, typography-driven. Spacing stays in the markup
  * so utilities never fight component classes.

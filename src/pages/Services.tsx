@@ -47,15 +47,9 @@ export function Services() {
 								key={item.title}
 								className="group bg-white p-6 transition-colors hover:bg-ink"
 							>
-								<div className="flex items-center gap-3">
-									<span
-										aria-hidden
-										className="terminal h-2 w-2 border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt"
-									/>
-									<h2 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
-										{item.title}
-									</h2>
-								</div>
+								<h2 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
+									{item.title}
+								</h2>
 								<p className="mt-3 text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
 									{item.blurb}
 								</p>

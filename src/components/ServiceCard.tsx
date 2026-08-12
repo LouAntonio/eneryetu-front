@@ -15,21 +15,15 @@ export function ServiceCard({ title, blurb, spec, index }: ServiceCardProps) {
 			ref={ref}
 			className="group flex flex-col bg-white p-5 transition-colors hover:bg-ink"
 		>
-			<div className="flex items-center justify-between">
+			{index !== undefined ? (
 				<span
-					aria-hidden
-					className="terminal h-2 w-2 border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt"
-				/>
-				{index !== undefined ? (
-					<span
-						className={`font-mono text-[0.68rem] tracking-[0.18em] ${
-							revealed ? 'text-blue' : 'text-slate group-hover:text-paper/60'
-						}`}
-					>
-						{String(index).padStart(2, '0')}
-					</span>
-				) : null}
-			</div>
+					className={`font-mono text-[0.68rem] tracking-[0.18em] ${
+						revealed ? 'text-blue' : 'text-slate group-hover:text-paper/60'
+					}`}
+				>
+					{String(index).padStart(2, '0')}
+				</span>
+			) : null}
 			<h3 className="mt-4 font-display text-2xl font-bold uppercase leading-none tracking-tight text-ink transition-colors group-hover:text-paper">
 				{title}
 			</h3>

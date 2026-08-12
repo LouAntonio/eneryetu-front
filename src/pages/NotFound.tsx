@@ -15,21 +15,14 @@ export function NotFound() {
 						strokeWidth="2"
 						strokeDasharray="4 4"
 					/>
-					<rect
-						x="94"
-						y="8"
-						width="8"
-						height="8"
-						className="fill-sun"
-						transform="rotate(45 98 12)"
-					/>
+					<circle cx="99" cy="16" r="4" className="fill-sun" />
 					<path
-						d="M112 16 H196"
+						d="M116 16 H196"
 						className="stroke-sun"
 						strokeWidth="2"
 						strokeDasharray="4 4"
 					/>
-					<path d="M112 16 H196" className="pulse-path stroke-volt" strokeWidth="1.6" />
+					<path d="M116 16 H196" className="pulse-path stroke-volt" strokeWidth="1.6" />
 				</svg>
 				<span className="mt-8 block ui-label text-volt">EnerYetu — network</span>
 				<h1 className="mx-auto mt-4 max-w-3xl font-display text-6xl font-black uppercase leading-[0.92] tracking-tight text-paper sm:text-8xl">

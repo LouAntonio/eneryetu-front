@@ -36,10 +36,7 @@ export function ContactForm() {
 		return (
 			<div className="border-2 border-volt bg-ink p-8 text-paper">
 				<div className="flex items-center gap-3">
-					<span
-						aria-hidden
-						className="node-live terminal h-2.5 w-2.5 border-volt bg-volt"
-					/>
+					<span aria-hidden className="node-live h-2.5 w-2.5 rounded-full bg-volt" />
 					<h3 className="font-display text-3xl font-black uppercase tracking-tight">
 						{t('contact.form.successTitle')}
 					</h3>

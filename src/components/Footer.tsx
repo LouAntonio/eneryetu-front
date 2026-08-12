@@ -65,15 +65,8 @@ export function Footer() {
 					<div>
 						<h3 className="ui-label text-volt">{t('footer.contactTitle')}</h3>
 						<ul className="mt-5 space-y-3 font-mono text-sm leading-relaxed text-paper/75">
-							<li className="flex items-start gap-3">
-								<span
-									aria-hidden
-									className="terminal mt-1 h-1.5 w-1.5 border-blue bg-blue"
-								/>
-								{t('contact.address')}
-							</li>
-							<li className="flex items-center gap-3">
-								<span aria-hidden className="terminal h-1.5 w-1.5 border-sun" />
+							<li>{t('contact.address')}</li>
+							<li>
 								<a
 									href="tel:+244923734199"
 									className="transition-colors hover:text-volt"
@@ -81,8 +74,7 @@ export function Footer() {
 									{t('contact.phone')}
 								</a>
 							</li>
-							<li className="flex items-center gap-3">
-								<span aria-hidden className="terminal h-1.5 w-1.5 border-volt" />
+							<li>
 								<a
 									href="mailto:geral@eneryetu.com"
 									className="transition-colors hover:text-volt"

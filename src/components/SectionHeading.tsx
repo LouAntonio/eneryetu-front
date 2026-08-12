@@ -10,12 +10,6 @@ interface SectionHeadingProps {
 	className?: string;
 }
 
-const TERMINALS: Record<Tone, string> = {
-	blue: 'border-blue bg-blue',
-	sun: 'border-sun bg-sun',
-	volt: 'border-volt bg-volt',
-};
-
 const TRACES: Record<Tone, string> = {
 	blue: 'bg-blue',
 	sun: 'bg-sun-deep',
@@ -34,12 +28,6 @@ export function SectionHeading({
 	return (
 		<div ref={ref} className={className}>
 			<div className="flex items-center gap-3">
-				<span
-					aria-hidden
-					className={`terminal h-2 w-2 transition-colors duration-500 ${
-						revealed ? TERMINALS[tone] : 'border-line'
-					}`}
-				/>
 				<span className="ui-label text-slate">{eyebrow}</span>
 				<span
 					aria-hidden

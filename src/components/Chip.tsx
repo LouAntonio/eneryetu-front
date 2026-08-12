@@ -6,8 +6,7 @@ interface ChipProps {
 
 export function Chip({ children }: ChipProps) {
 	return (
-		<span className="inline-flex items-center justify-center gap-2 border border-line bg-white px-4 py-2 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] text-ink">
-			<span aria-hidden className="terminal h-1.5 w-1.5 border-sun bg-sun" />
+		<span className="inline-flex items-center gap-2 border border-line bg-white px-4 py-2 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] text-ink">
 			{children}
 		</span>
 	);

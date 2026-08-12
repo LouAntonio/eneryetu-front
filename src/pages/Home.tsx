@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Chip } from '../components/Chip';
 import { CtaBand } from '../components/CtaBand';
-import { HeroDiagram } from '../components/HeroDiagram';
 import { SectionHeading } from '../components/SectionHeading';
 import { ServiceCard } from '../components/ServiceCard';
 import { StatRow } from '../components/StatRow';
@@ -34,10 +33,7 @@ export function Home() {
 				<div aria-hidden className="absolute inset-0 -z-10 grid-dark opacity-70" />
 
 				<div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-28 sm:pt-32 lg:pt-36">
-					<div className="flex items-center gap-3">
-						<span aria-hidden className="terminal h-2.5 w-2.5 border-volt bg-volt" />
-						<span className="ui-label text-paper/70">{t('hero.eyebrow')}</span>
-					</div>
+					<span className="ui-label text-paper/70">{t('hero.eyebrow')}</span>
 					<h1 className="mt-5 max-w-4xl font-display text-6xl font-black uppercase leading-[0.92] tracking-tight text-paper sm:text-7xl lg:text-8xl">
 						{t('hero.title')}
 					</h1>
@@ -51,9 +47,6 @@ export function Home() {
 						<Link to="/services" className="btn btn-paper px-6 py-3">
 							{t('hero.ctaSecondary')}
 						</Link>
-					</div>
-					<div className="mt-12">
-						<HeroDiagram />
 					</div>
 				</div>
 
@@ -94,7 +87,6 @@ export function Home() {
 									<span className="font-mono text-xs text-slate">
 										{String(index + 1).padStart(2, '0')}
 									</span>
-									<span aria-hidden className="h-2 w-2 bg-sun" />
 									<span className="font-display text-lg font-semibold uppercase tracking-tight text-ink">
 										{point}
 									</span>
@@ -153,12 +145,8 @@ export function Home() {
 							<Link
 								key={sector.title}
 								to="/sectors"
-								className="group grid grid-cols-[auto_1fr] gap-4 bg-white p-5 transition-colors hover:bg-ink"
+								className="group block bg-white p-5 transition-colors hover:bg-ink"
 							>
-								<span
-									aria-hidden
-									className="mt-2 h-2 w-2 bg-sun transition-colors group-hover:bg-volt"
-								/>
 								<div>
 									<h3 className="font-display text-lg font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
 										{sector.title}
@@ -185,8 +173,8 @@ export function Home() {
 						/>
 						<p className="mt-4 max-w-xl text-paper/70">{t('training.body')}</p>
 					</div>
-					<div className="justify-self-start lg:justify-self-end">
-						<div className="grid gap-px border border-paper/20 bg-paper/20 sm:grid-cols-3 lg:flex lg:flex-col">
+					<div className="justify-self-start">
+						<div className="flex flex-wrap items-start gap-2">
 							{trainingFeatures.map((feature) => (
 								<Chip key={feature}>{feature}</Chip>
 							))}

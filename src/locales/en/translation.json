@@ -237,7 +237,25 @@
 			}
 		],
 		"applyLabel": "Interested? Send your CV to",
-		"applyHint": "Mention the position in the subject line."
+		"applyHint": "Mention the position in the subject line.",
+		"form": {
+			"title": "Apply to a role — or spontaneously",
+			"subtitle": "Pick one of the roles above or apply on your own initiative — leave us your details and a short summary of your background.",
+			"name": "Your name",
+			"email": "Email",
+			"phone": "Phone",
+			"position": "Position",
+			"choosePosition": "Choose a position…",
+			"spontaneous": "Spontaneous application",
+			"message": "Tell us a little about your background",
+			"messagePlaceholder": "Experience, training, availability…",
+			"submit": "Send application",
+			"nameRequired": "Tell us your name.",
+			"emailInvalid": "Enter a valid email address.",
+			"positionRequired": "Choose the position.",
+			"successTitle": "Application received.",
+			"successBody": "Thank you — we review your profile and reply if there is a match."
+		}
 	},
 	"media": {
 		"eyebrow": "Media",

@@ -114,9 +114,6 @@ export function Header() {
 						: 'border-transparent text-slate hover:text-ink'
 				}`;
 
-	const activeMark = (isActive: boolean) =>
-		`terminal h-2 w-2 ${overHero ? (isActive ? 'border-volt bg-volt' : 'border-paper/50') : isActive ? 'border-volt bg-volt' : 'border-slate'}`;
-
 	return (
 		<header
 			className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
@@ -134,11 +131,20 @@ export function Header() {
 							<div key={key} className="group relative">
 								<NavLink
 									to={ROUTES.media}
+									aria-haspopup="true"
 									className={({ isActive }) => linkTone(isActive)}
 								>
 									<span className="flex items-center gap-1.5">
-										<span aria-hidden className={activeMark(false)} />
 										{labels.media}
+										<svg
+											width="8"
+											height="5"
+											viewBox="0 0 8 5"
+											aria-hidden
+											className="fill-current transition-transform duration-200 group-hover:rotate-180"
+										>
+											<path d="M0 0h8L4 5z" />
+										</svg>
 									</span>
 								</NavLink>
 								<div
@@ -162,10 +168,6 @@ export function Header() {
 												}`
 											}
 										>
-											<span
-												aria-hidden
-												className={`terminal h-2 w-2 ${overHero ? 'border-paper/40' : 'border-sun'}`}
-											/>
 											{mediaLabels[child]}
 										</NavLink>
 									))}
@@ -177,12 +179,7 @@ export function Header() {
 								to={ROUTES[key]}
 								className={({ isActive }) => linkTone(isActive)}
 							>
-								{({ isActive }) => (
-									<span className="flex items-center gap-1.5">
-										<span aria-hidden className={activeMark(isActive)} />
-										{labels[key]}
-									</span>
-								)}
+								{labels[key]}
 							</NavLink>
 						),
 					)}
@@ -272,6 +269,12 @@ export function Header() {
 												className="flex items-center gap-3 font-display text-3xl font-bold uppercase text-paper transition-colors hover:text-volt"
 											>
 												{labels.media}
+												<span
+													aria-hidden
+													className="font-mono text-sm text-paper/40"
+												>
+													▾
+												</span>
 											</Link>
 											<ul className="mt-3 space-y-2 border-l border-paper/20 pl-5">
 												{MEDIA_KEYS.map((child) => (
@@ -280,10 +283,6 @@ export function Header() {
 															to={`${ROUTES.media}/${child}`}
 															className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-paper/70 transition-colors hover:text-volt"
 														>
-															<span
-																aria-hidden
-																className="terminal h-2 w-2 border-sun"
-															/>
 															{mediaLabels[child]}
 														</Link>
 													</li>
@@ -294,12 +293,8 @@ export function Header() {
 										<li key={key}>
 											<Link
 												to={ROUTES[key]}
-												className="flex items-center gap-3 font-display text-3xl font-bold uppercase text-paper transition-colors hover:text-volt"
+												className="font-display text-3xl font-bold uppercase text-paper transition-colors hover:text-volt"
 											>
-												<span
-													aria-hidden
-													className="terminal h-2 w-2 border-sun"
-												/>
 												{labels[key]}
 											</Link>
 										</li>
