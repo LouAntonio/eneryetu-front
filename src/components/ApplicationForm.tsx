@@ -7,12 +7,17 @@ interface ApplicationFormProps {
 
 type Field = 'name' | 'email' | 'phone' | 'position' | 'message';
 type Values = Record<Field, string>;
-type Errors = Partial<Record<'name' | 'email' | 'position', string>>;
+type Errors = Partial<Record<'name' | 'email' | 'position' | 'cv', string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CV_ACCEPT =
+	'.pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
 const FIELD_CLASS =
 	'w-full rounded-none border border-line bg-paper px-3 py-2.5 font-mono text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none';
+
+const FILE_CLASS =
+	'w-full rounded-none border border-line bg-paper px-2.5 py-2 font-mono text-sm text-slate file:mr-4 file:border-0 file:bg-ink file:px-4 file:py-2 file:font-mono file:text-xs file:font-semibold file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-blue-dark focus:border-blue focus:outline-none';
 
 export function ApplicationForm({ positions }: ApplicationFormProps) {
 	const { t } = useTranslation();
@@ -24,6 +29,7 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 		message: '',
 	});
 	const [errors, setErrors] = useState<Errors>({});
+	const [cv, setCv] = useState<File | null>(null);
 	const [sent, setSent] = useState(false);
 
 	const update =
@@ -32,6 +38,10 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 			setValues((prev) => ({ ...prev, [field]: event.target.value }));
 		};
 
+	const pickCv = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCv(event.target.files?.[0] ?? null);
+	};
+
 	const onSubmit = (event: FormEvent) => {
 		event.preventDefault();
 		const next: Errors = {};
@@ -39,6 +49,7 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 		if (!values.email.trim() || !EMAIL_RE.test(values.email))
 			next.email = t('careers.form.emailInvalid');
 		if (!values.position) next.position = t('careers.form.positionRequired');
+		if (!cv) next.cv = t('careers.form.cvRequired');
 		setErrors(next);
 		if (Object.keys(next).length === 0) setSent(true);
 	};
@@ -140,6 +151,29 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 						</p>
 					) : null}
 				</div>
+			</div>
+
+			<div className="mt-5">
+				<label htmlFor="apply-cv" className="ui-label text-slate">
+					{t('careers.form.cv')}
+				</label>
+				<input
+					id="apply-cv"
+					type="file"
+					accept={CV_ACCEPT}
+					onChange={pickCv}
+					className={`mt-2 ${FILE_CLASS}`}
+				/>
+				{cv ? (
+					<p className="mt-2 font-mono text-xs text-ink">{cv.name}</p>
+				) : (
+					<p className="mt-2 font-mono text-xs text-slate/60">
+						{t('careers.form.cvHint')}
+					</p>
+				)}
+				{errors.cv ? (
+					<p className="mt-1 text-sm font-semibold text-sun-deep">{errors.cv}</p>
+				) : null}
 			</div>
 
 			<div className="mt-5">
