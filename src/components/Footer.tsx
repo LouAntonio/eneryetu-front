@@ -38,7 +38,7 @@ export function Footer() {
 
 					<nav aria-label={t('footer.quickLinksTitle')}>
 						<h3 className="ui-label text-volt">{t('footer.quickLinksTitle')}</h3>
-						<ul className="mt-5 space-y-3 text-sm text-paper/75">
+						<ul className="mt-5 space-y-3 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-paper/75">
 							{quick.map(({ key, to }) => (
 								<li key={key}>
 									<Link to={to} className="transition-colors hover:text-volt">
@@ -51,7 +51,7 @@ export function Footer() {
 
 					<nav aria-label={t('footer.mediaLinksTitle')}>
 						<h3 className="ui-label text-volt">{t('footer.mediaLinksTitle')}</h3>
-						<ul className="mt-5 space-y-3 text-sm text-paper/75">
+						<ul className="mt-5 space-y-3 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-paper/75">
 							{media.map(({ key, to }) => (
 								<li key={key}>
 									<Link to={to} className="transition-colors hover:text-volt">
@@ -64,9 +64,16 @@ export function Footer() {
 
 					<div>
 						<h3 className="ui-label text-volt">{t('footer.contactTitle')}</h3>
-						<ul className="mt-5 space-y-3 text-sm leading-relaxed text-paper/75">
-							<li>{t('contact.address')}</li>
-							<li>
+						<ul className="mt-5 space-y-3 font-mono text-sm leading-relaxed text-paper/75">
+							<li className="flex items-start gap-3">
+								<span
+									aria-hidden
+									className="terminal mt-1 h-1.5 w-1.5 border-blue bg-blue"
+								/>
+								{t('contact.address')}
+							</li>
+							<li className="flex items-center gap-3">
+								<span aria-hidden className="terminal h-1.5 w-1.5 border-sun" />
 								<a
 									href="tel:+244923734199"
 									className="transition-colors hover:text-volt"
@@ -74,7 +81,8 @@ export function Footer() {
 									{t('contact.phone')}
 								</a>
 							</li>
-							<li>
+							<li className="flex items-center gap-3">
+								<span aria-hidden className="terminal h-1.5 w-1.5 border-volt" />
 								<a
 									href="mailto:geral@eneryetu.com"
 									className="transition-colors hover:text-volt"
@@ -87,7 +95,7 @@ export function Footer() {
 				</div>
 			</div>
 			<div className="border-t border-paper/15">
-				<div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-paper/50 sm:flex-row">
+				<div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 font-mono text-xs text-paper/50 sm:flex-row">
 					<p>
 						{t('brand')} © {year}. {t('footer.rights')}
 					</p>

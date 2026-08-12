@@ -21,13 +21,16 @@ export function Contact() {
 					<div className="space-y-10">
 						<div>
 							<h2 className="flex items-center gap-3 ui-label text-slate">
-								<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
+								<span
+									aria-hidden
+									className="terminal h-2 w-2 border-blue bg-blue"
+								/>
 								{t('contact.detailsTitle')}
 							</h2>
-							<ul className="mt-5 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-white">
+							<ul className="mt-5 divide-y divide-line border-y border-line">
 								<li className="px-5 py-4">
-									<span className="block ui-label text-slate">Adress</span>
-									<p className="mt-1 text-sm leading-relaxed text-ink">
+									<span className="block ui-label text-slate">Address</span>
+									<p className="mt-1 font-mono text-sm leading-relaxed text-ink">
 										{t('contact.address')}
 									</p>
 								</li>
@@ -35,7 +38,7 @@ export function Contact() {
 									<span className="block ui-label text-slate">Phone</span>
 									<a
 										href="tel:+244923734199"
-										className="mt-1 block text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+										className="mt-1 block font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
 									>
 										{t('contact.phone')}
 									</a>
@@ -44,7 +47,7 @@ export function Contact() {
 									<span className="block ui-label text-slate">Email</span>
 									<a
 										href="mailto:geral@eneryetu.com"
-										className="mt-1 block text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+										className="mt-1 block font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
 									>
 										{t('contact.email')}
 									</a>
@@ -54,24 +57,24 @@ export function Contact() {
 
 						<div>
 							<h2 className="flex items-center gap-3 ui-label text-slate">
-								<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-sun" />
+								<span aria-hidden className="terminal h-2 w-2 border-sun bg-sun" />
 								{t('contact.hoursTitle')}
 							</h2>
-							<ul className="mt-5 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-white">
+							<ul className="mt-5 divide-y divide-line border-y border-line">
 								{HOUR_KEYS.map((key) => (
 									<li
 										key={key}
-										className="flex items-center justify-between px-5 py-4"
+										className="flex items-center justify-between gap-4 px-5 py-4"
 									>
-										<span className="flex items-center gap-3 text-sm text-ink">
+										<span className="flex items-center gap-3 font-mono text-sm text-ink">
 											<span
 												aria-hidden
-												className="h-2 w-2 shrink-0 rounded-full bg-volt"
+												className="terminal h-1.5 w-1.5 border-volt bg-volt"
 											/>
 											{t(`contact.hours.${key}.day`)}
 										</span>
 										<span
-											className={`text-sm ${
+											className={`font-mono text-sm ${
 												key === 'sunday' ? 'text-slate' : 'text-ink'
 											}`}
 										>

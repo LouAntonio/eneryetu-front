@@ -8,6 +8,9 @@ import { SectionHeading } from '../components/SectionHeading';
 import { ServiceCard } from '../components/ServiceCard';
 import { StatRow } from '../components/StatRow';
 
+const HERO_IMAGE =
+	'https://images.unsplash.com/photo-1592263904934-b00851dc93eb?q=80&w=2400&auto=format&fit=crop';
+
 export function Home() {
 	const { t } = useTranslation();
 	const stats = t('stats.rows', { returnObjects: true });
@@ -18,41 +21,46 @@ export function Home() {
 
 	return (
 		<>
-			{/* HERO */}
-			<section className="dot-grid border-b border-line bg-paper">
-				<div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-					<div>
-						<div className="flex items-center gap-3">
-							<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
-							<span className="ui-label text-slate">{t('hero.eyebrow')}</span>
-						</div>
-						<h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-							{t('hero.title')}
-						</h1>
-						<p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">
-							{t('hero.lede')}
-						</p>
-						<div className="mt-8 flex flex-wrap items-center gap-4">
-							<Link
-								to="/contact"
-								className="rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
-							>
-								{t('hero.ctaPrimary')}
-							</Link>
-							<Link
-								to="/services"
-								className="font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
-							>
-								{t('hero.ctaSecondary')}
-							</Link>
-						</div>
-					</div>
+			{/* HERO — full-bleed image behind a translucent header */}
+			<section id="hero" className="relative isolate overflow-hidden bg-ink-deep text-paper">
+				<img
+					src={HERO_IMAGE}
+					alt=""
+					aria-hidden
+					className="absolute inset-0 -z-20 h-full w-full object-cover"
+					loading="eager"
+				/>
+				<div aria-hidden className="absolute inset-0 -z-10 bg-ink/70" />
+				<div aria-hidden className="absolute inset-0 -z-10 grid-dark opacity-70" />
 
-					<HeroDiagram />
+				<div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-28 sm:pt-32 lg:pt-36">
+					<div className="flex items-center gap-3">
+						<span aria-hidden className="terminal h-2.5 w-2.5 border-volt bg-volt" />
+						<span className="ui-label text-paper/70">{t('hero.eyebrow')}</span>
+					</div>
+					<h1 className="mt-5 max-w-4xl font-display text-6xl font-black uppercase leading-[0.92] tracking-tight text-paper sm:text-7xl lg:text-8xl">
+						{t('hero.title')}
+					</h1>
+					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper/75">
+						{t('hero.lede')}
+					</p>
+					<div className="mt-8 flex flex-wrap items-center gap-4">
+						<Link to="/contact" className="btn btn-sun px-6 py-3">
+							{t('hero.ctaPrimary')}
+						</Link>
+						<Link to="/services" className="btn btn-paper px-6 py-3">
+							{t('hero.ctaSecondary')}
+						</Link>
+					</div>
+					<div className="mt-12">
+						<HeroDiagram />
+					</div>
 				</div>
+
+				<div aria-hidden className="relative z-10 h-1 w-full bg-volt" />
 			</section>
 
-			{/* STATS */}
+			{/* STATS — equipment nameplates */}
 			<section className="border-b border-line">
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
 					<SectionHeading
@@ -60,7 +68,7 @@ export function Home() {
 						title={t('stats.title')}
 						tone="sun"
 					/>
-					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					<div className="mt-10 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
 						{stats.map((row) => (
 							<StatRow key={row.label} value={row.value} label={row.label} />
 						))}
@@ -70,34 +78,32 @@ export function Home() {
 
 			{/* WHO WE ARE */}
 			<section className="border-b border-line">
-				<div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
+				<div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-2 lg:py-20">
 					<SectionHeading
 						eyebrow={t('intro.eyebrow')}
 						title={t('intro.title')}
 						body={t('intro.body')}
 					/>
 					<div className="flex flex-col justify-end">
-						<div className="overflow-hidden rounded-2xl border border-line bg-white">
-							<div className="border-b border-line px-6 py-3 ui-label text-slate">
-								Scope of work
-							</div>
-							<ul className="divide-y divide-line px-6">
-								{points.map((point) => (
-									<li key={point} className="flex items-center gap-3 py-4">
-										<span
-											aria-hidden
-											className="h-2 w-2 shrink-0 rounded-full bg-sun"
-										/>
-										<span className="font-display text-sm font-semibold uppercase tracking-wider text-ink">
-											{point}
-										</span>
-									</li>
-								))}
-							</ul>
-						</div>
+						<ul className="divide-y divide-line border-y border-line">
+							{points.map((point, index) => (
+								<li
+									key={point}
+									className="flex items-center gap-4 bg-white py-4 pl-4 pr-6"
+								>
+									<span className="font-mono text-xs text-slate">
+										{String(index + 1).padStart(2, '0')}
+									</span>
+									<span aria-hidden className="h-2 w-2 bg-sun" />
+									<span className="font-display text-lg font-semibold uppercase tracking-tight text-ink">
+										{point}
+									</span>
+								</li>
+							))}
+						</ul>
 						<Link
 							to="/about"
-							className="mt-6 justify-self-start font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+							className="btn btn-mono mt-6 justify-self-start px-5 py-2.5"
 						>
 							{t('intro.cta')}
 						</Link>
@@ -105,9 +111,9 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* SERVICES */}
+			{/* SERVICES — equipment schedule */}
 			<section className="border-b border-line">
-				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
+				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
 					<div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
 						<SectionHeading
 							eyebrow={t('services.eyebrow')}
@@ -115,17 +121,15 @@ export function Home() {
 							body={t('services.body')}
 							tone="blue"
 						/>
-						<Link
-							to="/services"
-							className="shrink-0 font-display text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
-						>
+						<Link to="/services" className="btn btn-mono shrink-0 px-5 py-2.5">
 							{t('common.exploreServices')}
 						</Link>
 					</div>
-					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-						{services.map((service) => (
+					<div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+						{services.map((service, index) => (
 							<ServiceCard
 								key={service.title}
+								index={index + 1}
 								title={service.title}
 								blurb={service.blurb}
 								spec={service.spec}
@@ -137,32 +141,32 @@ export function Home() {
 
 			{/* SECTORS */}
 			<section className="border-b border-line">
-				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
+				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
 					<SectionHeading
 						eyebrow={t('sectors.eyebrow')}
 						title={t('sectors.title')}
 						body={t('sectors.body')}
 						tone="sun"
 					/>
-					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					<div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
 						{sectors.map((sector) => (
 							<Link
 								key={sector.title}
 								to="/sectors"
-								className="group rounded-2xl border border-line bg-white p-6 transition-colors hover:border-blue"
+								className="group grid grid-cols-[auto_1fr] gap-4 bg-white p-5 transition-colors hover:bg-ink"
 							>
-								<div className="flex items-center justify-between">
-									<h3 className="font-display text-lg font-bold tracking-tight text-ink">
+								<span
+									aria-hidden
+									className="mt-2 h-2 w-2 bg-sun transition-colors group-hover:bg-volt"
+								/>
+								<div>
+									<h3 className="font-display text-lg font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
 										{sector.title}
 									</h3>
-									<span
-										aria-hidden
-										className="h-2 w-2 rounded-full bg-sun transition-colors group-hover:bg-volt"
-									/>
+									<p className="mt-1 text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
+										{sector.blurb}
+									</p>
 								</div>
-								<p className="mt-2 text-sm leading-relaxed text-slate">
-									{sector.blurb}
-								</p>
 							</Link>
 						))}
 					</div>
@@ -171,40 +175,25 @@ export function Home() {
 
 			{/* TRAINING */}
 			<section className="border-b border-line bg-ink-deep text-paper">
-				<div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
+				<div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-20">
 					<div>
 						<SectionHeading
 							eyebrow={t('training.eyebrow')}
 							title={t('training.title')}
 							tone="volt"
-							className="text-paper [&_h2]:text-paper"
+							className="text-paper [&_.ui-label]:text-paper/60 [&_h2]:text-paper"
 						/>
 						<p className="mt-4 max-w-xl text-paper/70">{t('training.body')}</p>
-						<div className="mt-6 flex flex-wrap gap-2">
+					</div>
+					<div className="justify-self-start lg:justify-self-end">
+						<div className="grid gap-px border border-paper/20 bg-paper/20 sm:grid-cols-3 lg:flex lg:flex-col">
 							{trainingFeatures.map((feature) => (
 								<Chip key={feature}>{feature}</Chip>
 							))}
 						</div>
-					</div>
-					<div className="justify-self-start lg:justify-self-end">
-						<div className="rounded-2xl border border-paper/25 bg-paper/5 p-8">
-							<div className="flex items-center gap-3">
-								<span
-									aria-hidden
-									className="node-live h-2.5 w-2.5 rounded-full bg-volt"
-								/>
-								<span className="ui-label text-volt">Field-proven</span>
-							</div>
-							<p className="mt-4 font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
-								{t('training.cta')}
-							</p>
-							<Link
-								to="/training"
-								className="mt-6 inline-block rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
-							>
-								{t('common.learnMore')}
-							</Link>
-						</div>
+						<Link to="/training" className="btn btn-sun mt-6 px-6 py-3">
+							{t('common.learnMore')}
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -212,8 +201,8 @@ export function Home() {
 			{/* PARTNERS */}
 			<section className="border-b border-line">
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-					<p className="ui-label text-slate">{t('partners.eyebrow')}</p>
-					<h2 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+					<p className="ui-label text-sun-deep">{t('partners.eyebrow')}</p>
+					<h2 className="mt-4 font-display text-4xl font-black uppercase tracking-tight text-ink sm:text-5xl">
 						{t('partners.title')}
 					</h2>
 					<p className="mx-auto mt-4 max-w-2xl text-slate">{t('partners.body')}</p>

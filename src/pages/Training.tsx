@@ -35,22 +35,19 @@ export function Training() {
 
 			<section>
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-					<div className="rounded-3xl border-2 border-ink bg-ink-deep p-8 text-paper sm:p-12">
+					<div className="border-2 border-paper/20 bg-ink-deep p-8 text-paper sm:p-12">
 						<div className="flex items-center gap-3">
 							<span
 								aria-hidden
-								className="node-live h-2.5 w-2.5 rounded-full bg-volt"
+								className="node-live terminal h-2.5 w-2.5 border-volt bg-volt"
 							/>
 							<span className="ui-label text-volt">{t('training.eyebrow')}</span>
 						</div>
-						<p className="mt-6 max-w-2xl font-display text-2xl font-extrabold leading-snug tracking-tight sm:text-3xl">
+						<p className="mt-6 max-w-2xl font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl">
 							{t('training.title')}
 						</p>
 						<p className="mt-4 max-w-2xl text-paper/70">{t('training.body')}</p>
-						<Link
-							to="/contact"
-							className="mt-8 inline-block rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
-						>
+						<Link to="/contact" className="btn btn-sun mt-8 px-6 py-3">
 							{t('common.requestQuote')}
 						</Link>
 					</div>

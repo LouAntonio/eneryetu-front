@@ -15,11 +15,11 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
 		void i18n.changeLanguage(code);
 	};
 
-	const tone = dark ? 'border-paper/20 bg-paper/5 text-paper' : 'border-line bg-white text-ink';
+	const tone = dark ? 'border-paper/25 text-paper' : 'border-ink text-ink';
 
 	return (
 		<div
-			className={`flex items-center gap-0.5 rounded-full border p-1 font-display text-xs font-semibold uppercase tracking-wider ${tone}`}
+			className={`flex items-center border-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] ${tone}`}
 			role="group"
 			aria-label="Language"
 		>
@@ -31,9 +31,9 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
 						type="button"
 						onClick={() => changeLanguage(code)}
 						aria-pressed={isActive}
-						className={`rounded-full px-2.5 py-1 transition-colors ${
+						className={`px-3 py-1.5 transition-colors ${
 							isActive
-								? 'bg-sun text-ink'
+								? 'bg-volt text-ink'
 								: dark
 									? 'text-paper/60 hover:text-volt'
 									: 'text-slate hover:text-ink'

@@ -33,19 +33,22 @@ export function About() {
 						title={t('about.valuesTitle')}
 						tone="sun"
 					/>
-					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					<div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
 						{values.map((value) => (
 							<div
 								key={value.title}
-								className="border border-line bg-white p-6 transition-colors hover:border-blue"
+								className="group bg-white p-6 transition-colors hover:bg-ink"
 							>
 								<div className="flex items-center gap-3">
-									<span aria-hidden className="h-2 w-2 shrink-0 bg-sun" />
-									<h3 className="font-display text-base font-bold tracking-tight text-ink">
+									<span
+										aria-hidden
+										className="terminal h-2 w-2 border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt"
+									/>
+									<h3 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
 										{value.title}
 									</h3>
 								</div>
-								<p className="mt-2 text-sm leading-relaxed text-slate">
+								<p className="mt-2 text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
 									{value.blurb}
 								</p>
 							</div>
@@ -54,14 +57,14 @@ export function About() {
 				</div>
 			</section>
 
-			<section>
+			<section className="border-b border-line">
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
 					<SectionHeading
 						eyebrow={t('stats.eyebrow')}
 						title={t('stats.title')}
 						tone="blue"
 					/>
-					<div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					<div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
 						{rows.map((row) => (
 							<StatRow key={row.label} value={row.value} label={row.label} />
 						))}

@@ -29,14 +29,24 @@ export function MediaLayout() {
 							key={key}
 							to={`/media/${key}`}
 							className={({ isActive }) =>
-								`border-b-2 py-4 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
+								`border-b-2 py-4 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors ${
 									isActive
 										? 'border-volt text-ink'
 										: 'border-transparent text-slate hover:text-ink'
 								}`
 							}
 						>
-							{labels[key]}
+							{({ isActive }) => (
+								<span className="flex items-center gap-2">
+									<span
+										aria-hidden
+										className={`terminal h-1.5 w-1.5 ${
+											isActive ? 'border-volt bg-volt' : 'border-sun'
+										}`}
+									/>
+									{labels[key]}
+								</span>
+							)}
 						</NavLink>
 					))}
 				</div>
@@ -58,12 +68,13 @@ function MediaChild({ titleKey }: MediaChildProps) {
 	return (
 		<section className="min-h-[40vh]">
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-				<div className="rounded-2xl border border-line bg-white p-8 sm:p-12">
+				<div className="relative isolate overflow-hidden border border-line bg-white p-8 sm:p-12">
+					<div aria-hidden className="absolute inset-0 -z-10 grid-light opacity-50" />
 					<div className="flex items-center gap-3">
-						<span aria-hidden className="h-2.5 w-2.5 rounded-full bg-blue" />
+						<span aria-hidden className="terminal h-2 w-2 border-blue bg-blue" />
 						<span className="ui-label text-slate">{section.title}</span>
 					</div>
-					<h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
+					<h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-ink">
 						{section.emptyTitle}
 					</h1>
 					<p className="mt-4 max-w-2xl leading-relaxed text-slate">{section.emptyBody}</p>

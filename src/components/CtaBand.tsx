@@ -6,28 +6,25 @@ export function CtaBand() {
 
 	return (
 		<section>
-			<div aria-hidden className="hazard h-2 w-full" />
+			<div aria-hidden className="hazard h-1 w-full" />
 			<div className="bg-ink text-paper">
-				<div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-8 px-6 py-16 sm:flex-row sm:items-center sm:justify-between">
+				<div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-8 px-6 py-16 sm:flex-row sm:items-center sm:justify-between lg:py-20">
 					<div>
-						<h2 className="max-w-xl font-display text-2xl font-extrabold tracking-tight text-paper sm:text-3xl">
+						<p className="ui-label text-volt">EnerYetu</p>
+						<h2 className="mt-4 max-w-xl font-display text-4xl font-black uppercase leading-[0.95] tracking-tight text-paper sm:text-5xl">
 							{t('cta.title')}
 						</h2>
-						<p className="mt-3 max-w-lg text-paper/70">{t('cta.body')}</p>
+						<p className="mt-4 max-w-lg text-paper/70">{t('cta.body')}</p>
 					</div>
 					<div className="flex flex-wrap items-center gap-4">
-						<Link
-							to="/contact"
-							className="rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
-						>
+						<Link to="/contact" className="btn btn-sun px-6 py-3">
 							{t('cta.cta')}
 						</Link>
-						<a
-							href="tel:+244923734199"
-							className="rounded-full border border-paper/30 px-6 py-3 font-display text-sm font-semibold text-paper transition-colors hover:border-volt hover:text-volt"
-						>
-							{t('cta.phone')}{' '}
-							<span className="hidden xl:inline">+244 923 734 199</span>
+						<a href="tel:+244923734199" className="btn btn-paper px-6 py-3">
+							{t('cta.phone')}
+							<span className="hidden font-mono normal-case tracking-normal text-paper/50 xl:inline">
+								+244 923 734 199
+							</span>
 						</a>
 					</div>
 				</div>

@@ -7,6 +7,9 @@ type Errors = Partial<Record<'name' | 'email' | 'message', string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const FIELD_CLASS =
+	'w-full rounded-none border border-line bg-paper px-3 py-2.5 font-mono text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none';
+
 export function ContactForm() {
 	const { t } = useTranslation();
 	const [values, setValues] = useState<Values>({ name: '', company: '', email: '', message: '' });
@@ -31,10 +34,13 @@ export function ContactForm() {
 
 	if (sent) {
 		return (
-			<div className="rounded-2xl border-2 border-volt bg-ink p-8 text-paper">
+			<div className="border-2 border-volt bg-ink p-8 text-paper">
 				<div className="flex items-center gap-3">
-					<span aria-hidden className="node-live h-2.5 w-2.5 rounded-full bg-volt" />
-					<h3 className="font-display text-2xl font-extrabold tracking-tight">
+					<span
+						aria-hidden
+						className="node-live terminal h-2.5 w-2.5 border-volt bg-volt"
+					/>
+					<h3 className="font-display text-3xl font-black uppercase tracking-tight">
 						{t('contact.form.successTitle')}
 					</h3>
 				</div>
@@ -44,12 +50,8 @@ export function ContactForm() {
 	}
 
 	return (
-		<form
-			onSubmit={onSubmit}
-			noValidate
-			className="rounded-2xl border border-line bg-white p-6 shadow-[0_18px_40px_-28px_rgba(14,42,69,0.45)] sm:p-8"
-		>
-			<h3 className="font-display text-lg font-bold tracking-tight text-ink">
+		<form onSubmit={onSubmit} noValidate className="border border-line bg-white p-6 sm:p-8">
+			<h3 className="font-display text-3xl font-black uppercase leading-none tracking-tight text-ink">
 				{t('contact.form.title')}
 			</h3>
 
@@ -64,7 +66,7 @@ export function ContactForm() {
 						value={values.name}
 						onChange={update('name')}
 						autoComplete="name"
-						className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2.5 text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none"
+						className={`mt-2 ${FIELD_CLASS}`}
 					/>
 					{errors.name ? (
 						<p className="mt-1 text-sm font-semibold text-sun-deep">{errors.name}</p>
@@ -81,7 +83,7 @@ export function ContactForm() {
 						value={values.company}
 						onChange={update('company')}
 						autoComplete="organization"
-						className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2.5 text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none"
+						className={`mt-2 ${FIELD_CLASS}`}
 					/>
 				</div>
 			</div>
@@ -96,7 +98,7 @@ export function ContactForm() {
 					value={values.email}
 					onChange={update('email')}
 					autoComplete="email"
-					className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2.5 text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none"
+					className={`mt-2 ${FIELD_CLASS}`}
 				/>
 				{errors.email ? (
 					<p className="mt-1 text-sm font-semibold text-sun-deep">{errors.email}</p>
@@ -113,17 +115,14 @@ export function ContactForm() {
 					onChange={update('message')}
 					rows={5}
 					placeholder={t('contact.form.messagePlaceholder')}
-					className="mt-2 w-full resize-y border border-line bg-paper px-3 py-2.5 text-sm text-ink placeholder:text-slate/60 focus:border-blue focus:outline-none"
+					className={`mt-2 resize-y ${FIELD_CLASS}`}
 				/>
 				{errors.message ? (
 					<p className="mt-1 text-sm font-semibold text-sun-deep">{errors.message}</p>
 				) : null}
 			</div>
 
-			<button
-				type="submit"
-				className="mt-6 rounded-full bg-sun px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-volt"
-			>
+			<button type="submit" className="btn btn-sun mt-6 px-6 py-3">
 				{t('contact.form.submit')}
 			</button>
 		</form>

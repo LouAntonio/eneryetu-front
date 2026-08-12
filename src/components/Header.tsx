@@ -30,15 +30,51 @@ const ROUTES: Record<Exclude<NavKey, 'media'> | 'media', string> = {
 	contact: '/contact',
 };
 
+const CHARGE_BAR_HEIGHT = 72;
+
 export function Header() {
 	const { t } = useTranslation();
 	const location = useLocation();
 	const [prevPath, setPrevPath] = useState(location.pathname);
 	const [open, setOpen] = useState(false);
+	const [overHero, setOverHero] = useState(
+		() => location.pathname === '/' && window.scrollY < 10,
+	);
+	const [charge, setCharge] = useState(0);
+
+	useEffect(() => {
+		const update = () => {
+			const max = document.documentElement.scrollHeight - window.innerHeight;
+			if (max <= 0) {
+				setCharge(0);
+				return;
+			}
+			setCharge(Math.min(1, Math.max(0, window.scrollY / max)));
+		};
+		update();
+		window.addEventListener('scroll', update, { passive: true });
+		window.addEventListener('resize', update);
+		return () => {
+			window.removeEventListener('scroll', update);
+			window.removeEventListener('resize', update);
+		};
+	}, []);
+
+	useEffect(() => {
+		const hero = document.getElementById('hero');
+		if (location.pathname !== '/' || !hero) return;
+		const observer = new IntersectionObserver(
+			(entries) => setOverHero(entries[0]?.isIntersecting ?? false),
+			{ rootMargin: `-${CHARGE_BAR_HEIGHT}px 0px 0px 0px`, threshold: 0 },
+		);
+		observer.observe(hero);
+		return () => observer.disconnect();
+	}, [location.pathname]);
 
 	if (prevPath !== location.pathname) {
 		setPrevPath(location.pathname);
 		setOpen(false);
+		setOverHero(location.pathname === '/' && window.scrollY < 10);
 	}
 
 	useEffect(() => {
@@ -65,52 +101,71 @@ export function Header() {
 		gallery: t('navigation.gallery'),
 	};
 
+	const linkTone = (isActive: boolean) =>
+		overHero
+			? `border-b-2 py-1 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors ${
+					isActive
+						? 'border-volt text-volt'
+						: 'border-transparent text-paper/70 hover:text-paper'
+				}`
+			: `border-b-2 py-1 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors ${
+					isActive
+						? 'border-volt text-ink'
+						: 'border-transparent text-slate hover:text-ink'
+				}`;
+
+	const activeMark = (isActive: boolean) =>
+		`terminal h-2 w-2 ${overHero ? (isActive ? 'border-volt bg-volt' : 'border-paper/50') : isActive ? 'border-volt bg-volt' : 'border-slate'}`;
+
 	return (
-		<header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
+		<header
+			className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+				overHero ? 'bg-transparent' : 'border-b border-line bg-white/95 backdrop-blur'
+			}`}
+		>
 			<div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-3">
 				<Link to="/" className="flex items-center" aria-label={t('brand')}>
 					<img src="/logo.png" alt={t('brand')} className="h-14 w-14 object-contain" />
 				</Link>
 
-				<nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+				<nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
 					{NAV_KEYS.map((key) =>
 						key === 'media' ? (
 							<div key={key} className="group relative">
 								<NavLink
 									to={ROUTES.media}
-									className={({ isActive }) =>
-										`flex items-center gap-1 border-b-2 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
-											isActive
-												? 'border-volt text-ink'
-												: 'border-transparent text-slate hover:text-ink'
-										}`
-									}
+									className={({ isActive }) => linkTone(isActive)}
 								>
-									{labels.media}
-									<svg
-										width="10"
-										height="6"
-										viewBox="0 0 10 6"
-										aria-hidden
-										className="fill-current"
-									>
-										<path d="M0 0h10L5 6z" />
-									</svg>
+									<span className="flex items-center gap-1.5">
+										<span aria-hidden className={activeMark(false)} />
+										{labels.media}
+									</span>
 								</NavLink>
-								<div className="invisible absolute left-0 top-full z-20 w-52 border border-line bg-white py-2 opacity-0 shadow-sm transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+								<div
+									className={`invisible absolute left-0 top-full z-20 w-52 py-2 opacity-0 shadow-sm transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
+										overHero
+											? 'bg-ink-deep text-paper'
+											: 'border border-line bg-white'
+									}`}
+								>
 									{MEDIA_KEYS.map((child) => (
 										<NavLink
 											key={child}
 											to={`${ROUTES.media}/${child}`}
 											className={({ isActive }) =>
-												`flex items-center gap-2 px-4 py-2 font-display text-xs font-medium uppercase tracking-wider transition-colors ${
+												`flex items-center gap-2 px-4 py-2 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors ${
 													isActive
-														? 'bg-paper text-ink'
-														: 'text-slate hover:bg-paper hover:text-ink'
+														? 'text-volt'
+														: overHero
+															? 'text-paper/70 hover:text-paper'
+															: 'text-slate hover:text-ink'
 												}`
 											}
 										>
-											<span aria-hidden className="h-1.5 w-1.5 bg-sun" />
+											<span
+												aria-hidden
+												className={`terminal h-2 w-2 ${overHero ? 'border-paper/40' : 'border-sun'}`}
+											/>
 											{mediaLabels[child]}
 										</NavLink>
 									))}
@@ -120,27 +175,28 @@ export function Header() {
 							<NavLink
 								key={key}
 								to={ROUTES[key]}
-								className={({ isActive }) =>
-									`border-b-2 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
-										isActive
-											? 'border-volt text-ink'
-											: 'border-transparent text-slate hover:text-ink'
-									}`
-								}
+								className={({ isActive }) => linkTone(isActive)}
 							>
-								{labels[key]}
+								{({ isActive }) => (
+									<span className="flex items-center gap-1.5">
+										<span aria-hidden className={activeMark(isActive)} />
+										{labels[key]}
+									</span>
+								)}
 							</NavLink>
 						),
 					)}
 				</nav>
 
 				<div className="hidden lg:block">
-					<LanguageSwitcher />
+					<LanguageSwitcher dark={overHero} />
 				</div>
 
 				<button
 					type="button"
-					className="flex h-10 w-10 items-center justify-center border border-line bg-white lg:hidden"
+					className={`flex h-10 w-10 items-center justify-center border transition-colors lg:hidden ${
+						overHero ? 'border-paper/30 text-paper' : 'border-line bg-white text-ink'
+					}`}
 					onClick={() => setOpen((value) => !value)}
 					aria-expanded={open}
 					aria-controls="mobile-menu"
@@ -152,9 +208,14 @@ export function Header() {
 							height="16"
 							viewBox="0 0 16 16"
 							aria-hidden
-							className="fill-ink"
+							className="text-current"
 						>
-							<path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="2" />
+							<path
+								d="M2 2l12 12M14 2L2 14"
+								stroke="currentColor"
+								strokeWidth="2"
+								fill="none"
+							/>
 						</svg>
 					) : (
 						<svg
@@ -162,14 +223,21 @@ export function Header() {
 							height="12"
 							viewBox="0 0 18 12"
 							aria-hidden
-							className="fill-ink"
+							className="text-current"
 						>
-							<rect width="18" height="2" rx="1" />
-							<rect y="5" width="18" height="2" rx="1" />
-							<rect y="10" width="18" height="2" rx="1" />
+							<rect width="18" height="2" rx="1" fill="currentColor" />
+							<rect y="5" width="18" height="2" rx="1" fill="currentColor" />
+							<rect y="10" width="18" height="2" rx="1" fill="currentColor" />
 						</svg>
 					)}
 				</button>
+			</div>
+
+			<div aria-hidden className="relative h-0.5 w-full bg-line/40">
+				<div
+					className="absolute inset-y-0 left-0 bg-volt transition-[width] duration-150 ease-out"
+					style={{ width: `${charge * 100}%` }}
+				/>
 			</div>
 
 			{open ? (
@@ -189,32 +257,32 @@ export function Header() {
 							<button
 								type="button"
 								onClick={() => setOpen(false)}
-								className="font-display text-xs font-semibold uppercase tracking-wider text-paper/60 transition-colors hover:text-volt"
+								className="font-mono text-[0.7rem] font-medium uppercase tracking-[0.18em] text-paper/60 transition-colors hover:text-volt"
 							>
 								{t('common.menuClose')}
 							</button>
 						</div>
 						<nav className="flex-1 overflow-y-auto px-6 py-8" aria-label="Mobile">
-							<ul className="space-y-5">
+							<ul className="space-y-6">
 								{NAV_KEYS.map((key) =>
 									key === 'media' ? (
 										<li key={key}>
 											<Link
 												to={ROUTES.media}
-												className="font-display text-2xl font-bold tracking-tight text-paper transition-colors hover:text-volt"
+												className="flex items-center gap-3 font-display text-3xl font-bold uppercase text-paper transition-colors hover:text-volt"
 											>
 												{labels.media}
 											</Link>
-											<ul className="mt-3 space-y-2 border-l border-paper/20 pl-4">
+											<ul className="mt-3 space-y-2 border-l border-paper/20 pl-5">
 												{MEDIA_KEYS.map((child) => (
 													<li key={child}>
 														<Link
 															to={`${ROUTES.media}/${child}`}
-															className="flex items-center gap-2 font-display text-xs font-medium uppercase tracking-wider text-paper/70 transition-colors hover:text-volt"
+															className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-paper/70 transition-colors hover:text-volt"
 														>
 															<span
 																aria-hidden
-																className="h-1.5 w-1.5 bg-sun"
+																className="terminal h-2 w-2 border-sun"
 															/>
 															{mediaLabels[child]}
 														</Link>
@@ -226,8 +294,12 @@ export function Header() {
 										<li key={key}>
 											<Link
 												to={ROUTES[key]}
-												className="font-display text-2xl font-bold tracking-tight text-paper transition-colors hover:text-volt"
+												className="flex items-center gap-3 font-display text-3xl font-bold uppercase text-paper transition-colors hover:text-volt"
 											>
+												<span
+													aria-hidden
+													className="terminal h-2 w-2 border-sun"
+												/>
 												{labels[key]}
 											</Link>
 										</li>

@@ -2,23 +2,26 @@
 
 /* ------------------------------------------------------------------ *
  * EnerYetu — design tokens (Tailwind v4 CSS-first theme)
- * Ink / Blue / Sun / Volt, borrowed from the brand palette.
+ * The whole site reads as a live single-line diagram: a blueprint
+ * palette (marine / phase-blue / terminal-yellow / live-volt) with
+ * technical mono labels and an industrial condensed display face.
  * ------------------------------------------------------------------ */
 @theme {
-	--color-ink: #0e2a45;
-	--color-ink-deep: #081a2c;
-	--color-paper: #f4f8fc;
+	--color-ink: #0b1b2a;
+	--color-ink-deep: #07131f;
+	--color-paper: #f0f4f8;
 	--color-blue: #2d88c8;
-	--color-blue-deep: #1e6aa8;
+	--color-blue-deep: #1b6fa8;
 	--color-blue-dark: #15568a;
-	--color-sun: #fbb03b;
-	--color-sun-deep: #df8c1a;
+	--color-sun: #ffb43a;
+	--color-sun-deep: #d98a10;
 	--color-volt: #fff110;
-	--color-line: #d6e3f0;
-	--color-slate: #55708c;
+	--color-line: #c9d7e4;
+	--color-slate: #647b8e;
 
-	--font-display: 'Bricolage Grotesque', system-ui, 'Segoe UI', sans-serif;
-	--font-sans: 'Public Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+	--font-display: 'Big Shoulders Display', system-ui, 'Segoe UI', sans-serif;
+	--font-sans: 'Instrument Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, 'Cascadia Mono', monospace;
 }
 
 /* ------------------------------------------------------------------ *
@@ -44,7 +47,7 @@ body {
 }
 
 ::selection {
-	background: var(--color-volt);
+	background: var(--color-sun);
 	color: var(--color-ink);
 }
 
@@ -54,11 +57,20 @@ body {
 }
 
 /* ------------------------------------------------------------------ *
- * Utilities
+ * Utilities — blueprint grids, technical labels
  * ------------------------------------------------------------------ */
-@utility dot-grid {
-	background-image: radial-gradient(circle at 1px 1px, var(--color-line) 1px, transparent 0);
-	background-size: 22px 22px;
+@utility grid-dark {
+	background-image:
+		linear-gradient(to right, rgba(240, 244, 248, 0.055) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(240, 244, 248, 0.055) 1px, transparent 1px);
+	background-size: 32px 32px;
+}
+
+@utility grid-light {
+	background-image:
+		linear-gradient(to right, rgba(45, 136, 200, 0.09) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(45, 136, 200, 0.09) 1px, transparent 1px);
+	background-size: 32px 32px;
 }
 
 @utility hazard {
@@ -77,19 +89,54 @@ body {
 	);
 }
 
-/* Small caps label — replaces the old mono labels */
+/* Technical mono label — the site's eyebrow / data voice */
 @utility ui-label {
-	font-family: var(--font-display);
-	font-size: 0.72rem;
-	font-weight: 600;
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	font-weight: 500;
 	line-height: 1.4;
-	letter-spacing: 0.2em;
+	letter-spacing: 0.16em;
 	text-transform: uppercase;
 }
 
-.hero-diagram text {
-	font-family: var(--font-display);
-	letter-spacing: 0.01em;
+/* Square terminal marker — colour via border-/bg- utilities at call site */
+@utility terminal {
+	display: inline-block;
+	transform: rotate(45deg);
+	border-width: 1.5px;
+	border-style: solid;
+	background: transparent;
+}
+
+/* ------------------------------------------------------------------ *
+ * Components — thin, typography-driven. Spacing stays in the markup
+ * so utilities never fight component classes.
+ * ------------------------------------------------------------------ */
+@layer components {
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 border-2 font-display text-sm font-bold uppercase tracking-[0.08em] transition-colors duration-200;
+		border-radius: 2px;
+	}
+
+	.btn-sun {
+		@apply border-ink bg-sun text-ink hover:border-ink hover:bg-volt;
+	}
+
+	.btn-mono {
+		@apply border-ink bg-ink text-paper hover:border-blue hover:bg-blue-dark;
+	}
+
+	.btn-paper {
+		@apply border-paper/40 bg-transparent text-paper hover:border-volt hover:text-volt;
+	}
+
+	.nameplate {
+		border-radius: 2px;
+	}
+
+	.ledger-head {
+		@apply border-b border-line pb-3 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-slate;
+	}
 }
 
 /* ------------------------------------------------------------------ *

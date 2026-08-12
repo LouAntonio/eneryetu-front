@@ -19,10 +19,11 @@ export function Services() {
 
 			<section className="border-b border-line">
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-						{services.map((service) => (
+					<div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+						{services.map((service, index) => (
 							<ServiceCard
 								key={service.title}
+								index={index + 1}
 								title={service.title}
 								blurb={service.blurb}
 								spec={service.spec}
@@ -40,16 +41,22 @@ export function Services() {
 						body={t('services.beyond.body')}
 						tone="sun"
 					/>
-					<div className="mt-10 grid gap-4 sm:grid-cols-3">
+					<div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-3">
 						{beyond.map((item) => (
-							<article key={item.title} className="border border-line bg-white p-6">
+							<article
+								key={item.title}
+								className="group bg-white p-6 transition-colors hover:bg-ink"
+							>
 								<div className="flex items-center gap-3">
-									<span aria-hidden className="h-2 w-2 shrink-0 bg-sun" />
-									<h2 className="font-display text-lg font-bold tracking-tight text-ink">
+									<span
+										aria-hidden
+										className="terminal h-2 w-2 border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt"
+									/>
+									<h2 className="font-display text-xl font-bold uppercase tracking-tight text-ink transition-colors group-hover:text-paper">
 										{item.title}
 									</h2>
 								</div>
-								<p className="mt-3 text-sm leading-relaxed text-slate">
+								<p className="mt-3 text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
 									{item.blurb}
 								</p>
 							</article>

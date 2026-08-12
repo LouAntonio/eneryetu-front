@@ -10,9 +10,15 @@ interface SectionHeadingProps {
 	className?: string;
 }
 
-const NODE_COLORS: Record<Tone, string> = {
+const TERMINALS: Record<Tone, string> = {
+	blue: 'border-blue bg-blue',
+	sun: 'border-sun bg-sun',
+	volt: 'border-volt bg-volt',
+};
+
+const TRACES: Record<Tone, string> = {
 	blue: 'bg-blue',
-	sun: 'bg-sun',
+	sun: 'bg-sun-deep',
 	volt: 'bg-volt',
 };
 
@@ -30,17 +36,19 @@ export function SectionHeading({
 			<div className="flex items-center gap-3">
 				<span
 					aria-hidden
-					className={`h-2.5 w-2.5 shrink-0 transition-colors duration-500 ${
-						revealed ? NODE_COLORS[tone] : 'bg-line'
+					className={`terminal h-2 w-2 transition-colors duration-500 ${
+						revealed ? TERMINALS[tone] : 'border-line'
 					}`}
 				/>
 				<span className="ui-label text-slate">{eyebrow}</span>
 				<span
 					aria-hidden
-					className={`trace h-0.5 min-w-8 flex-1 ${revealed ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}
+					className={`h-0.5 min-w-8 flex-1 transition-colors duration-700 ${
+						revealed ? TRACES[tone] : 'bg-line'
+					}`}
 				/>
 			</div>
-			<h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+			<h2 className="mt-5 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
 				{title}
 			</h2>
 			{body ? (

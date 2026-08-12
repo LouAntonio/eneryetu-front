@@ -14,30 +14,29 @@ export function Sectors() {
 				body={t('sectors.body')}
 			/>
 
-			<section className="border-t-0">
+			<section>
 				<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-						{sectors.map((sector) => (
+					<div className="divide-y divide-line border-y border-line">
+						{sectors.map((sector, index) => (
 							<article
 								key={sector.title}
-								className="group relative flex flex-col border border-line bg-white p-6 transition-colors hover:border-blue"
+								className="group grid gap-4 bg-white px-5 py-6 transition-colors hover:bg-ink sm:grid-cols-[4.5rem_1fr_auto] sm:items-start"
 							>
-								<span
-									aria-hidden
-									className="absolute inset-x-0 top-0 h-0.5 origin-left bg-sun transition-transform duration-500 group-hover:scale-x-100"
-								/>
-								<div className="flex items-center justify-between">
-									<h2 className="font-display text-lg font-bold tracking-tight text-ink">
+								<span className="font-mono text-xs text-blue">
+									{`S-${String(index + 1).padStart(2, '0')}`}
+								</span>
+								<div>
+									<h2 className="font-display text-2xl font-bold uppercase leading-none tracking-tight text-ink transition-colors group-hover:text-paper">
 										{sector.title}
 									</h2>
-									<span
-										aria-hidden
-										className="h-1.5 w-1.5 bg-sun transition-colors group-hover:bg-volt"
-									/>
+									<p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate transition-colors group-hover:text-paper/70">
+										{sector.blurb}
+									</p>
 								</div>
-								<p className="mt-3 text-sm leading-relaxed text-slate">
-									{sector.blurb}
-								</p>
+								<span
+									aria-hidden
+									className="terminal h-2 w-2 justify-self-start border-sun bg-sun transition-colors group-hover:border-volt group-hover:bg-volt sm:mt-1 sm:justify-self-end"
+								/>
 							</article>
 						))}
 					</div>
