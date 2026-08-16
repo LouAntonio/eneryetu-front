@@ -9,7 +9,15 @@ import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
 import { Home } from './pages/Home';
-import { MediaBlog, MediaEvents, MediaGallery, MediaLayout, MediaNews } from './pages/Media';
+import {
+	MediaBlog,
+	MediaEventDetail,
+	MediaEvents,
+	MediaGallery,
+	MediaLayout,
+	MediaNews,
+	MediaPostDetail,
+} from './pages/Media';
 import { NotFound } from './pages/NotFound';
 import { Sectors } from './pages/Sectors';
 import { Services } from './pages/Services';
@@ -39,8 +47,11 @@ function PublicSite() {
 					<Route path="/media" element={<MediaLayout />}>
 						<Route index element={<Navigate to="/media/blog" replace />} />
 						<Route path="blog" element={<MediaBlog />} />
+						<Route path="blog/:slug" element={<MediaPostDetail />} />
 						<Route path="news" element={<MediaNews />} />
+						<Route path="news/:slug" element={<MediaPostDetail />} />
 						<Route path="events" element={<MediaEvents />} />
+						<Route path="events/:slug" element={<MediaEventDetail />} />
 						<Route path="gallery" element={<MediaGallery />} />
 					</Route>
 					<Route path="/careers" element={<Careers />} />
