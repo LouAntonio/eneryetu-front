@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { api } from '../services/api';
 
 type Field = 'name' | 'company' | 'email' | 'message';
 type Values = Record<Field, string>;
@@ -15,13 +16,15 @@ export function ContactForm() {
 	const [values, setValues] = useState<Values>({ name: '', company: '', email: '', message: '' });
 	const [errors, setErrors] = useState<Errors>({});
 	const [sent, setSent] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [serverError, setServerError] = useState('');
 
 	const update =
 		(field: Field) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 			setValues((prev) => ({ ...prev, [field]: event.target.value }));
 		};
 
-	const onSubmit = (event: FormEvent) => {
+	const onSubmit = async (event: FormEvent) => {
 		event.preventDefault();
 		const next: Errors = {};
 		if (!values.name.trim()) next.name = t('contact.form.nameRequired');
@@ -29,7 +32,24 @@ export function ContactForm() {
 			next.email = t('contact.form.emailInvalid');
 		if (!values.message.trim()) next.message = t('contact.form.messageRequired');
 		setErrors(next);
-		if (Object.keys(next).length === 0) setSent(true);
+		if (Object.keys(next).length > 0) return;
+
+		setLoading(true);
+		setServerError('');
+		try {
+			await api.post('/contact', {
+				name: values.name,
+				email: values.email,
+				phone: values.company,
+				message: values.message,
+			});
+			setSent(true);
+		} catch (err: unknown) {
+			const msg = err instanceof Error ? err.message : 'Erro ao enviar mensagem';
+			setServerError(msg);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	if (sent) {
@@ -51,6 +71,12 @@ export function ContactForm() {
 			<h3 className="font-display text-3xl font-black uppercase leading-none tracking-tight text-ink">
 				{t('contact.form.title')}
 			</h3>
+
+			{serverError && (
+				<p className="mt-4 rounded border border-red bg-red/10 px-3 py-2 font-mono text-sm text-red">
+					{serverError}
+				</p>
+			)}
 
 			<div className="mt-6 grid gap-5 sm:grid-cols-2">
 				<div>
@@ -119,8 +145,8 @@ export function ContactForm() {
 				) : null}
 			</div>
 
-			<button type="submit" className="btn btn-sun mt-6 px-6 py-3">
-				{t('contact.form.submit')}
+			<button type="submit" disabled={loading} className="btn btn-sun mt-6 px-6 py-3">
+				{loading ? '...' : t('contact.form.submit')}
 			</button>
 		</form>
 	);

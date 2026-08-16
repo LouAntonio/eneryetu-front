@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { api } from '../services/api';
 
 interface ApplicationFormProps {
 	positions: string[];
@@ -31,6 +32,8 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 	const [errors, setErrors] = useState<Errors>({});
 	const [cv, setCv] = useState<File | null>(null);
 	const [sent, setSent] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [serverError, setServerError] = useState('');
 
 	const update =
 		(field: Field) =>
@@ -42,7 +45,7 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 		setCv(event.target.files?.[0] ?? null);
 	};
 
-	const onSubmit = (event: FormEvent) => {
+	const onSubmit = async (event: FormEvent) => {
 		event.preventDefault();
 		const next: Errors = {};
 		if (!values.name.trim()) next.name = t('careers.form.nameRequired');
@@ -51,7 +54,29 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 		if (!values.position) next.position = t('careers.form.positionRequired');
 		if (!cv) next.cv = t('careers.form.cvRequired');
 		setErrors(next);
-		if (Object.keys(next).length === 0) setSent(true);
+		if (Object.keys(next).length > 0) return;
+
+		setLoading(true);
+		setServerError('');
+		try {
+			const formData = new FormData();
+			formData.append('nome', values.name);
+			formData.append('email', values.email);
+			formData.append('telefone', values.phone);
+			formData.append('area', values.position);
+			formData.append('mensagem', values.message);
+			if (cv) formData.append('curriculum', cv);
+
+			await api.post('/carreiras', formData, {
+				headers: { 'Content-Type': 'multipart/form-data' },
+			});
+			setSent(true);
+		} catch (err: unknown) {
+			const msg = err instanceof Error ? err.message : 'Erro ao enviar candidatura';
+			setServerError(msg);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	if (sent) {
@@ -73,6 +98,12 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 			<h3 className="font-display text-3xl font-black uppercase leading-none tracking-tight text-ink">
 				{t('careers.form.title')}
 			</h3>
+
+			{serverError && (
+				<p className="mt-4 rounded border border-red bg-red/10 px-3 py-2 font-mono text-sm text-red">
+					{serverError}
+				</p>
+			)}
 
 			<div className="mt-6 grid gap-5 sm:grid-cols-2">
 				<div>
@@ -190,8 +221,8 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 				/>
 			</div>
 
-			<button type="submit" className="btn btn-sun mt-6 px-6 py-3">
-				{t('careers.form.submit')}
+			<button type="submit" disabled={loading} className="btn btn-sun mt-6 px-6 py-3">
+				{loading ? '...' : t('careers.form.submit')}
 			</button>
 		</form>
 	);
