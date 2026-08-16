@@ -212,6 +212,34 @@ body {
 	.ledger-head {
 		@apply border-b border-line pb-3 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-slate;
 	}
+
+	.corner-frame {
+		position: relative;
+	}
+
+	.corner-frame::before,
+	.corner-frame::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-color: var(--color-blue);
+		border-style: solid;
+		z-index: 10;
+		pointer-events: none;
+	}
+
+	.corner-frame::before {
+		top: -1px;
+		left: -1px;
+		border-width: 2px 0 0 2px;
+	}
+
+	.corner-frame::after {
+		bottom: -1px;
+		right: -1px;
+		border-width: 0 2px 2px 0;
+	}
 }
 
 /* ------------------------------------------------------------------ *

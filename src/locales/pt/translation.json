@@ -286,14 +286,35 @@
 			"title": "Eventos",
 			"emptyTitle": "O próximo evento está em preparação.",
 			"emptyBody": "Publicamos aqui dias de formação abertos e encontros do sector. Diga-nos a que gostaria de assistir e damos prioridade.",
-			"venue": "Local"
+			"venue": "Local",
+			"cta": "Falar connosco",
+			"spec": {
+				"title": "Ficha técnica",
+				"date": "Data",
+				"type": "Tipo",
+				"country": "País",
+				"city": "Cidade",
+				"venue": "Local"
+			}
 		},
 		"gallery": {
 			"title": "Galeria",
 			"emptyTitle": "Fotografias novas a caminho.",
 			"emptyBody": "Estamos a preparar fotografias de instalações concluídas, oficinas e equipas de campo."
 		},
-		"loading": "A carregar…"
+		"loading": "A carregar…",
+		"readingTime": "min de leitura",
+		"logLabel": "Livro de ocorrências",
+		"live": "Em direto",
+		"latest": "Mais do feed",
+		"specTitle": "Ficha do post",
+		"spec": {
+			"category": "Categoria",
+			"date": "Data",
+			"author": "Autor",
+			"reading": "Leitura"
+		},
+		"ctaContact": "Falar connosco"
 	},
 	"contact": {
 		"eyebrow": "Contactos",

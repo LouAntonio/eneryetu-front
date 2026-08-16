@@ -17,7 +17,7 @@ import {
 	MediaLayout,
 	MediaNews,
 	MediaPostDetail,
-} from './pages/Media';
+} from './pages/media';
 import { NotFound } from './pages/NotFound';
 import { Sectors } from './pages/Sectors';
 import { Services } from './pages/Services';

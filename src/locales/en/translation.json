@@ -279,14 +279,35 @@
 			"title": "Events",
 			"emptyTitle": "Next event is being planned.",
 			"emptyBody": "We publish open training days and industry meetups here. Tell us what you would like to attend and we will prioritise it.",
-			"venue": "Venue"
+			"venue": "Venue",
+			"cta": "Contact us",
+			"spec": {
+				"title": "Spec sheet",
+				"date": "Date",
+				"type": "Type",
+				"country": "Country",
+				"city": "City",
+				"venue": "Venue"
+			}
 		},
 		"gallery": {
 			"title": "Gallery",
 			"emptyTitle": "Fresh photographs coming.",
 			"emptyBody": "We are preparing photographs of completed installations, workshops and field teams."
 		},
-		"loading": "Loading…"
+		"loading": "Loading…",
+		"readingTime": "min read",
+		"logLabel": "Field log",
+		"live": "Live",
+		"latest": "More from the feed",
+		"specTitle": "Post sheet",
+		"spec": {
+			"category": "Category",
+			"date": "Date",
+			"author": "Author",
+			"reading": "Reading"
+		},
+		"ctaContact": "Contact us"
 	},
 	"contact": {
 		"eyebrow": "Contact",
