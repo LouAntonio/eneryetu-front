@@ -9,6 +9,7 @@
 		"training": "Treinamento",
 		"media": "Mídia",
 		"blog": "Blog",
+		"news": "Notícias",
 		"events": "Eventos",
 		"gallery": "Galeria",
 		"careers": "Carreiras",
@@ -276,16 +277,23 @@
 			"emptyTitle": "As notas de campo estão a ser redigidas.",
 			"emptyBody": "Os nossos engenheiros estão a escrever sobre falhas, correcções e lições reais. A primeira publicação chega aqui em breve — siga-nos no LinkedIn para não perder."
 		},
+		"news": {
+			"title": "Notícias",
+			"emptyTitle": "Ainda não há notícias.",
+			"emptyBody": "Publicamos aqui as notícias da empresa e do sector — de novos projectos a marcos no terreno."
+		},
 		"events": {
 			"title": "Eventos",
 			"emptyTitle": "O próximo evento está em preparação.",
-			"emptyBody": "Publicamos aqui dias de formação abertos e encontros do sector. Diga-nos a que gostaria de assistir e damos prioridade."
+			"emptyBody": "Publicamos aqui dias de formação abertos e encontros do sector. Diga-nos a que gostaria de assistir e damos prioridade.",
+			"venue": "Local"
 		},
 		"gallery": {
 			"title": "Galeria",
 			"emptyTitle": "Fotografias novas a caminho.",
 			"emptyBody": "Estamos a preparar fotografias de instalações concluídas, oficinas e equipas de campo."
-		}
+		},
+		"loading": "A carregar…"
 	},
 	"contact": {
 		"eyebrow": "Contactos",
@@ -322,6 +330,135 @@
 		"mediaLinksTitle": "Mídia",
 		"contactTitle": "Contactos",
 		"rights": "Todos os direitos reservados."
+	},
+	"admin": {
+		"logout": "Sair",
+		"backToSite": "Voltar ao site",
+		"edit": "Editar",
+		"delete": "Eliminar",
+		"deleteConfirm": "Eliminar este registo? Não pode ser desfeito.",
+		"save": "Guardar",
+		"cancel": "Cancelar",
+		"back": "Voltar",
+		"you": "(você)",
+		"upload": "Carregar",
+		"errors": {
+			"generic": "Algo correu mal. Tente novamente."
+		},
+		"nav": {
+			"dashboard": "Painel",
+			"users": "Utilizadores",
+			"posts": "Publicações",
+			"events": "Eventos",
+			"categories": "Categorias",
+			"eventTypes": "Tipos de evento"
+		},
+		"status": {
+			"draft": "Rascunho",
+			"published": "Publicado",
+			"archived": "Arquivado"
+		},
+		"login": {
+			"invalid": "Credenciais inválidas.",
+			"eyebrow": "Acesso restrito",
+			"title": "Sala de controlo",
+			"email": "Email",
+			"password": "Senha",
+			"submit": "Entrar"
+		},
+		"dashboard": {
+			"eyebrow": "Visão geral",
+			"title": "Sala de controlo",
+			"users": "Utilizadores",
+			"posts": "Publicações",
+			"events": "Eventos",
+			"note": "Nota de campo",
+			"noteBody": "O conteúdo editado aqui é publicado no site público de imediato. Os rascunhos ficam ocultos até os definir como Publicado."
+		},
+		"users": {
+			"eyebrow": "Acesso",
+			"title": "Utilizadores",
+			"add": "Adicionar utilizador",
+			"name": "Nome",
+			"surname": "Apelido",
+			"email": "Email",
+			"password": "Senha",
+			"role": "Função",
+			"deleteConfirm": "Eliminar este utilizador?"
+		},
+		"categories": {
+			"eyebrow": "Taxonomia",
+			"title": "Categorias",
+			"add": "Adicionar categoria",
+			"name": "Nome",
+			"slug": "Slug",
+			"posts": "Publicações"
+		},
+		"eventTypes": {
+			"eyebrow": "Taxonomia",
+			"title": "Tipos de evento",
+			"add": "Adicionar tipo",
+			"name": "Nome",
+			"slug": "Slug",
+			"events": "Eventos"
+		},
+		"posts": {
+			"eyebrow": "Conteúdo",
+			"title": "Publicações",
+			"add": "Nova publicação",
+			"editTitle": "Editar publicação",
+			"newTitle": "Nova publicação",
+			"titleField": "Título",
+			"slug": "Slug",
+			"type": "Tipo",
+			"typeNoticia": "Notícia",
+			"typeBlog": "Blog",
+			"status": "Estado",
+			"category": "Categoria",
+			"noCategory": "Sem categoria",
+			"excerpt": "Resumo",
+			"excerptHint": "Resumo curto mostrado nas listagens…",
+			"content": "Conteúdo",
+			"coverImage": "URL da imagem de capa",
+			"metaTitle": "Meta título",
+			"metaDescription": "Meta descrição",
+			"featured": "Destaque"
+		},
+		"events": {
+			"eyebrow": "Agenda",
+			"title": "Eventos",
+			"add": "Novo evento",
+			"editTitle": "Editar evento",
+			"newTitle": "Novo evento",
+			"titleField": "Título",
+			"slug": "Slug",
+			"subtitle": "Subtítulo",
+			"description": "Descrição curta",
+			"fullDescription": "Descrição completa",
+			"startDate": "Data de início",
+			"endDate": "Data de fim",
+			"displayDate": "Data de exibição",
+			"eventType": "Tipo de evento",
+			"chooseType": "Escolha um tipo…",
+			"status": "Estado",
+			"featured": "Destaque",
+			"countryCode": "Código do país",
+			"countryName": "País",
+			"city": "Cidade",
+			"venue": "Local",
+			"latitude": "Latitude",
+			"longitude": "Longitude",
+			"metaTitle": "Meta título",
+			"metaDescription": "Meta descrição",
+			"saveAndNext": "Guardar & adicionar ficheiros",
+			"assets": "Ficheiros",
+			"coverImage": "Imagem de capa",
+			"noCover": "Sem capa ainda — carregue após o primeiro save.",
+			"gallery": "Galeria",
+			"noGallery": "Ainda sem imagens.",
+			"documents": "Documentos",
+			"noDocuments": "Ainda sem documentos."
+		}
 	},
 	"notFound": {
 		"title": "Está fora da rede.",

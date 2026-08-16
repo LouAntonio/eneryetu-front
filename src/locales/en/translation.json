@@ -9,6 +9,7 @@
 		"training": "Training",
 		"media": "Media",
 		"blog": "Blog",
+		"news": "News",
 		"events": "Events",
 		"gallery": "Gallery",
 		"careers": "Careers",
@@ -269,16 +270,23 @@
 			"emptyTitle": "Field notes are being drafted.",
 			"emptyBody": "Our engineers are writing up real failures, fixes and lessons. First post lands here soon — follow us on LinkedIn so you do not miss it."
 		},
+		"news": {
+			"title": "News",
+			"emptyTitle": "No news yet.",
+			"emptyBody": "We will publish company and sector news here — from new projects to milestones in the field."
+		},
 		"events": {
 			"title": "Events",
 			"emptyTitle": "Next event is being planned.",
-			"emptyBody": "We publish open training days and industry meetups here. Tell us what you would like to attend and we will prioritise it."
+			"emptyBody": "We publish open training days and industry meetups here. Tell us what you would like to attend and we will prioritise it.",
+			"venue": "Venue"
 		},
 		"gallery": {
 			"title": "Gallery",
 			"emptyTitle": "Fresh photographs coming.",
 			"emptyBody": "We are preparing photographs of completed installations, workshops and field teams."
-		}
+		},
+		"loading": "Loading…"
 	},
 	"contact": {
 		"eyebrow": "Contact",
@@ -315,6 +323,135 @@
 		"mediaLinksTitle": "Media",
 		"contactTitle": "Contact",
 		"rights": "All rights reserved."
+	},
+	"admin": {
+		"logout": "Log out",
+		"backToSite": "Back to site",
+		"edit": "Edit",
+		"delete": "Delete",
+		"deleteConfirm": "Delete this record? This cannot be undone.",
+		"save": "Save",
+		"cancel": "Cancel",
+		"back": "Back",
+		"you": "(you)",
+		"upload": "Upload",
+		"errors": {
+			"generic": "Something went wrong. Try again."
+		},
+		"nav": {
+			"dashboard": "Dashboard",
+			"users": "Users",
+			"posts": "Posts",
+			"events": "Events",
+			"categories": "Categories",
+			"eventTypes": "Event types"
+		},
+		"status": {
+			"draft": "Draft",
+			"published": "Published",
+			"archived": "Archived"
+		},
+		"login": {
+			"invalid": "Invalid credentials.",
+			"eyebrow": "Restricted access",
+			"title": "Control room",
+			"email": "Email",
+			"password": "Password",
+			"submit": "Enter"
+		},
+		"dashboard": {
+			"eyebrow": "Overview",
+			"title": "Control room",
+			"users": "Users",
+			"posts": "Posts",
+			"events": "Events",
+			"note": "Field note",
+			"noteBody": "Content edited here is published to the public site immediately. Drafts stay hidden until you set them to Published."
+		},
+		"users": {
+			"eyebrow": "Access",
+			"title": "Users",
+			"add": "Add user",
+			"name": "Name",
+			"surname": "Surname",
+			"email": "Email",
+			"password": "Password",
+			"role": "Role",
+			"deleteConfirm": "Delete this user?"
+		},
+		"categories": {
+			"eyebrow": "Taxonomy",
+			"title": "Categories",
+			"add": "Add category",
+			"name": "Name",
+			"slug": "Slug",
+			"posts": "Posts"
+		},
+		"eventTypes": {
+			"eyebrow": "Taxonomy",
+			"title": "Event types",
+			"add": "Add event type",
+			"name": "Name",
+			"slug": "Slug",
+			"events": "Events"
+		},
+		"posts": {
+			"eyebrow": "Content",
+			"title": "Posts",
+			"add": "New post",
+			"editTitle": "Edit post",
+			"newTitle": "New post",
+			"titleField": "Title",
+			"slug": "Slug",
+			"type": "Type",
+			"typeNoticia": "News",
+			"typeBlog": "Blog",
+			"status": "Status",
+			"category": "Category",
+			"noCategory": "No category",
+			"excerpt": "Excerpt",
+			"excerptHint": "Short summary shown on the listings…",
+			"content": "Content",
+			"coverImage": "Cover image URL",
+			"metaTitle": "Meta title",
+			"metaDescription": "Meta description",
+			"featured": "Featured"
+		},
+		"events": {
+			"eyebrow": "Agenda",
+			"title": "Events",
+			"add": "New event",
+			"editTitle": "Edit event",
+			"newTitle": "New event",
+			"titleField": "Title",
+			"slug": "Slug",
+			"subtitle": "Subtitle",
+			"description": "Short description",
+			"fullDescription": "Full description",
+			"startDate": "Start date",
+			"endDate": "End date",
+			"displayDate": "Display date",
+			"eventType": "Event type",
+			"chooseType": "Choose a type…",
+			"status": "Status",
+			"featured": "Featured",
+			"countryCode": "Country code",
+			"countryName": "Country",
+			"city": "City",
+			"venue": "Venue",
+			"latitude": "Latitude",
+			"longitude": "Longitude",
+			"metaTitle": "Meta title",
+			"metaDescription": "Meta description",
+			"saveAndNext": "Save & add assets",
+			"assets": "Assets",
+			"coverImage": "Cover image",
+			"noCover": "No cover yet — upload after first save.",
+			"gallery": "Gallery",
+			"noGallery": "No images yet.",
+			"documents": "Documents",
+			"noDocuments": "No documents yet."
+		}
 	},
 	"notFound": {
 		"title": "You are off the grid.",

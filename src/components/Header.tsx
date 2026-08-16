@@ -14,7 +14,7 @@ const NAV_KEYS = [
 	'careers',
 	'contact',
 ] as const;
-const MEDIA_KEYS = ['blog', 'events', 'gallery'] as const;
+const MEDIA_KEYS = ['blog', 'news', 'events', 'gallery'] as const;
 
 type NavKey = (typeof NAV_KEYS)[number];
 type MediaKey = (typeof MEDIA_KEYS)[number];
@@ -97,6 +97,7 @@ export function Header() {
 	};
 	const mediaLabels: Record<MediaKey, string> = {
 		blog: t('navigation.blog'),
+		news: t('navigation.news'),
 		events: t('navigation.events'),
 		gallery: t('navigation.gallery'),
 	};

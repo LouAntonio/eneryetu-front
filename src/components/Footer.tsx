@@ -15,6 +15,7 @@ export function Footer() {
 
 	const media = [
 		{ key: 'blog', to: '/media/blog' },
+		{ key: 'news', to: '/media/news' },
 		{ key: 'events', to: '/media/events' },
 		{ key: 'gallery', to: '/media/gallery' },
 		{ key: 'careers', to: '/careers' },
