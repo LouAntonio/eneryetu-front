@@ -302,13 +302,13 @@ export function PostForm() {
 
 	const { data: categories } = useQuery({
 		queryKey: ['categories'],
-		queryFn: async () => api.get<Category[]>('/categories'),
+		queryFn: async () => (await api.get<{ data: Category[] }>('/categories')).data,
 	});
 
 	const { data: existing, isLoading: loadingExisting } = useQuery({
 		queryKey: ['post', id],
 		enabled: editing,
-		queryFn: async () => api.get<Post>(`/posts/${id}`),
+		queryFn: async () => (await api.get<{ data: Post }>(`/posts/${id}`)).data,
 	});
 
 	return (

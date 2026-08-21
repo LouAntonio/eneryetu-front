@@ -42,7 +42,7 @@ export function TaxonomyPage({
 
 	const { data, isLoading } = useQuery({
 		queryKey: [plural],
-		queryFn: async () => api.get<Row[]>(base),
+		queryFn: async () => (await api.get<{ data: Row[] }>(base)).data,
 	});
 
 	const save = useMutation({

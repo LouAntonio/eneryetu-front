@@ -112,7 +112,7 @@ function EventFormInner({ event, editing, id, eventTypes }: EventFormInnerProps)
 			return api.post('/events', body);
 		},
 		onSuccess: (resp) => {
-			const saved = resp as Event;
+			const saved = (resp as { data?: Event }).data;
 			if (editing) {
 				navigate('/eneryetu/events');
 			} else if (saved?.id) {
@@ -627,13 +627,13 @@ export function EventForm() {
 
 	const { data: eventTypes } = useQuery({
 		queryKey: ['eventTypes'],
-		queryFn: async () => api.get<EventType[]>('/event-types'),
+		queryFn: async () => (await api.get<{ data: EventType[] }>('/event-types')).data,
 	});
 
 	const { data: event, isLoading: loadingExisting } = useQuery({
 		queryKey: ['event', id],
 		enabled: editing,
-		queryFn: async () => api.get<Event>(`/events/${id}`),
+		queryFn: async () => (await api.get<{ data: Event }>(`/events/${id}`)).data,
 	});
 
 	return (

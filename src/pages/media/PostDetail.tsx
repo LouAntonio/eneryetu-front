@@ -31,7 +31,7 @@ export function MediaPostDetail() {
 	const { data: post, isLoading } = useQuery({
 		queryKey: ['media', 'post', slug],
 		enabled: Boolean(slug),
-		queryFn: async () => api.get<Post>(`/posts/slug/${slug}`),
+		queryFn: async () => (await api.get<{ data: Post }>(`/posts/slug/${slug}`)).data,
 	});
 
 	const type = post?.type;

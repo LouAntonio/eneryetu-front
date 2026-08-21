@@ -19,7 +19,7 @@ export function Dashboard() {
 
 	const users = useQuery({
 		queryKey: ['users'],
-		queryFn: async () => api.get<User[]>('/auth/users'),
+		queryFn: async () => (await api.get<{ data: User[] }>('/auth/users')).data,
 	});
 	const posts = useCount<Post>('posts', '/posts');
 	const events = useCount<Event>('events', '/events');
