@@ -31,7 +31,7 @@ export function MediaPostDetail() {
 	const { data: post, isLoading } = useQuery({
 		queryKey: ['media', 'post', slug],
 		enabled: Boolean(slug),
-		queryFn: async () => (await api.get<{ data: Post }>(`/posts/slug/${slug}`)).data.data,
+		queryFn: async () => api.get<Post>(`/posts/slug/${slug}`),
 	});
 
 	const type = post?.type;
@@ -41,7 +41,7 @@ export function MediaPostDetail() {
 		queryKey: ['media', 'latest', type],
 		enabled: Boolean(type),
 		queryFn: async () =>
-			(await api.get<Paginated<Post>>('/posts', { params: { limit: 4, type } })).data.data,
+			(await api.get<Paginated<Post>>('/posts', { params: { limit: 4, type } })).data,
 	});
 
 	const minutes = useMemo(() => (post ? estimateReadTime(post.content) : 0), [post]);

@@ -79,9 +79,9 @@ function PostFormInner({ initial, editing, id, categories }: PostFormInnerProps)
 				metaDescription: form.metaDescription || null,
 			};
 			if (editing) {
-				return (await api.put(`/posts/${id}`, body)).data;
+				return api.put(`/posts/${id}`, body);
 			}
-			return (await api.post('/posts', body)).data;
+			return api.post('/posts', body);
 		},
 		onSuccess: () => {
 			navigate('/eneryetu/posts');
@@ -302,13 +302,13 @@ export function PostForm() {
 
 	const { data: categories } = useQuery({
 		queryKey: ['categories'],
-		queryFn: async () => (await api.get<{ data: Category[] }>('/categories')).data.data,
+		queryFn: async () => api.get<Category[]>('/categories'),
 	});
 
 	const { data: existing, isLoading: loadingExisting } = useQuery({
 		queryKey: ['post', id],
 		enabled: editing,
-		queryFn: async () => (await api.get<{ data: Post }>(`/posts/${id}`)).data.data,
+		queryFn: async () => api.get<Post>(`/posts/${id}`),
 	});
 
 	return (

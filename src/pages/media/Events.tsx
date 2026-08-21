@@ -91,7 +91,7 @@ export function MediaEvents() {
 	const { data, isLoading } = useQuery({
 		queryKey: ['media', 'events'],
 		queryFn: async () =>
-			(await api.get<Paginated<Event>>('/events', { params: { limit: 12 } })).data.data,
+			(await api.get<Paginated<Event>>('/events', { params: { limit: 12 } })).data,
 	});
 
 	if (isLoading) {

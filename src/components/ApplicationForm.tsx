@@ -67,9 +67,7 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 			formData.append('mensagem', values.message);
 			if (cv) formData.append('curriculum', cv);
 
-			await api.post('/carreiras', formData, {
-				headers: { 'Content-Type': 'multipart/form-data' },
-			});
+			await api.post('/carreiras', formData);
 			setSent(true);
 		} catch (err: unknown) {
 			const msg = err instanceof Error ? err.message : 'Erro ao enviar candidatura';

@@ -43,13 +43,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 			}
 
 			try {
-				const { data } = await api.post<{ data: { accessToken: string } }>(
-					'/auth/refresh',
-					{ refreshToken: refresh },
-				);
-				setTokens(data.data.accessToken, refresh);
-				const me = await api.get<{ data: User }>('/auth/me');
-				setUser(me.data.data);
+				const data = await api.post<{ accessToken: string }>('/auth/refresh', {
+					refreshToken: refresh,
+				});
+				setTokens(data.accessToken, refresh);
+				const me = await api.get<User>('/auth/me');
+				setUser(me);
 			} catch {
 				clearTokens();
 			} finally {
@@ -60,8 +59,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	}, []);
 
 	const login = useCallback(async (email: string, password: string) => {
-		const { data } = await api.post<LoginResponse>('/auth/login', { email, password });
-		const { user: loggedUser, accessToken, refreshToken } = data.data;
+		const data = await api.post<LoginResponse['data']>('/auth/login', { email, password });
+		const { user: loggedUser, accessToken, refreshToken } = data;
 		setTokens(accessToken, refreshToken);
 		setUser(loggedUser);
 	}, []);

@@ -1,4 +1,6 @@
-const API_ORIGIN = import.meta.env.VITE_API_URL ? new URL(import.meta.env.VITE_API_URL).origin : '';
+const API_ORIGIN = import.meta.env.VITE_BACKEND_URL
+	? new URL(import.meta.env.VITE_BACKEND_URL).origin
+	: '';
 
 export function assetUrl(path?: string | null): string | null {
 	if (!path) return null;

@@ -133,7 +133,7 @@ function Feed({ type, sectionKey }: FeedProps) {
 	const { data, isLoading } = useQuery({
 		queryKey: ['media', 'posts', type],
 		queryFn: async () =>
-			(await api.get<Paginated<Post>>('/posts', { params: { limit: 12, type } })).data.data,
+			(await api.get<Paginated<Post>>('/posts', { params: { limit: 12, type } })).data,
 	});
 
 	if (isLoading) {

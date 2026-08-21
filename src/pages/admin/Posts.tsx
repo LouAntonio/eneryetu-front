@@ -14,12 +14,12 @@ export function Posts() {
 	const { data, isLoading } = useQuery({
 		queryKey: ['posts'],
 		queryFn: async () =>
-			(await api.get<Paginated<Post>>('/posts', { params: { limit: 100, all: 'true' } })).data
+			(await api.get<Paginated<Post>>('/posts', { params: { limit: 100, all: 'true' } }))
 				.data,
 	});
 
 	const remove = useMutation({
-		mutationFn: async (id: string) => (await api.delete(`/posts/${id}`)).data,
+		mutationFn: async (id: string) => api.delete(`/posts/${id}`),
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: ['posts'] }),
 	});
 

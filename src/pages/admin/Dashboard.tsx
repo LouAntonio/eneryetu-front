@@ -8,8 +8,8 @@ function useCount<T>(key: string, url: string) {
 	return useQuery({
 		queryKey: [key, 'count'],
 		queryFn: async () => {
-			const { data } = await api.get<Paginated<T>>(url, { params: { limit: 1 } });
-			return data.pagination.total;
+			const page = await api.get<Paginated<T>>(url, { params: { limit: 1 } });
+			return page.pagination.total;
 		},
 	});
 }
@@ -19,7 +19,7 @@ export function Dashboard() {
 
 	const users = useQuery({
 		queryKey: ['users'],
-		queryFn: async () => (await api.get<{ data: User[] }>('/auth/users')).data.data,
+		queryFn: async () => api.get<User[]>('/auth/users'),
 	});
 	const posts = useCount<Post>('posts', '/posts');
 	const events = useCount<Event>('events', '/events');

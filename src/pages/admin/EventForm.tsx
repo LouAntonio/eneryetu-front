@@ -107,12 +107,12 @@ function EventFormInner({ event, editing, id, eventTypes }: EventFormInnerProps)
 				documents: event?.documents ?? undefined,
 			};
 			if (editing) {
-				return (await api.put(`/events/${id}`, body)).data;
+				return api.put(`/events/${id}`, body);
 			}
-			return (await api.post('/events', body)).data;
+			return api.post('/events', body);
 		},
 		onSuccess: (resp) => {
-			const saved = resp.data as Event;
+			const saved = resp as Event;
 			if (editing) {
 				navigate('/eneryetu/events');
 			} else if (saved?.id) {
@@ -166,15 +166,14 @@ function EventFormInner({ event, editing, id, eventTypes }: EventFormInnerProps)
 					: type === 'gallery'
 						? `/upload/events/${id}/gallery`
 						: `/upload/events/${id}/document`;
-			return (await api.post(url, fd, { headers: { 'Content-Type': 'multipart/form-data' } }))
-				.data;
+			return api.post(url, fd);
 		},
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: ['event', id] }),
 	});
 
 	const deleteAsset = useMutation({
 		mutationFn: async ({ type, index }: { type: 'gallery' | 'document'; index: number }) =>
-			(await api.delete(`/upload/events/${id}/${type}/${index}`)).data,
+			api.delete(`/upload/events/${id}/${type}/${index}`),
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: ['event', id] }),
 	});
 
@@ -628,13 +627,13 @@ export function EventForm() {
 
 	const { data: eventTypes } = useQuery({
 		queryKey: ['eventTypes'],
-		queryFn: async () => (await api.get<{ data: EventType[] }>('/event-types')).data.data,
+		queryFn: async () => api.get<EventType[]>('/event-types'),
 	});
 
 	const { data: event, isLoading: loadingExisting } = useQuery({
 		queryKey: ['event', id],
 		enabled: editing,
-		queryFn: async () => (await api.get<{ data: Event }>(`/events/${id}`)).data.data,
+		queryFn: async () => api.get<Event>(`/events/${id}`),
 	});
 
 	return (

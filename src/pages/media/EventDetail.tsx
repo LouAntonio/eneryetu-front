@@ -13,7 +13,7 @@ export function MediaEventDetail() {
 	const { data: event, isLoading } = useQuery({
 		queryKey: ['media', 'event', slug],
 		enabled: Boolean(slug),
-		queryFn: async () => (await api.get<{ data: Event }>(`/events/slug/${slug}`)).data.data,
+		queryFn: async () => api.get<Event>(`/events/slug/${slug}`),
 	});
 
 	if (isLoading) {

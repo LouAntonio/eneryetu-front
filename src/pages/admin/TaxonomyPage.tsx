@@ -42,16 +42,16 @@ export function TaxonomyPage({
 
 	const { data, isLoading } = useQuery({
 		queryKey: [plural],
-		queryFn: async () => (await api.get<{ data: Row[] }>(base)).data.data,
+		queryFn: async () => api.get<Row[]>(base),
 	});
 
 	const save = useMutation({
 		mutationFn: async () => {
 			const body = { name: form.name, slug: form.slug };
 			if (editing) {
-				return (await api.put(`${base}/${editing.id}`, body)).data;
+				return api.put(`${base}/${editing.id}`, body);
 			}
-			return (await api.post(base, body)).data;
+			return api.post(base, body);
 		},
 		onSuccess: () => {
 			setShowForm(false);
@@ -62,7 +62,7 @@ export function TaxonomyPage({
 	});
 
 	const remove = useMutation({
-		mutationFn: async (id: string) => (await api.delete(`${base}/${id}`)).data,
+		mutationFn: async (id: string) => api.delete(`${base}/${id}`),
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: [plural] }),
 	});
 

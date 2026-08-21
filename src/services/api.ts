@@ -1,4 +1,4 @@
-import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosError, type AxiosRequestConfig, type InternalAxiosRequestConfig } from 'axios';
 import {
 	clearTokens,
 	getAccessToken,
@@ -6,15 +6,16 @@ import {
 	setAccessToken,
 } from '../lib/authStore';
 
-export const api = axios.create({
-	baseURL: import.meta.env.VITE_API_URL ?? '/api',
+const backendOrigin = (import.meta.env.VITE_BACKEND_URL ?? '').replace(/\/+$/, '');
+
+export const API_BASE_URL = `${backendOrigin}/api`;
+
+const instance = axios.create({
+	baseURL: API_BASE_URL,
 	timeout: 15000,
-	headers: {
-		'Content-Type': 'application/json',
-	},
 });
 
-api.interceptors.request.use((config) => {
+instance.interceptors.request.use((config) => {
 	const token = getAccessToken();
 	if (token) {
 		config.headers.Authorization = `Bearer ${token}`;
@@ -24,7 +25,7 @@ api.interceptors.request.use((config) => {
 
 type RetryConfig = InternalAxiosRequestConfig & { _retry?: boolean };
 
-api.interceptors.response.use(
+instance.interceptors.response.use(
 	(response) => response,
 	async (error: AxiosError) => {
 		const original = error.config as RetryConfig | undefined;
@@ -40,15 +41,33 @@ api.interceptors.response.use(
 		}
 
 		try {
-			const { data } = await axios.post('/api/auth/refresh', { refreshToken });
+			const { data } = await axios.post(`${API_BASE_URL}/auth/refresh`, { refreshToken });
 			const newAccess = data.data?.accessToken;
 			if (!newAccess) throw new Error('Sem access token na resposta');
 			setAccessToken(newAccess);
 			original.headers.Authorization = `Bearer ${newAccess}`;
-			return api(original);
+			return instance(original);
 		} catch (refreshError) {
 			clearTokens();
 			return Promise.reject(refreshError);
 		}
 	},
 );
+
+async function request<T>(config: AxiosRequestConfig): Promise<T> {
+	const response = await instance.request<T>(config);
+	return response.data;
+}
+
+export const api = {
+	get: <T>(url: string, config?: AxiosRequestConfig) =>
+		request<T>({ ...config, method: 'GET', url }),
+	post: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+		request<T>({ ...config, method: 'POST', url, data }),
+	put: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+		request<T>({ ...config, method: 'PUT', url, data }),
+	patch: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+		request<T>({ ...config, method: 'PATCH', url, data }),
+	delete: <T = void>(url: string, config?: AxiosRequestConfig) =>
+		request<T>({ ...config, method: 'DELETE', url }),
+};

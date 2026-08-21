@@ -15,11 +15,11 @@ export function Events() {
 		queryKey: ['events'],
 		queryFn: async () =>
 			(await api.get<Paginated<Event>>('/events', { params: { limit: 100, all: 'true' } }))
-				.data.data,
+				.data,
 	});
 
 	const remove = useMutation({
-		mutationFn: async (id: string) => (await api.delete(`/events/${id}`)).data,
+		mutationFn: async (id: string) => api.delete(`/events/${id}`),
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: ['events'] }),
 	});
 

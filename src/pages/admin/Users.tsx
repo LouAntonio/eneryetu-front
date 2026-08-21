@@ -21,14 +21,11 @@ export function Users() {
 
 	const { data, isLoading } = useQuery({
 		queryKey: ['users'],
-		queryFn: async () => (await api.get<{ data: User[] }>('/auth/users')).data.data,
+		queryFn: async () => api.get<User[]>('/auth/users'),
 	});
 
 	const createUser = useMutation({
-		mutationFn: async () => {
-			const { data } = await api.post('/auth/register', form);
-			return data;
-		},
+		mutationFn: async () => api.post('/auth/register', form),
 		onSuccess: () => {
 			setShowForm(false);
 			setForm({ name: '', surname: '', email: '', password: '' });
@@ -45,7 +42,7 @@ export function Users() {
 	});
 
 	const deleteUser = useMutation({
-		mutationFn: async (id: string) => (await api.delete(`/auth/users/${id}`)).data,
+		mutationFn: async (id: string) => api.delete(`/auth/users/${id}`),
 		onSuccess: () => void queryClient.invalidateQueries({ queryKey: ['users'] }),
 	});
 
