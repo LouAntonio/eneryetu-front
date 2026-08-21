@@ -6,7 +6,7 @@
 		"about": "Sobre",
 		"sectors": "Setores",
 		"services": "Serviços",
-		"training": "Treinamento",
+		"training": "Formações",
 		"media": "Mídia",
 		"blog": "Blog",
 		"news": "Notícias",
@@ -17,7 +17,7 @@
 	},
 	"ticker": {
 		"hours": "Seg–Sex 07:00–16:30 · Sáb 07:00–12:30 · Dom fechado",
-		"phones": "+244 923 734 199 · +244 945 459 270",
+		"phones": "+244 923 734 199 · +244 938 626 639",
 		"email": "geral@eneryetu.com"
 	},
 	"common": {
@@ -33,22 +33,11 @@
 		"copy": "Copiar"
 	},
 	"hero": {
-		"eyebrow": "Parceiro angolano de energia · Luanda",
-		"title": "O caminho da energia, da fonte ao local.",
-		"lede": "A EnerYetu liga fornecedores internacionais de peças, máquinas, consumíveis e mão-de-obra qualificada aos locais angolanos que deles precisam — e instala e mantém os sistemas solares, eólicos, de armazenamento e off-grid que os mantêm em funcionamento.",
+		"eyebrow": "Serviços para Petróleo & Gás e Mineração · Luanda",
+		"title": "Fornecimento estratégico e conteúdo local.",
+		"lede": "A EnerYetu cria e facilita oportunidades de negócio para empresas nacionais e internacionais — sourcing de peças, materiais e equipamentos, consultoria, mão-de-obra qualificada, logística e serviços técnicos em Angola.",
 		"ctaPrimary": "Solicite um orçamento",
-		"ctaSecondary": "Explorar serviços",
-		"diagram": {
-			"pv": "Sistema fotovoltaico",
-			"inverter": "Inversor",
-			"battery": "Banco de baterias",
-			"load": "Cargas do local",
-			"pvSpec": "120 kWp",
-			"inverterSpec": "Trifásico",
-			"batterySpec": "200 kWh",
-			"loadSpec": "400 VAC",
-			"caption": "Linha de referência típica — cada local difere"
-		}
+		"ctaSecondary": "Explorar serviços"
 	},
 	"stats": {
 		"eyebrow": "Registo de campo",
@@ -62,78 +51,98 @@
 	},
 	"intro": {
 		"eyebrow": "Quem somos",
-		"title": "Uma ponte entre o fornecimento internacional e o trabalho de campo angolano.",
-		"body": "Somos o braço angolano de fabricantes e fornecedores internacionais, tratando de tudo — de uma única peça sobressalente a uma central off-grid completa: aprovisionamento, logística, instalação e serviço pós-venda.",
+		"title": "Empresa angolana de serviços para Petróleo & Gás e Mineração.",
+		"body": "Totalmente de capital angolano, fomos fundados por profissionais com mais de 15 anos de experiência em Gestão de Projetos no setor de Petróleo & Gás. Atuamos com foco em ESG e na transição energética, criando valor para investidores, colaboradores e comunidades locais.",
 		"points": [
-			"Peças e consumíveis",
-			"Máquinas e equipamentos",
-			"Mão-de-obra qualificada",
-			"Instalação e manutenção"
+			"100% capital angolano",
+			"+15 anos em Gestão de Projetos O&G",
+			"Foco em ESG e transição energética",
+			"Conhecimento do mercado petrolífero angolano"
 		],
 		"cta": "Conheça-nos melhor"
 	},
 	"services": {
 		"eyebrow": "Serviços",
-		"title": "Oferta completa",
-		"body": "Oito linhas de serviço, um único parceiro — desenhadas para plantas e locais que não podem parar.",
+		"title": "Doze linhas de serviço, um único parceiro.",
+		"body": "Soluções integradas de acesso ao mercado e desenvolvimento de negócios — do sourcing à manutenção, num só contrato.",
 		"items": [
 			{
-				"title": "Serviço técnico",
-				"blurb": "Manutenção planeada e correctiva, no campo e na oficina, para equipamento que não pode parar.",
+				"title": "Sourcing estratégico",
+				"blurb": "Ligamos clientes africanos a fornecedores internacionais de peças, materiais e equipamentos, com gestão de contratos de ponta a ponta.",
+				"spec": "Ponta a ponta"
+			},
+			{
+				"title": "Consultoria e acesso ao mercado",
+				"blurb": "Representação comercial de empresas internacionais em Angola e apoio em processos regulatórios e de licenciamento.",
+				"spec": "Representação · licenciamento"
+			},
+			{
+				"title": "Recursos humanos",
+				"blurb": "Fornecimento de mão-de-obra qualificada e formação profissional em Gestão de Projetos, Primavera P6, Soldadura e Inspeção NDT.",
+				"spec": "Manpower · formação"
+			},
+			{
+				"title": "Logística e cadeia de suprimentos",
+				"blurb": "Gestão de contratos logísticos, movimentação e transferência de carga dentro e fora de Angola.",
+				"spec": "Nacional · internacional"
+			},
+			{
+				"title": "Fornecimento de materiais",
+				"blurb": "Sobressalentes, equipamentos certificados, produtos químicos, lubrificantes e consumíveis industriais.",
+				"spec": "Equipamento certificado"
+			},
+			{
+				"title": "Manutenção e reparação",
+				"blurb": "Sistemas hidráulicos, pneumáticos e elétricos; geradores e compressores; calibração e certificação de equipamentos.",
 				"spec": "Campo & oficina"
 			},
 			{
-				"title": "Energia solar",
-				"blurb": "Concepção e instalação de sistemas fotovoltaicos, ligados à rede e autónomos.",
-				"spec": "Rede · off-grid"
+				"title": "Tratamento de água",
+				"blurb": "Instalação e manutenção de sistemas de purificação de água industriais e residenciais.",
+				"spec": "Industrial · residencial"
 			},
 			{
-				"title": "Painéis & módulos",
-				"blurb": "Fornecimento e instalação de painéis e módulos à especificação certa para o seu rendimento.",
-				"spec": "Fornecimento & instalação"
+				"title": "Engenharia e construção",
+				"blurb": "Apoio a contratos EPC: engenharia, construção e reparação de plataformas, tanques e tubagens.",
+				"spec": "EPC"
 			},
 			{
-				"title": "Energia eólica",
-				"blurb": "Aerogeradores para energia híbrida e rural, dimensionados ao seu perfil de vento.",
-				"spec": "Pronto para híbrido"
+				"title": "Gestão de integridade",
+				"blurb": "Inspeção estrutural e ensaios não destrutivos de soldas em conformidade com as normas ISO e ASNT.",
+				"spec": "NDT · ISO · ASNT"
 			},
 			{
-				"title": "Armazenamento de energia",
-				"blurb": "Bancos de baterias e integração de sistemas de gestão para solar e reserva.",
-				"spec": "Lítio · chumbo"
+				"title": "Tratamento de superfícies",
+				"blurb": "Proteção contra corrosão, pintura industrial e limpeza de alta pressão.",
+				"spec": "Anticorrosão"
 			},
 			{
-				"title": "Soluções off-grid",
-				"blurb": "Energia autónoma completa para locais fora da rede — de mini-redes a cargas únicas.",
-				"spec": "Mini-rede · rural"
+				"title": "Energias renováveis",
+				"blurb": "Gestão de projetos, instalação e manutenção de estruturas de energia renovável.",
+				"spec": "Transição energética"
 			},
 			{
-				"title": "Upgrades & expansões",
-				"blurb": "Aumentos de capacidade e modernização de centrais existentes com o menor tempo de paragem.",
-				"spec": "Re-potenciar · expandir"
-			},
-			{
-				"title": "Centrais hidroeléctricas",
-				"blurb": "Pequena hidráulica através de fornecimento, instalação e serviço.",
-				"spec": "Pequena hidráulica"
+				"title": "Gestão de resíduos",
+				"blurb": "Transporte, tratamento, reciclagem e eliminação de resíduos químicos.",
+				"spec": "Químicos · reciclagem"
 			}
 		],
 		"beyond": {
-			"eyebrow": "Além da instalação",
-			"title": "Um só contrato, todo o âmbito",
-			"body": "A maioria dos projectos precisa de mais do que uma equipa de instalação. Fazemos o enquadramento completo para tratar com um único parceiro local.",
+			"eyebrow": "Para além do contrato",
+			"title": "Valor partilhado, práticas sustentáveis",
+			"body": "Buscamos parcerias estratégicas que gerem valor para investidores, colaboradores e comunidades locais, com compromisso ativo com os princípios ESG.",
 			"items": [
 				{
-					"title": "Fornecimento",
-					"blurb": "Peças sobressalentes, consumíveis e máquinas de fabricantes internacionais verificados."
+					"title": "ESG",
+					"blurb": "Compromisso com práticas ambientais, sociais e de governança sustentáveis."
 				},
 				{
-					"title": "Mão-de-obra",
-					"blurb": "Técnicos qualificados destacados para o seu projecto ou operação."
+					"title": "Conteúdo local",
+					"blurb": "Posicionamos Angola como hub competitivo nas cadeias de suprimentos industriais globais."
 				},
 				{
-					"title": "Pós-venda",
-					"blurb": "Contratos de manutenção e apoio técnico após o comissionamento."
+					"title": "Parcerias estratégicas",
+					"blurb": "Alianças nacionais e internacionais que geram valor partilhado e desenvolvimento local."
 				}
 			]
 		}
@@ -141,79 +150,110 @@
 	"sectors": {
 		"eyebrow": "Setores",
 		"title": "Onde trabalhamos",
-		"body": "As necessidades energéticas diferem por indústria. Conhecemos o equipamento, as normas e o tempo de operação que cada uma exige.",
+		"body": "Atuamos nos setores que movem a economia angolana, com conhecimento do equipamento, das normas e das exigências de cada indústria.",
 		"items": [
 			{
-				"title": "Petróleo & gás",
-				"blurb": "Energia e equipamento para operações onshore e instalações de apoio."
+				"title": "Petróleo & Gás",
+				"blurb": "Sourcing, manutenção, integridade e serviços de apoio para operações a montante e a jusante."
 			},
 			{
-				"title": "Mineração & recursos",
-				"blurb": "Energia para plantas, sistemas de reserva e fornecimento de peças para as equipas."
+				"title": "Mineração extrativa",
+				"blurb": "Fornecimento de materiais, mão-de-obra qualificada e serviços técnicos para operações mineiras."
 			},
 			{
-				"title": "Telecomunicações",
-				"blurb": "Energia em locais rurais e reserva para torres, centrais e abrigos de dados."
+				"title": "Energias renováveis",
+				"blurb": "Gestão de projetos, instalação e manutenção de estruturas de energia renovável."
 			},
 			{
-				"title": "Agronegócio",
-				"blurb": "Energia para cadeia de frio e irrigação em fazendas, processadores e armazéns."
+				"title": "Economia azul",
+				"blurb": "Serviços e equipamento para as indústrias marítimas e costeiras."
 			},
 			{
-				"title": "Infra-estrutura pública",
-				"blurb": "Eletrificação para saúde, educação e edifícios públicos."
+				"title": "Logística & Transporte",
+				"blurb": "Movimentação e transferência de carga dentro e fora de Angola, com gestão de contratos ponta a ponta."
 			},
 			{
-				"title": "Industrial & comercial",
-				"blurb": "Solar, armazenamento e manutenção para fábricas e edifícios comerciais."
+				"title": "Construção civil",
+				"blurb": "Apoio a contratos de engenharia e construção de estruturas industriais e civis."
+			},
+			{
+				"title": "Tratamento de águas",
+				"blurb": "Instalação e manutenção de sistemas de purificação industriais e residenciais."
+			},
+			{
+				"title": "Gestão de resíduos",
+				"blurb": "Transporte, tratamento, reciclagem e eliminação de resíduos, incluindo resíduos químicos."
 			}
 		]
 	},
 	"training": {
-		"eyebrow": "Treinamento",
+		"eyebrow": "Formações",
 		"title": "Competências que ficam no local.",
-		"body": "Formação técnica prática para técnicos e operadores — para que quem mantém a sua planta a domine de verdade.",
-		"features": [
-			"Prática, em equipamento real",
-			"Instrutores certificados",
-			"Entregue no local"
-		],
-		"cta": "Ver o treinamento"
+		"body": "Formação profissional para equipas nacionais e internacionais — para que quem opera e mantém a sua instalação a domine de verdade.",
+		"features": ["Gestão de Projetos", "Primavera P6", "Soldadura", "Inspeção NDT"],
+		"cta": "Ver a formação"
 	},
 	"partners": {
 		"eyebrow": "Parceiros",
-		"title": "Trabalhamos com fornecedores internacionais",
-		"body": "Temos um catálogo verificado de peças, máquinas e consumíveis de parcerias de fabricantes que podemos comprovar."
+		"title": "Uma rede de parceiros estratégicos",
+		"body": "Trabalhamos com parceiros nacionais e internacionais para entregar soluções completas aos nossos clientes.",
+		"items": [
+			"Elite Flow Control",
+			"Elite Project Engineering",
+			"Rico Organizações",
+			"Synergy Projects Consulting",
+			"Risaku Energy Services Company",
+			"Bué Fine Consultoria Empresarial LDA"
+		]
 	},
 	"cta": {
-		"title": "Tem um local para energizar, ou uma planta para manter em funcionamento?",
-		"body": "Diga-nos o que precisa — fazemos o enquadramento do fornecimento, da instalação e das pessoas.",
+		"title": "Precisa de fornecimento, serviços ou parceiros em Angola?",
+		"body": "Diga-nos o que precisa — tratamos do sourcing, da logística, das pessoas e dos serviços técnicos.",
 		"cta": "Marque um encontro",
 		"phone": "Ligue-nos agora"
 	},
 	"about": {
 		"eyebrow": "Sobre nós",
-		"title": "O parceiro angolano no fornecimento e entrega de energia.",
-		"lead": "Somos o parceiro angolano na construção de pontes com fornecedores internacionais — resolvendo a procura de peças, equipamento, máquinas, consumíveis e mão-de-obra qualificada.",
-		"body1": "Trabalhamos como braço local de fabricantes internacionais: aprovisionamento, logística, instalação e serviço pós-venda para equipamento energético e industrial em Angola.",
-		"body2": "Os nossos engenheiros e técnicos mantêm plantas em funcionamento e levam electricidade a locais que não a têm — solar, eólica, armazenamento e off-grid.",
-		"valuesTitle": "Como trabalhamos",
+		"title": "O parceiro angolano de fornecimento estratégico e conteúdo local.",
+		"lead": "A ENERYETU – COMÉRCIO & SERVIÇOS LDA é uma empresa prestadora de serviços que atua nas indústrias de Petróleo & Gás e Mineração.",
+		"body1": "Totalmente de capital angolano, foi fundada por profissionais angolanos com mais de 15 anos de experiência em Gestão de Projetos no setor de Petróleo & Gás — com profundo conhecimento do mercado petrolífero nacional.",
+		"body2": "Comprometida com os princípios ESG, promove práticas sustentáveis e a transição energética, buscando parcerias estratégicas que gerem valor para investidores, colaboradores e comunidades locais.",
+		"visionTitle": "Visão",
+		"vision": "Ser uma plataforma líder em África para Fornecimento Estratégico e Conteúdo Local, posicionando Angola como um hub competitivo para cadeias de suprimentos industriais globais.",
+		"missionTitle": "Missão",
+		"mission": "Criar e facilitar oportunidades de negócios para empresas nacionais e internacionais através de soluções integradas de acesso ao mercado e desenvolvimento de negócios.",
+		"valuesTitle": "Valores",
 		"values": [
+			{ "title": "Segurança", "blurb": "A vida humana em primeiro lugar, sempre." },
+			{ "title": "Integridade", "blurb": "Agir com retidão em todas as relações." },
 			{
-				"title": "Especialistas em solar & eólica",
-				"blurb": "Engenheiros em prática, não intermediários."
+				"title": "Respeito",
+				"blurb": "Pelas pessoas, pelas comunidades e pelo ambiente."
 			},
-			{ "title": "Eco-friendly", "blurb": "Geração limpa em primeiro lugar, sempre." },
 			{
-				"title": "Visão sustentável",
-				"blurb": "Plantas construídas para serem mantidas por décadas."
+				"title": "Responsabilidade",
+				"blurb": "Pelo nosso trabalho, pelos resultados e pelo impacto."
 			},
-			{ "title": "Foco na comunidade", "blurb": "Contratação e formação locais." },
 			{
-				"title": "Guiados por resultados",
-				"blurb": "Comissionamento a tempo, ou explicamos porquê."
+				"title": "Dignidade Humana",
+				"blurb": "Tratamento justo e digno para todos."
+			}
+		],
+		"principlesTitle": "Princípios",
+		"principles": [
+			{
+				"title": "Legalidade",
+				"blurb": "Conformidade com as leis nacionais e internacionais."
 			},
-			{ "title": "Apoio fiável", "blurb": "Um telefone que atende depois da entrega." }
+			{
+				"title": "Justiça e Equidade",
+				"blurb": "Igualdade de condições em todas as decisões."
+			},
+			{
+				"title": "Transparência",
+				"blurb": "Clareza e honestidade na relação com clientes e parceiros."
+			},
+			{ "title": "Solidariedade", "blurb": "Compromisso com as comunidades onde atuamos." }
 		],
 		"rows": [
 			{ "value": "25", "label": "Anos em solo angolano" },
@@ -224,37 +264,18 @@
 	},
 	"careers": {
 		"eyebrow": "Carreiras",
-		"title": "Construa a energia angolana connosco.",
-		"body": "Contratamos técnicos, engenheiros e profissionais de segurança que gostam de ver o seu trabalho medido em tempo de operação. Se é o seu caso, fale connosco.",
-		"positionsTitle": "Vagas abertas",
-		"positions": [
-			{
-				"title": "Técnico de campo",
-				"meta": "Luanda · Tempo integral",
-				"blurb": "Manter sistemas solares, de armazenamento e geração nos locais dos clientes em todo o país."
-			},
-			{
-				"title": "Engenheiro electrotécnico",
-				"meta": "Luanda · Tempo integral",
-				"blurb": "Fazer o enquadramento, projectar e comissionar instalações, desde auditorias de carga à entrega."
-			},
-			{
-				"title": "Oficial de HSE",
-				"meta": "Luanda · Tempo integral",
-				"blurb": "Gerir a segurança nos locais, auditorias e a entrega da nossa formação em HSE."
-			}
-		],
+		"title": "Construa o futuro angolano connosco.",
+		"body": "Contratamos profissionais que querem crescer com os setores de Petróleo & Gás e Mineração em Angola. Se é o seu caso, fale connosco.",
 		"applyLabel": "Interessado? Envie o seu CV para",
-		"applyHint": "Mencione o cargo no assunto do email.",
+		"applyHint": "Mencione a área de interesse no assunto do email.",
 		"form": {
-			"title": "Candidatura a uma vaga ou espontânea",
-			"subtitle": "Escolha uma das vagas acima ou candidate-se por iniciativa — deixe-nos os seus dados e um resumo do percurso.",
+			"title": "Candidatura espontânea",
+			"subtitle": "Deixe-nos os seus dados e um resumo do percurso — analisamos o seu perfil e respondemos caso haja encaixe.",
 			"name": "O seu nome",
 			"email": "Email",
 			"phone": "Telefone",
-			"position": "Vaga pretendida",
-			"choosePosition": "Escolha uma vaga…",
-			"spontaneous": "Candidatura espontânea",
+			"area": "Área de interesse",
+			"areaPlaceholder": "Ex.: Gestão de Projetos, Soldadura, Logística…",
 			"message": "Conte-nos um pouco do seu percurso",
 			"messagePlaceholder": "Experiência, formação, disponibilidade…",
 			"cv": "Curriculum Vitae",
@@ -263,7 +284,6 @@
 			"submit": "Enviar candidatura",
 			"nameRequired": "Diga-nos o seu nome.",
 			"emailInvalid": "Introduza um email válido.",
-			"positionRequired": "Escolha a vaga pretendida.",
 			"successTitle": "Candidatura recebida.",
 			"successBody": "Obrigado — analisamos o seu perfil e respondemos caso haja encaixe."
 		}
@@ -318,10 +338,10 @@
 	"contact": {
 		"eyebrow": "Contactos",
 		"title": "Fale connosco.",
-		"body": "Diga-nos o que precisa de manter em funcionamento e voltaremos com o enquadramento — normalmente num dia útil.",
+		"body": "Diga-nos o que precisa — sourcing, serviços, logística ou parcerias — e voltaremos com uma resposta, normalmente num dia útil.",
 		"detailsTitle": "Sede",
 		"address": "Apartamento 5, 1º andar, edifício E152, Rua 70, bairro Nova Vida, Luanda, Angola",
-		"phone": "+244 923 734 199 / +244 945 459 270",
+		"phone": "+244 923 734 199 / +244 938 626 639",
 		"email": "geral@eneryetu.com",
 		"hoursTitle": "Horários",
 		"hours": {
@@ -334,8 +354,8 @@
 			"name": "O seu nome",
 			"company": "Empresa",
 			"email": "Email",
-			"message": "O que precisa de manter em funcionamento?",
-			"messagePlaceholder": "Equipamento, descrição do local, prazos…",
+			"message": "Como podemos ajudar?",
+			"messagePlaceholder": "Serviço ou material pretendido, descrição do projeto, prazos…",
 			"submit": "Enviar pedido",
 			"nameRequired": "Diga-nos o seu nome.",
 			"emailInvalid": "Introduza um email válido.",
@@ -345,7 +365,7 @@
 		}
 	},
 	"footer": {
-		"about": "A EnerYetu fornece e instala os sistemas de energia que mantêm Angola a funcionar — equipamento, peças e pessoas qualificadas.",
+		"about": "A EnerYetu é uma empresa angolana de serviços para as indústrias de Petróleo & Gás e Mineração — fornecimento estratégico, consultoria, mão-de-obra qualificada e serviços técnicos.",
 		"quickLinksTitle": "Links rápidos",
 		"mediaLinksTitle": "Mídia",
 		"contactTitle": "Contactos",

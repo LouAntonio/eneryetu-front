@@ -17,7 +17,7 @@
 	},
 	"ticker": {
 		"hours": "Mon–Fri 07:00–16:30 · Sat 07:00–12:30 · Sun closed",
-		"phones": "+244 923 734 199 · +244 945 459 270",
+		"phones": "+244 923 734 199 · +244 938 626 639",
 		"email": "geral@eneryetu.com"
 	},
 	"common": {
@@ -33,22 +33,11 @@
 		"copy": "Copy"
 	},
 	"hero": {
-		"eyebrow": "Angolan energy partner · Luanda",
-		"title": "The power path, from source to site.",
-		"lede": "EnerYetu connects international suppliers of parts, machinery, consumables and skilled manpower with the Angolan sites that need them — and installs and maintains the solar, wind, storage and off-grid systems that keep them running.",
+		"eyebrow": "Services for Oil & Gas and Mining · Luanda",
+		"title": "Strategic sourcing and local content.",
+		"lede": "EnerYetu creates and facilitates business opportunities for national and international companies — sourcing of parts, materials and equipment, consulting, skilled manpower, logistics and technical services in Angola.",
 		"ctaPrimary": "Request a quote",
-		"ctaSecondary": "Explore services",
-		"diagram": {
-			"pv": "PV array",
-			"inverter": "Inverter",
-			"battery": "Battery bank",
-			"load": "Site loads",
-			"pvSpec": "120 kWp",
-			"inverterSpec": "3-phase",
-			"batterySpec": "200 kWh",
-			"loadSpec": "400 VAC",
-			"caption": "Typical reference line — every site differs"
-		}
+		"ctaSecondary": "Explore services"
 	},
 	"stats": {
 		"eyebrow": "Field record",
@@ -62,78 +51,98 @@
 	},
 	"intro": {
 		"eyebrow": "Who we are",
-		"title": "A bridge between international supply and Angolan site work.",
-		"body": "We are the Angolan arm of international manufacturers and suppliers, handling everything from a single spare part to a full off-grid plant: procurement, logistics, installation and after-sales service.",
+		"title": "An Angolan services company for Oil & Gas and Mining.",
+		"body": "Fully Angolan-owned, we were founded by professionals with over 15 years of experience in Project Management in the Oil & Gas industry. We work with an ESG focus and the energy transition in mind, creating value for investors, employees and local communities.",
 		"points": [
-			"Parts and consumables",
-			"Machinery and equipment",
-			"Skilled manpower",
-			"Installation and maintenance"
+			"100% Angolan-owned",
+			"+15 years in O&G project management",
+			"ESG and energy-transition focus",
+			"Deep knowledge of the Angolan oil market"
 		],
 		"cta": "Learn more about us"
 	},
 	"services": {
 		"eyebrow": "Services",
-		"title": "Instrumentation of the offer",
-		"body": "Eight service lines, one partner — engineered for plants and sites that cannot afford downtime.",
+		"title": "Twelve service lines, one partner.",
+		"body": "Integrated market-access and business-development solutions — from sourcing to maintenance, under a single contract.",
 		"items": [
 			{
-				"title": "Technical service",
-				"blurb": "Planned and corrective maintenance, in the field and in the workshop, for equipment that must not stop.",
+				"title": "Strategic sourcing",
+				"blurb": "We connect African clients with international suppliers of parts, materials and equipment, managing contracts end to end.",
+				"spec": "End to end"
+			},
+			{
+				"title": "Consulting & market access",
+				"blurb": "Commercial representation of international companies in Angola and support with regulatory and licensing processes.",
+				"spec": "Representation · licensing"
+			},
+			{
+				"title": "Human resources",
+				"blurb": "Skilled manpower supply and professional training in Project Management, Primavera P6, Welding and NDT Inspection.",
+				"spec": "Manpower · training"
+			},
+			{
+				"title": "Logistics & supply chain",
+				"blurb": "Logistics contract management, cargo handling and transfer within and beyond Angola.",
+				"spec": "Domestic · international"
+			},
+			{
+				"title": "Materials supply",
+				"blurb": "Spare parts, certified equipment, chemical products, lubricants and industrial consumables.",
+				"spec": "Certified equipment"
+			},
+			{
+				"title": "Maintenance & repair",
+				"blurb": "Hydraulic, pneumatic and electrical systems; generators and compressors; calibration and certification of equipment.",
 				"spec": "Field & workshop"
 			},
 			{
-				"title": "Solar energy",
-				"blurb": "Design and installation of photovoltaic systems, grid-tied and stand-alone.",
-				"spec": "Grid-tied · off-grid"
+				"title": "Water treatment",
+				"blurb": "Installation and maintenance of industrial and residential water purification systems.",
+				"spec": "Industrial · residential"
 			},
 			{
-				"title": "Panels & modules",
-				"blurb": "Supply and installation of panels and modules at the right specification for your yield.",
-				"spec": "Supply & install"
+				"title": "Engineering & construction",
+				"blurb": "Support for EPC contracts: engineering, construction and repair of platforms, tanks and pipelines.",
+				"spec": "EPC"
 			},
 			{
-				"title": "Wind generation",
-				"blurb": "Wind turbines for hybrid and rural power, sized to your wind profile.",
-				"spec": "Hybrid-ready"
+				"title": "Integrity management",
+				"blurb": "Structural inspection and non-destructive testing of welds in compliance with ISO and ASNT standards.",
+				"spec": "NDT · ISO · ASNT"
 			},
 			{
-				"title": "Energy storage",
-				"blurb": "Battery banks and battery-management integrations for solar and backup power.",
-				"spec": "Li-ion · lead"
+				"title": "Surface treatment",
+				"blurb": "Corrosion protection, industrial painting and high-pressure cleaning.",
+				"spec": "Anti-corrosion"
 			},
 			{
-				"title": "Off-grid solutions",
-				"blurb": "Complete stand-alone power for sites beyond the grid — from mini-grids to single loads.",
-				"spec": "Mini-grid · rural"
+				"title": "Renewable energy",
+				"blurb": "Project management, installation and maintenance of renewable energy structures.",
+				"spec": "Energy transition"
 			},
 			{
-				"title": "Upgrades & expansions",
-				"blurb": "Capacity additions and modernisation of existing plants, with the least possible downtime.",
-				"spec": "Re-power · extend"
-			},
-			{
-				"title": "Hydropower plants",
-				"blurb": "Small hydro through supply, installation and service.",
-				"spec": "Small hydro"
+				"title": "Waste management",
+				"blurb": "Transport, treatment, recycling and disposal of waste, including chemical waste.",
+				"spec": "Chemical · recycling"
 			}
 		],
 		"beyond": {
-			"eyebrow": "Beyond installation",
-			"title": "One contract, the whole scope",
-			"body": "Most projects need more than an installation crew. We scope the complete picture so you deal with a single local partner.",
+			"eyebrow": "Beyond the contract",
+			"title": "Shared value, sustainable practices",
+			"body": "We pursue strategic partnerships that generate value for investors, employees and local communities, with an active commitment to ESG principles.",
 			"items": [
 				{
-					"title": "Supply",
-					"blurb": "Spare parts, consumables and machinery sourced from verified international manufacturers."
+					"title": "ESG",
+					"blurb": "Commitment to sustainable environmental, social and governance practices."
 				},
 				{
-					"title": "Manpower",
-					"blurb": "Skilled technicians and workers seconded to your project or operation."
+					"title": "Local content",
+					"blurb": "Positioning Angola as a competitive hub in global industrial supply chains."
 				},
 				{
-					"title": "After-sales",
-					"blurb": "Maintenance contracts and technical support after commissioning."
+					"title": "Strategic partnerships",
+					"blurb": "Domestic and international alliances that generate shared value and local development."
 				}
 			]
 		}
@@ -172,41 +181,71 @@
 	"training": {
 		"eyebrow": "Training",
 		"title": "Skills that stay on site.",
-		"body": "Hands-on technical training for technicians and operators — so the people who maintain your plant actually mastered it.",
-		"features": ["Hands-on, on real equipment", "Certified instructors", "Delivered on site"],
+		"body": "Professional training for national and international teams — so the people who run and maintain your facility truly master it.",
+		"features": ["Project Management", "Primavera P6", "Welding", "NDT Inspection"],
 		"cta": "See our training"
 	},
 	"partners": {
 		"eyebrow": "Partners",
-		"title": "Working with international suppliers",
-		"body": "We carry a verified catalogue of parts, machinery and consumables from manufactured partnerships we can prove."
+		"title": "A network of strategic partners",
+		"body": "We work with domestic and international partners to deliver complete solutions to our clients.",
+		"items": [
+			"Elite Flow Control",
+			"Elite Project Engineering",
+			"Rico Organizações",
+			"Synergy Projects Consulting",
+			"Risaku Energy Services Company",
+			"Bué Fine Consultoria Empresarial LDA"
+		]
 	},
 	"cta": {
-		"title": "Have a site to power, or a plant to keep running?",
-		"body": "Tell us the requirement — we will scope the supply, the installation and the people.",
+		"title": "Need sourcing, services or partners in Angola?",
+		"body": "Tell us what you need — we handle the sourcing, the logistics, the people and the technical services.",
 		"cta": "Make an appointment",
 		"phone": "Call us now"
 	},
 	"about": {
 		"eyebrow": "About us",
-		"title": "The Angolan partner for energy supply and delivery.",
-		"lead": "We are the Angolan partner for building bridges with international suppliers — solving the call for parts, equipment, machinery, consumables and skilled manpower.",
-		"body1": "We work as the local arm of international manufacturers: procurement, logistics, installation and after-sales service for energy and industrial equipment across Angola.",
-		"body2": "Our engineers and technicians keep plants running and bring electricity to sites that do not have it — solar, wind, storage and off-grid alike.",
-		"valuesTitle": "How we work",
+		"title": "The Angolan partner for strategic sourcing and local content.",
+		"lead": "ENERYETU – COMÉRCIO & SERVIÇOS LDA is a services company operating in the Oil & Gas and Mining industries.",
+		"body1": "Fully Angolan-owned, it was founded by Angolan professionals with over 15 years of experience in Project Management in the Oil & Gas industry — with deep knowledge of the national oil market.",
+		"body2": "Committed to ESG principles, it promotes sustainable practices and the energy transition, pursuing strategic partnerships that generate value for investors, employees and local communities.",
+		"visionTitle": "Vision",
+		"vision": "To be Africa's leading platform for Strategic Sourcing and Local Content, positioning Angola as a competitive hub for global industrial supply chains.",
+		"missionTitle": "Mission",
+		"mission": "To create and facilitate business opportunities for national and international companies through integrated market-access and business-development solutions.",
+		"valuesTitle": "Values",
 		"values": [
-			{ "title": "Solar & wind experts", "blurb": "Practising engineers, not brokers." },
-			{ "title": "Eco-friendly", "blurb": "Clean generation first, always." },
+			{ "title": "Safety", "blurb": "Human life first, always." },
+			{ "title": "Integrity", "blurb": "Acting with rectitude in every relationship." },
 			{
-				"title": "Sustainable vision",
-				"blurb": "Plants built to be maintained for decades."
+				"title": "Respect",
+				"blurb": "For people, for communities and for the environment."
 			},
-			{ "title": "Community focused", "blurb": "Local hiring and local training." },
-			{ "title": "Driven by results", "blurb": "Commissioned on time, or we say why." },
 			{
-				"title": "Reliable support",
-				"blurb": "A phone number that answers after the handover."
+				"title": "Responsibility",
+				"blurb": "For our work, our results and our impact."
+			},
+			{
+				"title": "Human Dignity",
+				"blurb": "Fair and dignified treatment for all."
 			}
+		],
+		"principlesTitle": "Principles",
+		"principles": [
+			{
+				"title": "Legality",
+				"blurb": "Compliance with national and international laws."
+			},
+			{
+				"title": "Justice & Fairness",
+				"blurb": "Equal conditions in every decision."
+			},
+			{
+				"title": "Transparency",
+				"blurb": "Clarity and honesty with clients and partners."
+			},
+			{ "title": "Solidarity", "blurb": "Commitment to the communities where we operate." }
 		],
 		"rows": [
 			{ "value": "25", "label": "Years on Angolan ground" },
@@ -217,37 +256,18 @@
 	},
 	"careers": {
 		"eyebrow": "Careers",
-		"title": "Build Angolan energy with us.",
-		"body": "We hire technicians, engineers and safety staff who like their work measured in uptime. If that is you, tell us.",
-		"positionsTitle": "Open positions",
-		"positions": [
-			{
-				"title": "Field service technician",
-				"meta": "Luanda · Full-time",
-				"blurb": "Maintain solar, storage and generation systems at client sites across the country."
-			},
-			{
-				"title": "Electrical engineer",
-				"meta": "Luanda · Full-time",
-				"blurb": "Scope, design and commission installations, from load audits to handover."
-			},
-			{
-				"title": "HSE officer",
-				"meta": "Luanda · Full-time",
-				"blurb": "Own site safety, audits and the delivery of our HSE training."
-			}
-		],
+		"title": "Build Angola's future with us.",
+		"body": "We hire professionals who want to grow with Angola's Oil & Gas and Mining industries. If that is you, tell us.",
 		"applyLabel": "Interested? Send your CV to",
-		"applyHint": "Mention the position in the subject line.",
+		"applyHint": "Mention your area of interest in the subject line.",
 		"form": {
-			"title": "Apply to a role — or spontaneously",
-			"subtitle": "Pick one of the roles above or apply on your own initiative — leave us your details and a short summary of your background.",
+			"title": "Spontaneous application",
+			"subtitle": "Leave us your details and a short summary of your background — we review your profile and reply if there is a match.",
 			"name": "Your name",
 			"email": "Email",
 			"phone": "Phone",
-			"position": "Position",
-			"choosePosition": "Choose a position…",
-			"spontaneous": "Spontaneous application",
+			"area": "Area of interest",
+			"areaPlaceholder": "E.g.: Project Management, Welding, Logistics…",
 			"message": "Tell us a little about your background",
 			"messagePlaceholder": "Experience, training, availability…",
 			"cv": "Curriculum Vitae",
@@ -256,7 +276,6 @@
 			"submit": "Send application",
 			"nameRequired": "Tell us your name.",
 			"emailInvalid": "Enter a valid email address.",
-			"positionRequired": "Choose the position.",
 			"successTitle": "Application received.",
 			"successBody": "Thank you — we review your profile and reply if there is a match."
 		}
@@ -311,10 +330,10 @@
 	"contact": {
 		"eyebrow": "Contact",
 		"title": "Talk to us.",
-		"body": "Tell us what you need to run, and we will come back with the scope — usually within one business day.",
+		"body": "Tell us what you need — sourcing, services, logistics or partnerships — and we will come back with an answer, usually within one business day.",
 		"detailsTitle": "Head office",
 		"address": "Apartment 5, 1st floor, building E152, Rua 70, Nova Vida district, Luanda, Angola",
-		"phone": "+244 923 734 199 / +244 945 459 270",
+		"phone": "+244 923 734 199 / +244 938 626 639",
 		"email": "geral@eneryetu.com",
 		"hoursTitle": "Working hours",
 		"hours": {
@@ -327,8 +346,8 @@
 			"name": "Your name",
 			"company": "Company",
 			"email": "Email",
-			"message": "What do you need to run?",
-			"messagePlaceholder": "Equipment, site description, timeline…",
+			"message": "How can we help?",
+			"messagePlaceholder": "Required service or material, project description, timeline…",
 			"submit": "Send enquiry",
 			"nameRequired": "Tell us your name.",
 			"emailInvalid": "Enter a valid email address.",
@@ -338,7 +357,7 @@
 		}
 	},
 	"footer": {
-		"about": "EnerYetu supplies and installs the energy systems that keep Angola working — equipment, parts and skilled people.",
+		"about": "EnerYetu is an Angolan services company for the Oil & Gas and Mining industries — strategic sourcing, consulting, skilled manpower and technical services.",
 		"quickLinksTitle": "Quick links",
 		"mediaLinksTitle": "Media",
 		"contactTitle": "Contact",

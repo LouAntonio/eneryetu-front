@@ -2,13 +2,9 @@ import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { api } from '../services/api';
 
-interface ApplicationFormProps {
-	positions: string[];
-}
-
-type Field = 'name' | 'email' | 'phone' | 'position' | 'message';
+type Field = 'name' | 'email' | 'phone' | 'area' | 'message';
 type Values = Record<Field, string>;
-type Errors = Partial<Record<'name' | 'email' | 'position' | 'cv', string>>;
+type Errors = Partial<Record<'name' | 'email' | 'cv', string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CV_ACCEPT =
@@ -20,13 +16,13 @@ const FIELD_CLASS =
 const FILE_CLASS =
 	'w-full rounded-none border border-line bg-paper px-2.5 py-2 font-mono text-sm text-slate file:mr-4 file:border-0 file:bg-ink file:px-4 file:py-2 file:font-mono file:text-xs file:font-semibold file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-blue-dark focus:border-blue focus:outline-none';
 
-export function ApplicationForm({ positions }: ApplicationFormProps) {
+export function ApplicationForm() {
 	const { t } = useTranslation();
 	const [values, setValues] = useState<Values>({
 		name: '',
 		email: '',
 		phone: '',
-		position: '',
+		area: '',
 		message: '',
 	});
 	const [errors, setErrors] = useState<Errors>({});
@@ -51,7 +47,6 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 		if (!values.name.trim()) next.name = t('careers.form.nameRequired');
 		if (!values.email.trim() || !EMAIL_RE.test(values.email))
 			next.email = t('careers.form.emailInvalid');
-		if (!values.position) next.position = t('careers.form.positionRequired');
 		if (!cv) next.cv = t('careers.form.cvRequired');
 		setErrors(next);
 		if (Object.keys(next).length > 0) return;
@@ -63,7 +58,7 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 			formData.append('nome', values.name);
 			formData.append('email', values.email);
 			formData.append('telefone', values.phone);
-			formData.append('area', values.position);
+			formData.append('area', values.area);
 			formData.append('mensagem', values.message);
 			if (cv) formData.append('curriculum', cv);
 
@@ -155,30 +150,17 @@ export function ApplicationForm({ positions }: ApplicationFormProps) {
 				</div>
 
 				<div>
-					<label htmlFor="apply-position" className="ui-label text-slate">
-						{t('careers.form.position')}
+					<label htmlFor="apply-area" className="ui-label text-slate">
+						{t('careers.form.area')}
 					</label>
-					<select
-						id="apply-position"
-						value={values.position}
-						onChange={update('position')}
+					<input
+						id="apply-area"
+						type="text"
+						value={values.area}
+						onChange={update('area')}
+						placeholder={t('careers.form.areaPlaceholder')}
 						className={`mt-2 ${FIELD_CLASS}`}
-					>
-						<option value="">{t('careers.form.choosePosition')}</option>
-						<option value={t('careers.form.spontaneous')}>
-							{t('careers.form.spontaneous')}
-						</option>
-						{positions.map((title) => (
-							<option key={title} value={title}>
-								{title}
-							</option>
-						))}
-					</select>
-					{errors.position ? (
-						<p className="mt-1 text-sm font-semibold text-sun-deep">
-							{errors.position}
-						</p>
-					) : null}
+					/>
 				</div>
 			</div>
 

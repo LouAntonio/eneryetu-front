@@ -17,6 +17,7 @@ export function Home() {
 	const sectors = t('sectors.items', { returnObjects: true });
 	const points = t('intro.points', { returnObjects: true });
 	const trainingFeatures = t('training.features', { returnObjects: true });
+	const partners = t('partners.items', { returnObjects: true });
 
 	return (
 		<>
@@ -194,6 +195,17 @@ export function Home() {
 						{t('partners.title')}
 					</h2>
 					<p className="mx-auto mt-4 max-w-2xl text-slate">{t('partners.body')}</p>
+					{Array.isArray(partners) && partners.length > 0 && (
+						<div className="mx-auto mt-10 grid max-w-4xl gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+							{partners.map((name) => (
+								<div key={name} className="bg-white p-5">
+									<p className="font-display text-sm font-bold uppercase tracking-tight text-ink">
+										{name}
+									</p>
+								</div>
+							))}
+						</div>
+					)}
 				</div>
 			</section>
 
