@@ -5,10 +5,10 @@ import { useQuery } from '@tanstack/react-query';
 import { assetUrl } from '../../lib/assets';
 import { api } from '../../services/api';
 import type { Event } from '../../types';
-import { BackLink, BoardEmpty, BoardLoading, FramePanel, SpecRow } from './shared';
+import { BackLink, CategoryTag, EmptyBoard, LoadingBoard, Postmark, SpecRow } from './shared';
 
 export function MediaEventDetail() {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const { slug } = useParams<{ slug: string }>();
 	const { data: event, isLoading } = useQuery({
 		queryKey: ['media', 'event', slug],
@@ -17,39 +17,65 @@ export function MediaEventDetail() {
 	});
 
 	if (isLoading) {
-		return <BoardLoading label={t('media.loading')} />;
+		return <LoadingBoard label={t('media.loading')} />;
 	}
 
 	if (!event) {
-		return <BoardEmpty titleKey="events" />;
+		return <EmptyBoard titleKey="events" />;
 	}
 
 	const cover = assetUrl(event.coverImage);
+	const locale = i18n.resolvedLanguage ?? 'en';
+	const date = new Date(event.startDate);
+	const month = new Intl.DateTimeFormat(locale, { month: 'short' }).format(date);
+	const cityCountry = [event.countryName, event.city].filter(Boolean).join(', ');
 
 	return (
-		<article className="min-h-[40vh]">
-			<div aria-hidden className="h-1 w-full bg-volt" />
-			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
+		<article className="min-h-[40vh] bg-bone">
+			<div className="mx-auto w-full max-w-6xl px-6 py-14 lg:py-20">
 				<BackLink to="/media/events" label={t('media.events.title')} />
 
-				<header className="mt-8 max-w-4xl">
-					<h1 className="font-display text-5xl font-black uppercase leading-[0.92] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+				<div className="relative mt-8 overflow-hidden rounded-2xl bg-warm-ink p-8 text-bone sm:p-10">
+					<Postmark className="absolute right-6 top-6 [&_svg]:h-16 [&_svg]:w-16" />
+					<div className="flex flex-wrap items-center gap-4">
+						<span className="inline-flex flex-col items-center rounded-full bg-sun px-5 py-2.5 text-warm-ink">
+							<span className="font-editorial text-2xl font-bold leading-none">
+								{String(date.getDate()).padStart(2, '0')}
+							</span>
+							<span className="mt-0.5 text-xs font-medium">
+								{month} {date.getFullYear()}
+							</span>
+						</span>
+						<CategoryTag>
+							{event.eventType?.name ?? t('media.events.title')}
+						</CategoryTag>
+					</div>
+					<h1 className="mt-6 max-w-2xl font-editorial text-4xl font-semibold leading-[1.05] sm:text-5xl">
 						{event.title}
 					</h1>
 					{event.subtitle ? (
-						<p className="mt-3 font-mono text-sm uppercase tracking-[0.14em] text-slate">
+						<p className="mt-3 font-editorial text-xl italic text-bone/70">
 							{event.subtitle}
 						</p>
 					) : null}
-				</header>
+					{cityCountry ? (
+						<p className="mt-4 text-sm text-bone/70">{cityCountry}</p>
+					) : null}
+				</div>
 
-				<div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem]">
+				<div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
 					<div className="min-w-0">
 						{cover ? (
-							<FramePanel cover={cover} className="mb-10 aspect-[16/9]" />
+							<img
+								src={cover}
+								alt=""
+								className="mb-10 aspect-[16/9] w-full rounded-2xl object-cover"
+							/>
 						) : null}
 						{event.description ? (
-							<p className="text-lg leading-relaxed text-ink">{event.description}</p>
+							<p className="font-editorial text-xl leading-relaxed text-warm-ink">
+								{event.description}
+							</p>
 						) : null}
 						{event.fullDescription ? (
 							<div
@@ -60,11 +86,11 @@ export function MediaEventDetail() {
 					</div>
 
 					<aside className="order-first lg:order-none">
-						<div className="corner-frame border border-line bg-white p-6 lg:sticky lg:top-24">
-							<span className="ui-label text-slate">
+						<div className="rounded-2xl border border-line-warm bg-card p-6 lg:sticky lg:top-24">
+							<span className="font-editorial text-lg font-semibold text-warm-ink">
 								{t('media.events.spec.title')}
 							</span>
-							<dl className="mt-4 divide-y divide-line border-y border-line">
+							<dl className="mt-3 divide-y divide-line-warm border-t border-line-warm">
 								<SpecRow
 									label={t('media.events.spec.date')}
 									value={event.displayDate}
@@ -80,8 +106,11 @@ export function MediaEventDetail() {
 								<SpecRow label={t('media.events.spec.city')} value={event.city} />
 								<SpecRow label={t('media.events.spec.venue')} value={event.venue} />
 							</dl>
-							<Link to="/contact" className="btn btn-sun mt-6 w-full px-5 py-3">
-								{t('media.events.cta')}
+							<Link
+								to="/contact"
+								className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sun px-6 py-3 font-editorial text-base font-semibold text-warm-ink transition-colors hover:bg-amber"
+							>
+								{t('media.events.cta')} →
 							</Link>
 						</div>
 					</aside>

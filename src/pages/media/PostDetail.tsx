@@ -9,13 +9,13 @@ import type { Paginated, Post } from '../../types';
 import { formatDate } from './format';
 import {
 	BackLink,
-	BoardEmpty,
-	BoardLoading,
-	FramePanel,
-	MetaRow,
-	SldCover,
+	Byline,
+	CategoryTag,
+	EmptyBoard,
+	LoadingBoard,
+	Postmark,
 	SpecRow,
-	TypeChip,
+	SunGlyph,
 } from './shared';
 
 function estimateReadTime(content: string): number {
@@ -47,11 +47,11 @@ export function MediaPostDetail() {
 	const minutes = useMemo(() => (post ? estimateReadTime(post.content) : 0), [post]);
 
 	if (isLoading) {
-		return <BoardLoading label={t('media.loading')} />;
+		return <LoadingBoard label={t('media.loading')} />;
 	}
 
 	if (!post) {
-		return <BoardEmpty titleKey="blog" />;
+		return <EmptyBoard titleKey="blog" />;
 	}
 
 	const cover = assetUrl(post.coverImage);
@@ -64,34 +64,43 @@ export function MediaPostDetail() {
 	const related = (latest ?? []).filter((item) => item.id !== post.id).slice(0, 3);
 
 	return (
-		<article className="min-h-[40vh]">
-			<div aria-hidden className="h-1 w-full bg-volt" />
-			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
+		<article className="min-h-[40vh] bg-bone">
+			<div className="mx-auto w-full max-w-6xl px-6 py-14 lg:py-20">
 				<BackLink to={`/media/${path}`} label={t(`media.${path}.title`)} />
 
-				<header className="mt-8 max-w-4xl">
-					<div className="flex flex-wrap items-center gap-3">
-						<TypeChip>{label}</TypeChip>
-						<MetaRow
-							items={[
-								<time key="d" dateTime={post.createdAt}>
-									{formatDate(post.createdAt, locale)}
-								</time>,
-								...(name ? [<span key="a">{name}</span>] : []),
-								<span key="r">{readTime}</span>,
-							]}
-						/>
-					</div>
-					<h1 className="mt-5 font-display text-5xl font-black uppercase leading-[0.92] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+				<header className="mt-8 max-w-3xl">
+					<CategoryTag>{label}</CategoryTag>
+					<h1 className="mt-5 font-editorial text-4xl font-semibold leading-[1.05] text-warm-ink sm:text-5xl lg:text-6xl">
 						{post.title}
 					</h1>
+					<Byline
+						className="mt-6"
+						items={[
+							name ? <span key="a">{t('media.byline', { name })}</span> : null,
+							<time key="d" dateTime={post.createdAt}>
+								{formatDate(post.createdAt, locale)}
+							</time>,
+							<span key="r">{readTime}</span>,
+						]}
+					/>
 				</header>
 
-				<div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem]">
+				<div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
 					<div className="min-w-0">
-						<FramePanel cover={cover} className="mb-10 aspect-[16/9]">
-							{!cover ? <SldCover caption={label} /> : null}
-						</FramePanel>
+						<div className="relative mb-10 min-h-[280px] overflow-hidden rounded-2xl bg-evergreen text-bone">
+							{cover ? (
+								<img
+									src={cover}
+									alt=""
+									className="absolute inset-0 h-full w-full object-cover"
+								/>
+							) : (
+								<div className="absolute inset-0 grid place-items-center">
+									<SunGlyph className="h-44 w-44 opacity-90" />
+								</div>
+							)}
+							<Postmark className="absolute right-5 top-5 [&_svg]:h-14 [&_svg]:w-14" />
+						</div>
 						<div
 							className="rich-content"
 							dangerouslySetInnerHTML={{ __html: post.content }}
@@ -99,9 +108,11 @@ export function MediaPostDetail() {
 					</div>
 
 					<aside className="hidden lg:block">
-						<div className="corner-frame sticky top-24 border border-line bg-white p-6">
-							<span className="ui-label text-slate">{t('media.specTitle')}</span>
-							<dl className="mt-4 divide-y divide-line border-y border-line">
+						<div className="rounded-2xl border border-line-warm bg-card p-6 lg:sticky lg:top-24">
+							<span className="font-editorial text-lg font-semibold text-warm-ink">
+								{t('media.specTitle')}
+							</span>
+							<dl className="mt-3 divide-y divide-line-warm border-t border-line-warm">
 								<SpecRow
 									label={t('media.spec.category')}
 									value={post.category?.name ?? label}
@@ -116,25 +127,24 @@ export function MediaPostDetail() {
 								/>
 								<SpecRow label={t('media.spec.reading')} value={readTime} />
 							</dl>
-							<p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-slate">
-								{t('media.live')} · {t('media.logLabel')}
-							</p>
 						</div>
 
 						{related.length > 0 ? (
 							<div className="mt-8">
-								<span className="ui-label text-slate">{t('media.latest')}</span>
-								<ul className="mt-3 divide-y divide-line border-y border-line">
+								<span className="font-editorial text-lg font-semibold italic text-sand">
+									{t('media.latest')}
+								</span>
+								<ul className="mt-2 divide-y divide-line-warm border-t border-line-warm">
 									{related.map((item) => (
 										<li key={item.id}>
 											<Link
 												to={`/media/${path}/${item.slug}`}
 												className="group block py-3"
 											>
-												<span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-slate">
+												<span className="text-xs text-sand">
 													{formatDate(item.createdAt, locale)}
 												</span>
-												<span className="mt-1 block font-display text-lg font-bold uppercase leading-tight tracking-tight text-ink transition-colors group-hover:text-blue-dark">
+												<span className="mt-1 block font-editorial text-lg font-semibold leading-snug text-warm-ink transition-colors group-hover:text-amber">
 													{item.title}
 												</span>
 											</Link>

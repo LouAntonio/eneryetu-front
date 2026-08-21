@@ -2,167 +2,147 @@ import { Fragment, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-export function TypeChip({
-	children,
-	tone = 'blue',
-}: {
-	children: ReactNode;
-	tone?: 'blue' | 'sun';
-}) {
+export function Postmark({ place, className = '' }: { place?: string; className?: string }) {
 	return (
-		<span
-			className={`inline-flex items-center border px-2 py-0.5 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.18em] ${
-				tone === 'sun'
-					? 'border-sun-deep/50 text-sun-deep'
-					: 'border-blue/40 bg-white text-blue-dark'
-			}`}
-		>
+		<span className={`inline-flex flex-col items-center ${className}`} aria-hidden>
+			<svg viewBox="0 0 96 96" className="h-20 w-20" fill="none">
+				<circle
+					cx="48"
+					cy="48"
+					r="42"
+					stroke="#d9822b"
+					strokeWidth="1.5"
+					strokeDasharray="2 5"
+				/>
+				<circle cx="48" cy="48" r="26" fill="#ffb43a" />
+				<g stroke="#d9822b" strokeWidth="3" strokeLinecap="round">
+					<path d="M48 12v6" />
+					<path d="M48 12v6" transform="rotate(45 48 48)" />
+					<path d="M48 12v6" transform="rotate(90 48 48)" />
+					<path d="M48 12v6" transform="rotate(135 48 48)" />
+					<path d="M48 12v6" transform="rotate(180 48 48)" />
+					<path d="M48 12v6" transform="rotate(225 48 48)" />
+					<path d="M48 12v6" transform="rotate(270 48 48)" />
+					<path d="M48 12v6" transform="rotate(315 48 48)" />
+				</g>
+			</svg>
+			{place ? (
+				<span className="mt-1 font-editorial text-sm italic text-sand">{place}</span>
+			) : null}
+		</span>
+	);
+}
+
+export function SunGlyph({ className = '' }: { className?: string }) {
+	return (
+		<svg viewBox="0 0 160 160" className={className} fill="none" aria-hidden>
+			<circle cx="80" cy="80" r="40" fill="#ffb43a" opacity="0.92" />
+			<circle
+				cx="80"
+				cy="80"
+				r="40"
+				stroke="#d9822b"
+				strokeWidth="1.5"
+				strokeDasharray="3 6"
+				opacity="0.7"
+			/>
+			<g stroke="#d9822b" strokeWidth="4" strokeLinecap="round" opacity="0.85">
+				<path d="M80 20v10" />
+				<path d="M80 20v10" transform="rotate(45 80 80)" />
+				<path d="M80 20v10" transform="rotate(90 80 80)" />
+				<path d="M80 20v10" transform="rotate(135 80 80)" />
+				<path d="M80 20v10" transform="rotate(180 80 80)" />
+				<path d="M80 20v10" transform="rotate(225 80 80)" />
+				<path d="M80 20v10" transform="rotate(270 80 80)" />
+				<path d="M80 20v10" transform="rotate(315 80 80)" />
+			</g>
+		</svg>
+	);
+}
+
+export function CategoryTag({ children }: { children: ReactNode }) {
+	return (
+		<span className="inline-flex items-center rounded-full bg-amber/15 px-3 py-1 text-xs font-semibold text-amber">
 			{children}
 		</span>
 	);
 }
 
-export function MetaRow({ items, className = '' }: { items: ReactNode[]; className?: string }) {
+export function Byline({
+	items,
+	className = '',
+}: {
+	items: Array<ReactNode | null>;
+	className?: string;
+}) {
+	const visible = items.filter(Boolean);
+
 	return (
-		<div
-			className={`flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate ${className}`}
-		>
-			{items.map((item, index) => (
+		<p className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-sand ${className}`}>
+			{visible.map((item, index) => (
 				<Fragment key={index}>
 					{index > 0 ? (
-						<span aria-hidden className="text-slate/40">
-							·
+						<span aria-hidden className="text-line-warm">
+							—
 						</span>
 					) : null}
 					{item}
 				</Fragment>
 			))}
-		</div>
+		</p>
 	);
 }
 
-export function SldTrace({
-	label,
-	side,
-	className = '',
-}: {
-	label?: string;
-	side?: string;
-	className?: string;
-}) {
+export function CtaPill({ to, children }: { to: string; children: ReactNode }) {
 	return (
-		<div aria-hidden className={`flex items-center gap-4 ${className}`}>
-			{label ? <span className="ui-label whitespace-nowrap text-slate">{label}</span> : null}
-			<svg viewBox="0 0 200 24" fill="none" className="h-6 min-w-0 flex-1">
-				<path d="M4 16 H84" strokeWidth="2" strokeDasharray="4 4" className="stroke-blue" />
-				<circle cx="99" cy="16" r="4" className="fill-sun" />
-				<path
-					d="M116 16 H196"
-					strokeWidth="2"
-					strokeDasharray="4 4"
-					className="stroke-sun"
-				/>
-				<path d="M116 16 H196" strokeWidth="1.6" className="pulse-path stroke-volt" />
-			</svg>
-			{side ? <span className="ui-label whitespace-nowrap text-slate">{side}</span> : null}
-		</div>
-	);
-}
-
-export function SldCover({ caption }: { caption?: string }) {
-	return (
-		<div aria-hidden className="absolute inset-0 grid place-items-center p-8">
-			<div className="w-full max-w-xs">
-				<svg viewBox="0 0 240 72" fill="none" className="w-full">
-					<path
-						d="M8 36 H104"
-						strokeWidth="2.5"
-						strokeDasharray="6 6"
-						className="stroke-blue"
-					/>
-					<circle
-						cx="120"
-						cy="36"
-						r="18"
-						strokeWidth="1"
-						strokeDasharray="3 3"
-						className="stroke-blue opacity-60"
-					/>
-					<circle cx="120" cy="36" r="9" className="fill-sun" />
-					<path
-						d="M136 36 H232"
-						strokeWidth="2.5"
-						strokeDasharray="6 6"
-						className="stroke-sun"
-					/>
-					<path d="M136 36 H232" strokeWidth="1.8" className="pulse-path stroke-volt" />
-				</svg>
-				{caption ? <p className="ui-label mt-6 text-center text-slate">{caption}</p> : null}
-			</div>
-		</div>
-	);
-}
-
-interface FramePanelProps {
-	cover?: string | null;
-	children?: ReactNode;
-	className?: string;
-}
-
-export function FramePanel({ cover, children, className = '' }: FramePanelProps) {
-	return (
-		<div
-			className={`corner-frame relative overflow-hidden border border-line bg-white ${className}`}
+		<Link
+			to={to}
+			className="inline-flex items-center gap-2 rounded-full bg-warm-ink px-6 py-3 font-editorial text-base font-semibold text-bone transition-colors hover:bg-amber hover:text-warm-ink"
 		>
-			{cover ? (
-				<img src={cover} alt="" className="h-full w-full object-cover" />
-			) : (
-				<div aria-hidden className="absolute inset-0 grid-light opacity-70" />
-			)}
 			{children}
-		</div>
+		</Link>
 	);
 }
 
-export function BoardLoading({ label }: { label: string }) {
+export function LoadingBoard({ label }: { label: string }) {
 	return (
-		<section className="min-h-[40vh]">
+		<section className="min-h-[40vh] bg-bone">
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-				<div className="flex items-center gap-3 border border-line bg-white px-5 py-6">
-					<span aria-hidden className="node-live h-2 w-2 rounded-full bg-blue" />
-					<span className="font-mono text-xs uppercase tracking-[0.16em] text-slate">
-						{label}
-					</span>
+				<div className="flex items-center gap-3 rounded-2xl bg-card px-5 py-6">
+					<span aria-hidden className="node-live h-2.5 w-2.5 rounded-full bg-amber" />
+					<span className="text-sm font-medium text-sand">{label}</span>
 				</div>
 			</div>
 		</section>
 	);
 }
 
-interface BoardEmptyProps {
+interface EmptyBoardProps {
 	titleKey: 'blog' | 'news' | 'events' | 'gallery';
 	cta?: { label: string; to: string };
 }
 
-export function BoardEmpty({ titleKey, cta }: BoardEmptyProps) {
+export function EmptyBoard({ titleKey, cta }: EmptyBoardProps) {
 	const { t } = useTranslation();
 	const section = t(`media.${titleKey}`, { returnObjects: true });
 
 	return (
-		<section className="min-h-[40vh]">
+		<section className="min-h-[40vh] bg-bone">
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-				<div className="corner-frame relative overflow-hidden border border-line bg-white p-8 sm:p-12">
-					<div aria-hidden className="absolute inset-0 grid-light opacity-60" />
+				<div className="relative overflow-hidden rounded-2xl border border-line-warm bg-card p-8 sm:p-12">
+					<SunGlyph className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 opacity-40" />
 					<div className="relative max-w-2xl">
-						<SldTrace label={section.title} className="mb-8" />
-						<h1 className="font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-ink">
+						<CategoryTag>{section.title}</CategoryTag>
+						<h1 className="mt-5 font-editorial text-4xl font-semibold leading-[1.05] text-warm-ink sm:text-5xl">
 							{section.emptyTitle}
 						</h1>
-						<p className="mt-4 leading-relaxed text-slate">{section.emptyBody}</p>
+						<p className="mt-4 text-lg leading-relaxed text-sand">
+							{section.emptyBody}
+						</p>
 						{cta ? (
-							<Link to={cta.to} className="btn btn-mono mt-8 px-5 py-2.5">
-								{cta.label}
-							</Link>
+							<div className="mt-8">
+								<CtaPill to={cta.to}>{cta.label}</CtaPill>
+							</div>
 						) : null}
 					</div>
 				</div>
@@ -175,9 +155,9 @@ export function BackLink({ to, label }: { to: string; label: string }) {
 	return (
 		<Link
 			to={to}
-			className="inline-flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-slate transition-colors hover:text-ink"
+			className="inline-flex items-center gap-2 text-sm font-medium text-sand transition-colors hover:text-amber"
 		>
-			<span aria-hidden className="text-volt">
+			<span aria-hidden className="text-amber">
 				←
 			</span>
 			{label}
@@ -187,13 +167,9 @@ export function BackLink({ to, label }: { to: string; label: string }) {
 
 export function SpecRow({ label, value }: { label: string; value?: string | null }) {
 	return (
-		<div className="grid grid-cols-[7.5rem_1fr] gap-4 py-3">
-			<dt className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-slate">
-				{label}
-			</dt>
-			<dd className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-ink">
-				{value || '—'}
-			</dd>
+		<div className="flex items-baseline justify-between gap-6 py-3">
+			<dt className="shrink-0 text-sm text-sand">{label}</dt>
+			<dd className="text-right font-mono text-[0.78rem] text-warm-ink">{value || '—'}</dd>
 		</div>
 	);
 }

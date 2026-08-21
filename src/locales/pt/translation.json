@@ -304,9 +304,8 @@
 		},
 		"loading": "A carregar…",
 		"readingTime": "min de leitura",
-		"logLabel": "Livro de ocorrências",
-		"live": "Em direto",
-		"latest": "Mais do feed",
+		"byline": "por {{name}}",
+		"latest": "Mais do campo",
 		"specTitle": "Ficha do post",
 		"spec": {
 			"category": "Categoria",

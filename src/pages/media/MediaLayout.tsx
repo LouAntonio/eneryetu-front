@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { PageHeader } from '../../components/PageHeader';
+import { Postmark } from './shared';
 
 const MEDIA_KEYS = ['blog', 'news', 'events', 'gallery'] as const;
 type MediaKey = (typeof MEDIA_KEYS)[number];
@@ -18,35 +18,38 @@ export function MediaLayout() {
 
 	return (
 		<>
-			<PageHeader
-				eyebrow={t('media.eyebrow')}
-				title={t('media.title')}
-				body={t('media.body')}
-			/>
+			<header className="border-b border-line-warm bg-bone">
+				<div className="mx-auto flex w-full max-w-6xl items-end justify-between gap-8 px-6 pb-14 pt-28">
+					<div className="max-w-2xl">
+						<span className="text-sm font-semibold tracking-wide text-amber">
+							{t('media.eyebrow')}
+						</span>
+						<h1 className="mt-4 font-editorial text-5xl font-semibold leading-[1.02] text-warm-ink sm:text-6xl">
+							{t('media.title')}
+						</h1>
+						<p className="mt-5 max-w-xl text-lg leading-relaxed text-sand">
+							{t('media.body')}
+						</p>
+					</div>
+					<Postmark place="LUANDA" className="hidden shrink-0 lg:inline-flex" />
+				</div>
+			</header>
 
-			<nav aria-label={t('navigation.media')} className="border-b border-line bg-white">
-				<div className="mx-auto flex w-full max-w-6xl items-stretch gap-1 overflow-x-auto px-6">
+			<nav aria-label={t('navigation.media')} className="border-b border-line-warm bg-bone">
+				<div className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-6 py-4">
 					{MEDIA_KEYS.map((key) => (
 						<NavLink
 							key={key}
 							to={`/media/${key}`}
 							className={({ isActive }) =>
-								`relative flex shrink-0 items-center px-4 py-4 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition-colors ${
-									isActive ? 'text-ink' : 'text-slate hover:text-ink'
+								`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+									isActive
+										? 'bg-warm-ink text-bone'
+										: 'text-sand hover:bg-card hover:text-warm-ink'
 								}`
 							}
 						>
-							{({ isActive }) => (
-								<>
-									{labels[key]}
-									<span
-										aria-hidden
-										className={`absolute inset-x-3 bottom-0 h-1 transition-colors duration-200 ${
-											isActive ? 'bg-volt' : 'bg-transparent'
-										}`}
-									/>
-								</>
-							)}
+							{labels[key]}
 						</NavLink>
 					))}
 				</div>

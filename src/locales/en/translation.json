@@ -297,9 +297,8 @@
 		},
 		"loading": "Loading…",
 		"readingTime": "min read",
-		"logLabel": "Field log",
-		"live": "Live",
-		"latest": "More from the feed",
+		"byline": "by {{name}}",
+		"latest": "More from the field",
 		"specTitle": "Post sheet",
 		"spec": {
 			"category": "Category",

@@ -7,13 +7,13 @@ import { api } from '../../services/api';
 import type { Paginated, Post, PostType } from '../../types';
 import { formatDate } from './format';
 import {
-	BoardEmpty,
-	BoardLoading,
-	FramePanel,
-	MetaRow,
-	SldCover,
-	SldTrace,
-	TypeChip,
+	Byline,
+	CategoryTag,
+	CtaPill,
+	EmptyBoard,
+	LoadingBoard,
+	Postmark,
+	SunGlyph,
 } from './shared';
 
 function authorName(post: Post): string | null {
@@ -25,7 +25,7 @@ function typePathFor(post: Pick<Post, 'type'>): 'news' | 'blog' {
 	return post.type === 'NOTICIA' ? 'news' : 'blog';
 }
 
-function LeadPost({ post }: { post: Post }) {
+function CoverStory({ post }: { post: Post }) {
 	const { t, i18n } = useTranslation();
 	const locale = i18n.resolvedLanguage ?? 'en';
 	const cover = assetUrl(post.coverImage);
@@ -34,92 +34,89 @@ function LeadPost({ post }: { post: Post }) {
 	const name = authorName(post);
 
 	return (
-		<article className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+		<article className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
 			<div className="flex flex-col justify-center">
-				<div className="flex flex-wrap items-center gap-3">
-					<TypeChip>{label}</TypeChip>
-					<MetaRow
-						items={[
-							<time key="d" dateTime={post.createdAt}>
-								{formatDate(post.createdAt, locale)}
-							</time>,
-							...(name ? [<span key="a">{name}</span>] : []),
-						]}
-					/>
-				</div>
-				<h2 className="mt-5 font-display text-5xl font-black uppercase leading-[0.92] tracking-tight text-ink sm:text-6xl">
+				<CategoryTag>{label}</CategoryTag>
+				<h2 className="mt-5 font-editorial text-4xl font-semibold leading-[1.05] text-warm-ink sm:text-5xl">
 					<Link
 						to={`/media/${path}/${post.slug}`}
-						className="transition-colors hover:text-blue-dark"
+						className="transition-colors hover:text-amber"
 					>
 						{post.title}
 					</Link>
 				</h2>
 				{post.excerpt ? (
-					<p className="mt-5 max-w-xl text-base leading-relaxed text-slate">
+					<p className="mt-5 max-w-xl font-editorial text-xl italic leading-relaxed text-sand">
 						{post.excerpt}
 					</p>
 				) : null}
-				<div className="mt-7 flex flex-wrap items-center gap-6">
-					<Link to={`/media/${path}/${post.slug}`} className="btn btn-mono px-5 py-2.5">
-						{t('common.readMore')}
-					</Link>
-					<Link
-						to={`/media/${path}/${post.slug}`}
-						aria-label={post.title}
-						className="font-display text-2xl font-black text-line transition-colors hover:text-volt"
-					>
-						→
-					</Link>
+				<Byline
+					className="mt-6"
+					items={[
+						name ? <span key="a">{t('media.byline', { name })}</span> : null,
+						<time key="d" dateTime={post.createdAt}>
+							{formatDate(post.createdAt, locale)}
+						</time>,
+					]}
+				/>
+				<div className="mt-7">
+					<CtaPill to={`/media/${path}/${post.slug}`}>{t('common.readMore')} →</CtaPill>
 				</div>
 			</div>
-			<FramePanel
-				cover={cover}
-				className="aspect-[16/10] min-h-[280px] lg:aspect-auto lg:h-full"
-			>
-				{!cover ? <SldCover caption={label} /> : null}
-			</FramePanel>
+			<div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-evergreen text-bone">
+				{cover ? (
+					<img
+						src={cover}
+						alt=""
+						className="absolute inset-0 h-full w-full object-cover"
+					/>
+				) : (
+					<div className="absolute inset-0 grid place-items-center">
+						<SunGlyph className="h-48 w-48 opacity-90" />
+					</div>
+				)}
+				<Postmark className="absolute right-5 top-5 [&_svg]:h-16 [&_svg]:w-16" />
+				{!cover ? (
+					<div className="absolute inset-x-0 bottom-0 p-6">
+						<p className="font-editorial text-lg italic text-bone/80">{label}</p>
+					</div>
+				) : null}
+			</div>
 		</article>
 	);
 }
 
-function LedgerRow({ post }: { post: Post }) {
+function StoryRow({ post }: { post: Post }) {
 	const { t, i18n } = useTranslation();
 	const locale = i18n.resolvedLanguage ?? 'en';
 	const path = typePathFor(post);
 
 	return (
-		<li className="relative">
-			<Link
-				to={`/media/${path}/${post.slug}`}
-				className="group relative flex flex-col gap-2 py-6 transition-colors sm:flex-row sm:items-baseline sm:gap-8"
-			>
-				<span
-					aria-hidden
-					className="absolute left-0 top-0 h-full w-1 bg-volt opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-				/>
-				<time
-					dateTime={post.createdAt}
-					className="shrink-0 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-slate sm:w-28 sm:pt-1"
-				>
-					{formatDate(post.createdAt, locale)}
-				</time>
-				<div className="min-w-0 flex-1">
-					<span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-blue-dark">
+		<li>
+			<Link to={`/media/${path}/${post.slug}`} className="group flex flex-col gap-2 py-8">
+				<div className="flex items-center gap-3">
+					<time dateTime={post.createdAt} className="text-sm text-sand">
+						{formatDate(post.createdAt, locale)}
+					</time>
+					<span aria-hidden className="h-px flex-1 bg-line-warm" />
+					<span className="text-sm text-amber">
 						{post.category?.name ?? t(`media.${path}.title`)}
 					</span>
-					<h3 className="mt-2 font-display text-2xl font-black uppercase leading-[1.05] tracking-tight text-ink transition-colors group-hover:text-blue-dark">
-						{post.title}
-					</h3>
-					{post.excerpt ? (
-						<p className="mt-2 text-sm leading-relaxed text-slate">{post.excerpt}</p>
-					) : null}
 				</div>
-				<span
-					aria-hidden
-					className="hidden shrink-0 self-center font-display text-2xl font-black text-line transition-colors group-hover:text-volt sm:block"
-				>
-					→
+				<h3 className="mt-2 font-editorial text-2xl font-semibold leading-[1.15] text-warm-ink transition-colors group-hover:text-amber sm:text-3xl">
+					{post.title}
+				</h3>
+				{post.excerpt ? (
+					<p className="mt-2 max-w-2xl leading-relaxed text-sand">{post.excerpt}</p>
+				) : null}
+				<span className="mt-3 inline-flex items-center gap-2 font-editorial text-lg font-semibold text-warm-ink">
+					{t('common.readMore')}
+					<span
+						aria-hidden
+						className="text-amber transition-transform duration-200 group-hover:translate-x-1"
+					>
+						→
+					</span>
 				</span>
 			</Link>
 		</li>
@@ -140,12 +137,12 @@ function Feed({ type, sectionKey }: FeedProps) {
 	});
 
 	if (isLoading) {
-		return <BoardLoading label={t('media.loading')} />;
+		return <LoadingBoard label={t('media.loading')} />;
 	}
 
 	if (!data || data.length === 0) {
 		return (
-			<BoardEmpty
+			<EmptyBoard
 				titleKey={sectionKey}
 				cta={{ label: t('media.ctaContact'), to: '/contact' }}
 			/>
@@ -156,22 +153,20 @@ function Feed({ type, sectionKey }: FeedProps) {
 	const rest = data.filter((post) => post.id !== featured.id);
 
 	return (
-		<section className="min-h-[40vh]">
+		<section className="min-h-[40vh] bg-bone">
 			<div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-20">
-				<LeadPost post={featured} />
+				<CoverStory post={featured} />
 				{rest.length > 0 ? (
-					<>
-						<SldTrace
-							label={t('media.logLabel')}
-							side={t('media.live')}
-							className="mt-14"
-						/>
-						<ol className="mt-6 divide-y divide-line border-y border-line">
+					<div className="mt-16 border-t border-line-warm pt-8">
+						<span className="font-editorial text-xl font-semibold italic text-sand">
+							{t('media.latest')}
+						</span>
+						<ul className="mt-2 divide-y divide-line-warm">
 							{rest.map((post) => (
-								<LedgerRow key={post.id} post={post} />
+								<StoryRow key={post.id} post={post} />
 							))}
-						</ol>
-					</>
+						</ul>
+					</div>
 				) : null}
 			</div>
 		</section>
