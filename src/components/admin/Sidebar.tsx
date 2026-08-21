@@ -15,7 +15,10 @@ export function Sidebar() {
 
 	return (
 		<aside className="fixed inset-y-0 left-0 z-30 flex w-60 flex-col bg-ink-deep text-paper">
-			<div aria-hidden className="pointer-events-none absolute inset-0 grid-dark opacity-60" />
+			<div
+				aria-hidden
+				className="pointer-events-none absolute inset-0 grid-dark opacity-60"
+			/>
 			<div className="relative flex items-center gap-3 border-b border-paper/15 px-5 py-5">
 				<img src="/logo.png" alt={t('brand')} className="h-11 w-11 object-contain" />
 				<div>

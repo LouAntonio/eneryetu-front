@@ -1,18 +1,6 @@
-import {
-	createContext,
-	useCallback,
-	useEffect,
-	useMemo,
-	useState,
-	type ReactNode,
-} from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { api } from '../services/api';
-import {
-	clearTokens,
-	getAccessToken,
-	getRefreshToken,
-	setTokens,
-} from '../lib/authStore';
+import { clearTokens, getAccessToken, getRefreshToken, setTokens } from '../lib/authStore';
 import type { User } from '../types';
 
 interface AuthContextValue {

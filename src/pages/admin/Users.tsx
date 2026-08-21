@@ -34,8 +34,8 @@ export function Users() {
 		onError: (err: unknown) => {
 			const msg =
 				err instanceof Error && 'response' in err
-					? ((err as { response?: { data?: { message?: string } } }).response?.data?.message ??
-						t('admin.errors.generic'))
+					? ((err as { response?: { data?: { message?: string } } }).response?.data
+							?.message ?? t('admin.errors.generic'))
 					: t('admin.errors.generic');
 			setError(msg);
 		},
@@ -60,7 +60,11 @@ export function Users() {
 			eyebrow={t('admin.users.eyebrow')}
 			title={t('admin.users.title')}
 			actions={
-				<button type="button" className="btn btn-sun px-5 py-2.5" onClick={() => setShowForm(true)}>
+				<button
+					type="button"
+					className="btn btn-sun px-5 py-2.5"
+					onClick={() => setShowForm(true)}
+				>
 					{t('admin.users.add')}
 				</button>
 			}
@@ -83,7 +87,9 @@ export function Users() {
 						key: 'email',
 						label: t('admin.users.email'),
 						render: (row) => (
-							<span className="font-mono text-sm text-slate group-hover:text-paper/70">{row.email}</span>
+							<span className="font-mono text-sm text-slate group-hover:text-paper/70">
+								{row.email}
+							</span>
 						),
 					},
 					{
@@ -103,7 +109,8 @@ export function Users() {
 								<button
 									type="button"
 									onClick={() => {
-										if (window.confirm(t('admin.users.deleteConfirm'))) deleteUser.mutate(row.id);
+										if (window.confirm(t('admin.users.deleteConfirm')))
+											deleteUser.mutate(row.id);
 									}}
 									className="font-mono text-xs uppercase tracking-[0.16em] text-slate underline decoration-line underline-offset-4 transition-colors hover:text-volt group-hover:text-paper"
 								>
@@ -189,7 +196,11 @@ export function Users() {
 							>
 								{t('admin.cancel')}
 							</button>
-							<button type="submit" disabled={createUser.isPending} className="btn btn-sun px-5 py-2.5">
+							<button
+								type="submit"
+								disabled={createUser.isPending}
+								className="btn btn-sun px-5 py-2.5"
+							>
 								{createUser.isPending ? '…' : t('admin.save')}
 							</button>
 						</div>

@@ -25,22 +25,30 @@ export function Dashboard() {
 	const events = useCount<Event>('events', '/events');
 
 	const stats = [
-		{ label: t('admin.dashboard.users'), value: users.data?.length ?? '—', loading: users.isLoading },
+		{
+			label: t('admin.dashboard.users'),
+			value: users.data?.length ?? '—',
+			loading: users.isLoading,
+		},
 		{ label: t('admin.dashboard.posts'), value: posts.data ?? '—', loading: posts.isLoading },
-		{ label: t('admin.dashboard.events'), value: events.data ?? '—', loading: events.isLoading },
+		{
+			label: t('admin.dashboard.events'),
+			value: events.data ?? '—',
+			loading: events.isLoading,
+		},
 	];
 
 	return (
-		<AdminPage
-			eyebrow={t('admin.dashboard.eyebrow')}
-			title={t('admin.dashboard.title')}
-		>
+		<AdminPage eyebrow={t('admin.dashboard.eyebrow')} title={t('admin.dashboard.title')}>
 			<div className="grid gap-px border border-line bg-line sm:grid-cols-3">
 				{stats.map((stat) => (
 					<div key={stat.label} className="bg-white p-6">
 						<div className="flex items-center gap-3">
 							{stat.loading ? (
-								<span aria-hidden className="node-live h-2 w-2 rounded-full bg-blue" />
+								<span
+									aria-hidden
+									className="node-live h-2 w-2 rounded-full bg-blue"
+								/>
 							) : (
 								<span aria-hidden className="h-2 w-2 rounded-full bg-volt" />
 							)}

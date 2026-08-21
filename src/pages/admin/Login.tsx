@@ -13,7 +13,8 @@ export function Login() {
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	const from = (location.state as { from?: { pathname: string } } | null)?.from?.pathname ?? '/eneryetu';
+	const from =
+		(location.state as { from?: { pathname: string } } | null)?.from?.pathname ?? '/eneryetu';
 
 	const onSubmit = async (event: FormEvent) => {
 		event.preventDefault();
@@ -41,7 +42,11 @@ export function Login() {
 					{t('admin.login.title')}
 				</h1>
 
-				<form onSubmit={onSubmit} noValidate className="mt-8 border border-paper/20 bg-ink p-6 sm:p-8">
+				<form
+					onSubmit={onSubmit}
+					noValidate
+					className="mt-8 border border-paper/20 bg-ink p-6 sm:p-8"
+				>
 					{error ? (
 						<p className="mb-5 border border-sun-deep/50 bg-sun-deep/10 px-3 py-2 font-mono text-xs text-sun">
 							{error}
@@ -78,7 +83,11 @@ export function Login() {
 						/>
 					</div>
 
-					<button type="submit" disabled={loading} className="btn btn-sun mt-6 w-full px-6 py-3">
+					<button
+						type="submit"
+						disabled={loading}
+						className="btn btn-sun mt-6 w-full px-6 py-3"
+					>
 						{loading ? '…' : t('admin.login.submit')}
 					</button>
 				</form>

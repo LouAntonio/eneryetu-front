@@ -70,7 +70,9 @@ export function DataTable<T>({
 										col.render(row)
 									) : (
 										<span className="font-mono text-sm text-ink group-hover:text-paper">
-											{String((row as Record<string, unknown>)[col.key] ?? '')}
+											{String(
+												(row as Record<string, unknown>)[col.key] ?? '',
+											)}
 										</span>
 									)}
 								</td>

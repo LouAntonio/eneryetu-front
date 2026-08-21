@@ -1,10 +1,5 @@
 import axios, { AxiosError, type AxiosRequestConfig, type InternalAxiosRequestConfig } from 'axios';
-import {
-	clearTokens,
-	getAccessToken,
-	getRefreshToken,
-	setAccessToken,
-} from '../lib/authStore';
+import { clearTokens, getAccessToken, getRefreshToken, setAccessToken } from '../lib/authStore';
 
 const backendOrigin = (import.meta.env.VITE_BACKEND_URL ?? '').replace(/\/+$/, '');
 
