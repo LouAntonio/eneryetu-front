@@ -46,6 +46,17 @@ export function Contact() {
 										{t('contact.email')}
 									</a>
 								</li>
+								<li className="px-5 py-4">
+									<span className="block ui-label text-slate">LinkedIn</span>
+									<a
+										href="https://www.linkedin.com/company/eneryetu/"
+										target="_blank"
+										rel="noreferrer noopener"
+										className="mt-1 block font-mono text-sm text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:text-blue"
+									>
+										linkedin.com/company/eneryetu
+									</a>
+								</li>
 							</ul>
 						</div>
 

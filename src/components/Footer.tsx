@@ -83,6 +83,16 @@ export function Footer() {
 									{t('contact.email')}
 								</a>
 							</li>
+							<li>
+								<a
+									href="https://www.linkedin.com/company/eneryetu/"
+									target="_blank"
+									rel="noreferrer noopener"
+									className="transition-colors hover:text-volt"
+								>
+									LinkedIn
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
